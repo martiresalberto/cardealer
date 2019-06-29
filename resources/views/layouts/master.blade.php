@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>CarDealer</title>
+  <title>Perfuventas</title>
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
  
@@ -20,7 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
 
-    @include('admin.partials.nav')
+    @include('admin.category.partials.nav')
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -28,13 +28,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     
     <!-- Main content -->
     <div class="content">
-      <div class="container-fluid">
+      <div class="container">
         
-        <div class="row">
+        
           
           @yield('content')
 
-        </div>
+     
          
       </div>
         <!-- /.row -->
@@ -45,15 +45,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.content-wrapper -->
 
 
- @include('admin.partials.footer')
+ @include('admin.category.partials.footer')
 
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
 
 <script src="{{ asset('js/app.js') }}"></script>
 
+
+<!-- Script para mostrar datos en el modal update -->
 <script>
 
   $('#edit').on('show.bs.modal', function (event) {
@@ -62,12 +63,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
     
     var title = button.data('mytitle') 
     var des = button.data('mydescription') 
-
+    var cat_id = button.data('catid') 
     var modal = $(this)
+
     modal.find('.modal-body #title').val(title);
     modal.find('.modal-body #des').val(des);
+    modal.find('.modal-body #cat_id').val(cat_id);
 })
 
+$('#delete').on('show.bs.modal', function (event) {
+      
+      var button = $(event.relatedTarget) 
+      
+      var cat_id = button.data('catid') 
+      var modal = $(this)
+
+      modal.find('.modal-body #cat_id').val(cat_id);
+})  
+
+
+$('#editcabezal').on('show.bs.modal', function (event) {
+    
+    var button = $(event.relatedTarget)
+    
+    var marca = button.data('marca') 
+    var modelo = button.data('modelo') 
+    var motor = button.data('motor') 
+    var camarote = button.data('camarote') 
+    var caja = button.data('caja') 
+    var llantas = button.data('llantas') 
+    var freno = button.data('freno') 
+    var color = button.data('color') 
+    var ejes = button.data('ejes') 
+    var ubication = button.data('ubication') 
+    var estado = button.data('statecab') 
+    var price = button.data('price') 
+    var cab_id = button.data('cabid') 
+    var modal = $(this)
+
+    modal.find('.modal-body #name_marca').val(marca);
+    modal.find('.modal-body #modelo').val(modelo);
+    modal.find('.modal-body #type_motor').val(motor);
+    modal.find('.modal-body #type_camarote').val(camarote);
+    modal.find('.modal-body #type_caja').val(caja);
+    modal.find('.modal-body #type_llantas').val(llantas);
+    modal.find('.modal-body #type_freno').val(freno);
+    modal.find('.modal-body #color').val(marca);
+    modal.find('.modal-body #type_ejes').val(ejes);
+    modal.find('.modal-body #ubication').val(ubication);
+    modal.find('.modal-body #state_cabezal').val(estado);
+    modal.find('.modal-body #price').val(price);
+    modal.find('.modal-body #cat_id').val(cat_id);
+})
+ 
 </script>
 
 </body>

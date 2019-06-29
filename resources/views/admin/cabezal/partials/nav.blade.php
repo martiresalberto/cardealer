@@ -57,6 +57,15 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ url('cabezal') }}" class="nav-link">
+              <i class="nav-icon fas fa-car red"></i>
+               <p>
+                Cabezal
+               </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

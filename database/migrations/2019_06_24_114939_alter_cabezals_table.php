@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class AlterCabezalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->mediumText('description');
-
-            $table->timestamps();
+        Schema::table('cabezals', function (Blueprint $table) {
+            $table->integer('category_id')->nullable();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::table('cabezals', function (Blueprint $table) {
+            $table->dropColumn('category_id');
+        });
     }
 }

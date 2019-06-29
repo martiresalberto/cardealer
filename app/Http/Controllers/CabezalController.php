@@ -4,22 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Cabezal;
+use App\User;
 
-class CategoryController extends Controller
+
+class CabezalController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        
+
+        $cabezals = Cabezal::all();
+
         $categories = Category::all();
+         
+        $users = User::all(); 
 
-        // dd($categories);
-
-        return view('admin.category.index',compact('categories'));
+        return view('admin.cabezal.index',compact('cabezals','categories','users'));    
     }
 
     /**
@@ -30,9 +35,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+
+        $cabezal = Cabezal::create( $request->all() );
+
+        if($request->hasFile('imgCabezal'))
+        {
+            $cabezal->imgCabezal = $request->file('imgCabezal')->store('public');
+        }
+        
+
+        $cabezal->save();
 
         return back();
+
     }
 
     /**
@@ -55,10 +70,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request)
     {
-        $category = Category::findOrFail($request->category_id);
+        $cabezal = Cabezal::findOrFail($request->cabezal_id);
 
 
-        $category->update($request->all());
+        $cabezal->update($request->all());
+
+        if($request->hasFile('imgCabezal'))
+        {
+            $cabezal->imgCabezal = $request->file('imgCabezal')->store('public');
+        }
+
+        $cabezal->save();
         
         return back();
     }
@@ -72,9 +94,9 @@ class CategoryController extends Controller
     public function destroy(Request $request)
     {
          
-        $category = Category::findOrFail($request->category_id);
+        $cabezal = Cabezal::findOrFail($request->cabezal_id);
      
-        $category->delete();
+        $cabezal->delete();
      
         return back();
     }
