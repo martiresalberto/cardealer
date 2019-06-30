@@ -64,10 +64,10 @@
                 </td>
                    
                 <td>  
-                  <button class="btn btn-info" data-marca="{{$cab->name_marca}}" data-modelo="{{$cab->modelo}}" data-motor="{{$cab->type_motor}}" data-camarote="{{$cab->type_camarote}}" data-caja="{{$cab->type_caja}}" data-llantas="{{$cab->type_llantas}}" data-freno="{{$cab->type_freno}}" data-color="{{$cab->color}}" data-ejes="{{$cab->type_ejes}}" data-ubication="{{$cab->ubication}}" data-price="{{$cab->price}}" data-statecab="{{$cab->state_cabezal}}" data-cabid={{$cab->id}} data-toggle="modal" data-target="#editcabezal">Edit</button>
+                  <button class="btn btn-info" data-marca="{{$cab->name_marca}}" data-modelo="{{$cab->modelo}}" data-motor="{{$cab->type_motor}}" data-camarote="{{$cab->type_camarote}}" data-caja="{{$cab->type_caja}}" data-llantas="{{$cab->type_llantas}}" data-freno="{{$cab->type_freno}}" data-color="{{$cab->color}}" data-ejes="{{$cab->type_ejes}}" data-ubication="{{$cab->ubication}}" data-price="{{$cab->price}}" data-statecab="{{$cab->state_cabezal}}" data-cabid={{$cab->id}} data-toggle="modal" data-target="#editCabezal">Edit</button>
                 </td>
                 <td>
-                  <button class="btn btn-danger" data-catid={{$cab->id}} data-toggle="modal" data-target="#delete">Delete</button>
+                  <button class="btn btn-danger" data-cabid={{$cab->id}} data-toggle="modal" data-target="#deleteCabezal">Delete</button>
                 </td>
      
               </tr>
@@ -114,14 +114,14 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="editcabezal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="editCabezal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         
         <h4 class="modal-title" id="myModalLabel">Edit Cabezal</h4>
       </div>
-      <form action="{{route('cabezal.update','test')}}" method="post">
+      <form action="{{route('cabezal.update','test')}}" method="post" enctype="multipart/form-data">
           {{method_field('patch')}}
           {{csrf_field()}}
         <div class="modal-body">
@@ -138,7 +138,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="deleteCabezal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -152,7 +152,7 @@
         <p class="text-center">
           Are you sure you want to delete this?
         </p>
-            <input type="hidden" name="category_id" id="cat_id" value="">
+            <input type="hidden" name="cabezal_id" id="cab_id" value="">
 
         </div>
         <div class="modal-footer">

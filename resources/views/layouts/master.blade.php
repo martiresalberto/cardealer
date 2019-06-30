@@ -82,7 +82,7 @@ $('#delete').on('show.bs.modal', function (event) {
 })  
 
 
-$('#editcabezal').on('show.bs.modal', function (event) {
+$('#editCabezal').on('show.bs.modal', function (event) {
     
     var button = $(event.relatedTarget)
     
@@ -113,8 +113,20 @@ $('#editcabezal').on('show.bs.modal', function (event) {
     modal.find('.modal-body #ubication').val(ubication);
     modal.find('.modal-body #state_cabezal').val(estado);
     modal.find('.modal-body #price').val(price);
-    modal.find('.modal-body #cat_id').val(cat_id);
+    modal.find('.modal-body #cab_id').val(cab_id);
 })
+
+
+$('#deleteCabezal').on('show.bs.modal', function (event) {
+      
+      var button = $(event.relatedTarget) 
+      
+      var cab_id = button.data('cabid') 
+      var modal = $(this)
+
+      modal.find('.modal-body #cab_id').val(cab_id);
+})  
+
  
 </script>
 

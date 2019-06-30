@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
-use App\Cabezal;
 use App\User;
+use App\Cabezal;
 
 
 class CabezalController extends Controller
@@ -68,10 +68,11 @@ class CabezalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $cabezal = Cabezal::findOrFail($request->cabezal_id);
+         
 
+        $cabezal = Cabezal::findOrFail($request->cabezal_id);
 
         $cabezal->update($request->all());
 
@@ -79,9 +80,10 @@ class CabezalController extends Controller
         {
             $cabezal->imgCabezal = $request->file('imgCabezal')->store('public');
         }
-
-        $cabezal->save();
         
+
+        $cabezal->update();
+
         return back();
     }
 

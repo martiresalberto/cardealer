@@ -74,8 +74,8 @@
 @endforeach
 </div>	
 
+
 <div class="form-group">
 	<label for="imgCabezal">imgCabezal</label>
     <input type="file" name="imgCabezal" id="imgCabezal"> 
 </div>	
-
