@@ -66,7 +66,7 @@
     <div class="top-bar">
         <div class="container">
             <ul class="contact-item">
-                <li><i class="fa fa-envelope-o"></i>martiresalbertoorozcogonzalez@email.com</li>
+                <li><i class="fa fa-envelope-o"></i>cardealer@email.com</li>
                 <li><i class="fa fa-mobile"></i>+1 333 44 555 / +1 333 44 500</li>
             </ul>
             <div class="choose-language">
@@ -96,7 +96,7 @@
                     <li class="menu-item-has-children">
                         <a href="#" title="">HOME</a>
                         <ul>
-                            <li><a href="index.html" title="">Home v1</a></li>
+                            <li><a href="index.html" title="">Hola v1</a></li>
                             <li><a href="index2.html" title="">Home v2</a></li>
                             <li><a href="index3.html" title="">Home v3</a></li>
                         </ul>

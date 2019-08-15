@@ -97,136 +97,55 @@
 @endsection
 
 
-@section('block remove-top')
+@section('blockremove-top')
 
-<section class="blockremove-top">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading4">
-                    <h2>RECENT VEHICULS </h2>
-                    <span>Lorem ipsum dolor</span>
-                </div>
-                <div class="vehiculs-sec">
-                    <div class="carousel-prop">
-                        <div class="vehiculs-box">
-                            <div class="vehiculs-thumb">
-                                <img src="img/demo/vehicul1.jpg" alt="" /> 
-                                <span class="spn-status"> Damaged</span>
-                                <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
-                                <div class="user-preview">
-                                    <a class="col" href="agent.html">
-                                        <img alt="Camilė" class="avatar avatar-small" src="img/4.png" title="Camilė">
-                                    </a> 
-                                </div>
-                                <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
-                                <p class="car-info-smal">
-                                    Registration 2010<br>
-                                    3.0 Diesel<br>
-                                    230 HP<br>
-                                    Body Coupe<br>
-                                    80 000 Miles
-                                </p>
-                            </div>
-                            <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
-                            <span class="price">$340000</span>
-                        </div> 
-                        <div class="vehiculs-box">
-                            <div class="vehiculs-thumb">
-                                <img src="img/demo/vehicul2.jpg" alt="" /> 
-                                <span class="spn-status"> Semi-New </span>
-                                <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-                                <div class="user-preview">
-                                    <a class="col" href="agent.html">
-                                        <img alt="Camilė" class="avatar avatar-small" src="img/3.png" title="Camilė">
-                                    </a> 
-                                </div>     
-                                <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
-                                <p class="car-info-smal">
-                                    Registration 2010<br>
-                                    3.0 Diesel<br>
-                                    230 HP<br>
-                                    Body Coupe<br>
-                                    80 000 Miles
-                                </p>
-                            </div>
-                            <h3><a href="#" title="New York Villa">Mercedes-Benz</a></h3>
-                            <span class="price">$3400000</span>
-                        </div> 
-                        <div class="vehiculs-box">
-                            <div class="vehiculs-thumb">
-                                <img src="img/demo/vehicul3.jpg" alt="" /> 
-                                <span class="spn-status"> Semi-New</span>
-                                <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+<section class="block">
 
-                                <div class="user-preview">
-                                    <a class="col" href="agent.html">
-                                        <img alt="Camilė" class="avatar avatar-small" src="img/1.png" title="Camilė">
-                                    </a> 
-                                </div> 
-                                <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
-                                <p class="car-info-smal">
-                                    Registration 2010<br>
-                                    3.0 Diesel<br>
-                                    230 HP<br>
-                                    Body Coupe<br>
-                                    80 000 Miles
-                                </p>
-                            </div>
-                            <h3><a href="vehicul.html" title="">Mercedes-Benz</a></h3>
-                            <span class="price">$300000</span>
-                        </div> 
-                        <div class="vehiculs-box">
-                            <div class="vehiculs-thumb">
-                                <img src="img/demo/vehicul4.jpg" alt="" /> 
-                                <span class="spn-status"> Damaged </span>
-                                <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+<div class="container">
 
-                                <div class="user-preview">
-                                    <a class="col" href="agent.html">
-                                        <img alt="Camilė" class="avatar avatar-small" src="img/2.png" title="Camilė">
-                                    </a> 
-                                </div> 
-                                <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
-                                <p class="car-info-smal">
-                                    Registration 2010<br>
-                                    3.0 Diesel<br>
-                                    230 HP<br>
-                                    Body Coupe<br>
-                                    80 000 Miles
-                                </p>
-                            </div>
-                            <h3><a href="vehicul.html" title="">Mercedes-Benz</a></h3>
-                            <span class="price">$34.00</span>
-                        </div> 
-                        <div class="vehiculs-box">
-                            <div class="vehiculs-thumb">
-                                <img src="img/demo/vehicul5.jpg" alt="" /> 
-                                <span class="spn-status"> For Rent </span>
-                                <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+<div class="heading4">
+    <h2>CABEZALES RESIENTES</h2>
+    <span>Lorem ipsum dolor consectetu</span>
+</div>
 
-                                <div class="user-preview">
-                                    <a class="col" href="agent.html">
-                                        <img alt="Camilė" class="avatar avatar-small" src="img/4.png" title="Camilė">
-                                    </a> 
-                                </div> 
-                                <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
-                                <p class="car-info-smal">
-                                    Registration 2010<br>
-                                    3.0 Diesel<br>
-                                    230 HP<br>
-                                    Body Coupe<br>
-                                    80 000 Miles
-                                </p>
-                            </div>
-                            <h3><a href="vehicul.html" title="">Mercedes-Benz</a></h3>
-                            <span class="price">$9000000</span>
-                        </div> 
-                    </div><!-- Carousel -->
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="row">
+
+<div class="col-md-12">
+
+<div class="vehiculs-sec">
+
+<div class="row">     
+@foreach($cabezales as $cabezal)   
+
+<div class="col-md-4">
+<div class="vehiculs-box">
+<div class="vehiculs-thumb">
+<img src="{{ Storage::url($cabezal->imgCabezal) }}" alt="" />
+<span class="spn-status"> Usado </span>
+                            
+<a class="proeprty-sh-more" href=""><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+        
+                        </div>
+                        <h3><a href="" title="">{{ $cabezal->marca }}</a></h3>
+                        <span class="price">$444000</span>
+                      
+</div><!-- prop Box -->
+
+</div>
+           
+@endforeach()    
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
 </section>
 
 @endsection

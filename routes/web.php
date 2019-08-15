@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('Front-end.index');
-});
+Route::resource('/','FrontEndController');
 
 Auth::routes();
 
