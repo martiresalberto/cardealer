@@ -126,7 +126,7 @@
           {{csrf_field()}}
         <div class="modal-body">
             <input type="hidden" name="cabezal_id" id="cab_id" value="">
-        @include('admin.cabezal.partials.form')
+            @include('admin.cabezal.partials.form')
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

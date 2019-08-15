@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Front-end.index');
 });
 
 Auth::routes();

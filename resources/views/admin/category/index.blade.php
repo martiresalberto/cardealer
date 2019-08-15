@@ -15,8 +15,8 @@
             <tr>
               <th>Name</th>
               <th>Description</th>
-             
-              <th>Modify</th>
+              <th>Edita</th>
+              <th>Eliminar</th>
             </tr>
             
           </thead>
@@ -30,7 +30,8 @@
 
                 <td>
                   <button class="btn btn-info" data-mytitle="{{$cat->title}}" data-mydescription="{{$cat->description}}" data-catid={{$cat->id}} data-toggle="modal" data-target="#edit">Edit</button>
-                  /
+                </td>
+                <td>  
                   <button class="btn btn-danger" data-catid={{$cat->id}} data-toggle="modal" data-target="#delete">Delete</button>
                 </td>
               </tr>
