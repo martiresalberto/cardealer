@@ -104,7 +104,7 @@
 <div class="container">
 
 <div class="heading4">
-    <h2>CABEZALES RESIENTES</h2>
+    <h2>Lo mas reciente</h2>
     <span>Lorem ipsum dolor consectetu</span>
 </div>
 
@@ -123,16 +123,25 @@
 <img src="{{ Storage::url($cabezal->imgCabezal) }}" alt="" />
 <span class="spn-status"> Usado </span>
                             
-<a class="proeprty-sh-more" href=""><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+<a class="proeprty-sh-more" data-toggle="modal" data-target="#cabezales{{ $cabezal->id }}">
+    <i class="fa fa-angle-double-right"></i>
+    <i class="fa fa-angle-double-right"></i>
+</a>
         
-                        </div>
-                        <h3><a href="" title="">{{ $cabezal->marca }}</a></h3>
-                        <span class="price">$444000</span>
+</div>
+
+<h3>
+    <a href="" title="">{{ $cabezal->name_marca }}</a>
+</h3>
+
+<span class="price">$444000</span>
                       
 </div><!-- prop Box -->
 
+
 </div>
-           
+        
+            
 @endforeach()    
 
 </div>
@@ -143,18 +152,22 @@
 
 </div>
 
-
 </div>
+
 
 </section>
 
 @endsection
 
+@include('Front-end.partials.modal')
+
+
+
 
 @section('blockuno')
 
 <section class="block">
-<div style="background: url(img/call-to-action-bg.jpg) repeat scroll 50% 422.28px transparent; background-attachment: fixed;" class="parallax scrolly-invisible  blackish"></div><!-- PARALLAX BACKGROUND IMAGE -->	
+<div style="background: url(/img/call-to-action-bg.jpg) repeat scroll 50% 422.28px transparent; background-attachment: fixed;" class="parallax scrolly-invisible  blackish"></div><!-- PARALLAX BACKGROUND IMAGE -->	
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -186,7 +199,7 @@
                 <div class="col-md-4">
                     <div class="vehiculs-box">
                         <div class="vehiculs-thumb">
-                            <img src="img/demo/vehicul4.jpg" alt="" />
+                            <img src="/img/demo/vehicul4.jpg" alt="" />
                             <span class="spn-status"> Semi-New </span>
                             <span class="spn-save"> <i class="ti ti-heart"></i> </span>
 
@@ -218,13 +231,13 @@
                 <div class="col-md-4">
                     <div class="vehiculs-box">
                         <div class="vehiculs-thumb">
-                            <img src="img/demo/vehicul3.jpg" alt="" />
+                            <img src="/img/demo/vehicul3.jpg" alt="" />
                             <span class="spn-status"> Damaged </span>
                             <span class="spn-save"> <i class="ti ti-heart"></i> </span>
 
                             <div class="user-preview">
                                 <a class="col" href="agent.html">
-                                    <img alt="Camilė" class="avatar avatar-small" src="img/1.png" title="Camilė">
+                                    <img alt="Camilė" class="avatar avatar-small" src="/img/1.png" title="Camilė">
                                 </a> 
                             </div> 
                             <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
@@ -250,13 +263,13 @@
                 <div class="col-md-4">
                     <div class="vehiculs-box">
                         <div class="vehiculs-thumb">
-                            <img src="img/demo/vehicul2.jpg" alt="" />
+                            <img src="/img/demo/vehicul2.jpg" alt="" />
                             <span class="spn-status"> Semi-New </span>
                             <span class="spn-save"> <i class="ti ti-heart"></i> </span>
 
                             <div class="user-preview">
                                 <a class="col" href="agent.html">
-                                    <img alt="Camilė" class="avatar avatar-small" src="img/2.png" title="Camilė">
+                                    <img alt="Camilė" class="avatar avatar-small" src="/img/2.png" title="Camilė">
                                 </a> 
                             </div> 
                             <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
@@ -282,13 +295,13 @@
                 <div class="col-md-4">
                     <div class="vehiculs-box">
                         <div class="vehiculs-thumb">
-                            <img src="img/demo/vehicul4.jpg" alt="" />
+                            <img src="/img/demo/vehicul4.jpg" alt="" />
                             <span class="spn-status"> Damaged </span>
                             <span class="spn-save"> <i class="ti ti-heart"></i> </span>
 
                             <div class="user-preview">
                                 <a class="col" href="agent.html">
-                                    <img alt="Camilė" class="avatar avatar-small" src="img/4.png" title="Camilė">
+                                    <img alt="Camilė" class="avatar avatar-small" src="/img/4.png" title="Camilė">
                                 </a> 
                             </div> 
                             <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
@@ -314,13 +327,13 @@
                 <div class="col-md-4">
                     <div class="vehiculs-box">
                         <div class="vehiculs-thumb">
-                            <img src="img/demo/vehicul5.jpg" alt="" />
+                            <img src="/img/demo/vehicul5.jpg" alt="" />
                             <span class="spn-status"> Used </span>
                             <span class="spn-save"> <i class="ti ti-heart"></i> </span>
 
                             <div class="user-preview">
                                 <a class="col" href="agent.html">
-                                    <img alt="Camilė" class="avatar avatar-small" src="img/3.png" title="Camilė">
+                                    <img alt="Camilė" class="avatar avatar-small" src="/img/3.png" title="Camilė">
                                 </a> 
                             </div> 
                             <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
@@ -346,13 +359,13 @@
                 <div class="col-md-4">
                     <div class="vehiculs-box">
                         <div class="vehiculs-thumb">
-                            <img src="img/demo/vehicul3.jpg" alt="" />
+                            <img src="/img/demo/vehicul3.jpg" alt="" />
                             <span class="spn-status"> Damaged</span>
                             <span class="spn-save"> <i class="ti ti-heart"></i> </span>
 
                             <div class="user-preview">
                                 <a class="col" href="agent.html">
-                                    <img alt="Camilė" class="avatar avatar-small" src="img/2.png" title="Camilė">
+                                    <img alt="Camilė" class="avatar avatar-small" src="/img/2.png" title="Camilė">
                                 </a> 
                             </div> 
                             <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
@@ -388,7 +401,7 @@
 @section('blockdos')
 
 <section class="block">
-<div style="background: transparent url(&quot;img/call-to-action-big.jpg&quot;) repeat scroll 50% 0px; background-attachment: fixed;" class="parallax scrolly-invisible  blackish"></div>
+<div style="background: transparent url(&quot;/img/call-to-action-big.jpg&quot;) repeat scroll 50% 0px; background-attachment: fixed;" class="parallax scrolly-invisible  blackish"></div>
 <div class="container">                
     <div class="row">
         <div class="col-md-12">
@@ -400,7 +413,7 @@
                 <ul class="carousel">
                     <li>
                         <div class="agent-content">
-                            <a href="agent.html"><img src="img/agents/agent1.jpg" alt="" /></a>
+                            <a href="agent.html"><img src="/img/agents/agent1.jpg" alt="" /></a>
                             <h3>SUPER AGENT</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
 
@@ -417,7 +430,7 @@
                     </li>
                     <li>
                         <div class="agent-content">
-                            <a href="agent.html"><img src="img/agents/agent3.jpg" alt="" /></a>
+                            <a href="agent.html"><img src="/img/agents/agent3.jpg" alt="" /></a>
                             <h3>SUPER AGENT</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
 
@@ -434,7 +447,7 @@
                     </li>
                     <li>
                         <div class="agent-content">
-                            <a href="agent.html"><img src="img/agents/agent5.jpg" alt="" /></a>
+                            <a href="agent.html"><img src="/img/agents/agent5.jpg" alt="" /></a>
                             <h3>SUPER AGENT</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
 
@@ -451,7 +464,7 @@
                     </li>
                     <li>
                         <div class="agent-content">
-                            <a href="agent.html"><img src="img/agents/agent4.jpg" alt="" /></a>
+                            <a href="agent.html"><img src="/img/agents/agent4.jpg" alt="" /></a>
                             <h3>SUPER AGENT</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
 
@@ -491,25 +504,25 @@
                 <div class="our-clients-sec">
                     <ul class="carousel-client">
                         <li>
-                            <a href="#" title=""><img src="img/clients/our-client1.jpg" alt="" /></a>
+                            <a href="#" title=""><img src="/img/clients/our-client1.jpg" alt="" /></a>
                         </li>
                         <li>
-                            <a href="#" title=""><img src="img/clients/our-client2.jpg" alt="" /></a>
+                            <a href="#" title=""><img src="/img/clients/our-client2.jpg" alt="" /></a>
                         </li>
                         <li>
-                            <a href="#" title=""><img src="img/clients/our-client3.jpg" alt="" /></a>
+                            <a href="#" title=""><img src="/img/clients/our-client3.jpg" alt="" /></a>
                         </li>
                         <li>
-                            <a href="#" title=""><img src="img/clients/our-client4.jpg" alt="" /></a>
+                            <a href="#" title=""><img src="/img/clients/our-client4.jpg" alt="" /></a>
                         </li>
                         <li>
-                            <a href="#" title=""><img src="img/clients/our-client5.jpg" alt="" /></a>
+                            <a href="#" title=""><img src="/img/clients/our-client5.jpg" alt="" /></a>
                         </li>
                         <li>
-                            <a href="#" title=""><img src="img/clients/our-client1.jpg" alt="" /></a>
+                            <a href="#" title=""><img src="/img/clients/our-client1.jpg" alt="" /></a>
                         </li>
                         <li>
-                            <a href="#" title=""><img src="img/clients/our-client3.jpg" alt="" /></a>
+                            <a href="#" title=""><img src="/img/clients/our-client3.jpg" alt="" /></a>
                         </li>
                     </ul>
                 </div>

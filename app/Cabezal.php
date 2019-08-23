@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cabezal extends Model
 {
+
     protected $table = 'cabezals';
 
     protected $fillable = ['name_marca','modelo','type_motor','type_camarote','type_caja','type_llantas','type_freno','color','type_ejes','ubication','state_cabezal','price','imgCabezal','user_id','category_id'];
@@ -20,4 +21,5 @@ class Cabezal extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
 }

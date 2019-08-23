@@ -12,6 +12,10 @@
       </center> 
     
 
+         <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#myModal">
+        Add New
+      </button>
 
       <div class="box-body">
         <table class="table table-responsive table-dark">
@@ -78,12 +82,6 @@
 
         </table>        
       </div>
-   
-        <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-        Add New
-      </button> 
-
 
     </div>
   </div>

@@ -1,6 +1,6 @@
 <footer>
 <section class="top-line">
-    <div style="background: url(img/footer.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax blackish"></div><!-- PARALLAX BACKGROUND IMAGE -->	
+    <div style="background: url(/img/footer.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax blackish"></div><!-- PARALLAX BACKGROUND IMAGE -->	
     <div class="container">
         <div class="row">   
 
@@ -80,5 +80,4 @@
         </ul>
     </div>
 </div>
-<a href="#" class="scrollToTop"><i class="ti ti-arrow-circle-up"></i></a>
 </footer>

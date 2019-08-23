@@ -18,6 +18,8 @@ class FrontEndController extends Controller
     {
         $cabezales = Cabezal::all();
 
+        // dd($cabezales);
+
         return view('Front-end.index',compact('cabezales'));
     }
 
@@ -50,7 +52,7 @@ class FrontEndController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('Front-end.showLoMasReciente');
     }
 
     /**
