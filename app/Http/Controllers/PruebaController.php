@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
 use App\Cabezal;
 
-
-class FrontEndController extends Controller
+class PruebaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +14,10 @@ class FrontEndController extends Controller
      */
     public function index()
     {
-        $cabezales = Cabezal::whereMonth('created_at','06')->get();
+    
+        $cabezales = Cabezal::whereMonth('created_at','06')->get();    
 
-        // dd($cabezales);
-
-        return view('Front-end.index',compact('cabezales'));
+        return view('prueba.prueba',compact('cabezales'));
     }
 
     /**
@@ -52,7 +49,7 @@ class FrontEndController extends Controller
      */
     public function show($id)
     {
-        return view('Front-end.showLoMasReciente');
+        //
     }
 
     /**
