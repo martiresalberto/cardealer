@@ -66,6 +66,15 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ url('agent') }}" class="nav-link">
+              <i class="nav-icon fas fa-users red"></i>
+               <p>
+                Agentes
+               </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -411,74 +411,23 @@
             </div>
             <div class="agents-carousal-sec">
                 <ul class="carousel">
+                  @foreach($agents as $age)
                     <li>
                         <div class="agent-content">
                             <a href="agent.html"><img src="/img/agents/agent1.jpg" alt="" /></a>
-                            <h3>SUPER AGENT</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
+                            <h3>{{ $age->name_agent }}</h3>
+                            <p>{{ $age->description }}</p>
 
                             <div class="agent-social-wrap">
                                 <div class="social-list agent-social">
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                    <a href="{{ $age->urlFacebook }}" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="{{ $age->urlTwuiter }}" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="{{ $age->urlGoogle }}" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="agent-content">
-                            <a href="agent.html"><img src="/img/agents/agent3.jpg" alt="" /></a>
-                            <h3>SUPER AGENT</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
-
-                            <div class="agent-social-wrap">
-                                <div class="social-list agent-social">
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="agent-content">
-                            <a href="agent.html"><img src="/img/agents/agent5.jpg" alt="" /></a>
-                            <h3>SUPER AGENT</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
-
-                            <div class="agent-social-wrap">
-                                <div class="social-list agent-social">
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="agent-content">
-                            <a href="agent.html"><img src="/img/agents/agent4.jpg" alt="" /></a>
-                            <h3>SUPER AGENT</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
-
-                            <div class="agent-social-wrap">
-                                <div class="social-list agent-social">
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                  @endforeach  
                 </ul>
             </div>
         </div>

@@ -9,7 +9,7 @@ class Cabezal extends Model
 
     protected $table = 'cabezals';
 
-    protected $fillable = ['name_marca','modelo','type_motor','type_camarote','type_caja','type_llantas','type_freno','color','type_ejes','ubication','state_cabezal','price','imgCabezal','user_id','category_id'];
+    protected $fillable = ['name_marca','modelo','type_motor','type_camarote','type_caja','type_llantas','type_freno','color','type_ejes','ubication','state_cabezal','price','imgCabezal','user_id','category_id','agent_id'];
 
 
      public function user()
@@ -20,6 +20,11 @@ class Cabezal extends Model
     public function category()
     {
         return $this->belongsTo('App\Category');
+    }
+
+    public function agent()
+    {
+        return $this->belongsTo('App\Agent');
     }
 
 }

@@ -11,3 +11,5 @@ Route::resource('category','CategoryController');
 Route::resource('cabezal','CabezalController');
 
 Route::resource('prueba','PruebaController');
+
+Route::resource('agent','AgentController');

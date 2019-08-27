@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cabezal;
 use App\Agent;
 
-class PruebaController extends Controller
+class AgentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,22 +14,11 @@ class PruebaController extends Controller
      */
     public function index()
     {
-        
-        $agents = Agent::all();
-        $cabezales = Cabezal::whereMonth('created_at','06')->get();    
+        $agents = Agent::with('cabezals')->get();
 
-        return view('prueba.prueba',compact('cabezales','agents'));
+        return view('admin.agent.index',compact('agents'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -40,30 +28,21 @@ class PruebaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $agents = Agent::create( $request->all() );
+
+        if($request->hasFile('imgAgent'))
+        {
+            $agents->imgAgent = $request->file('imgAgent')->store('public');
+        }
+        
+
+        $agents->save();
+
+        return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    
 
     /**
      * Update the specified resource in storage.
@@ -74,7 +53,20 @@ class PruebaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $agents = Agent::findOrFail($request->agent_id);
+
+        $agents->update($request->all());
+
+        if($request->hasFile('imgAgent'))
+        {
+            $agents->imgAgent = $request->file('imgAgent')->store('public');
+        }
+        
+
+        $agents->save();
+
+        return back();
     }
 
     /**
@@ -85,6 +77,11 @@ class PruebaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $agents = Agent::findOrFail($request->agent_id);
+     
+        $agents->delete();
+     
+        return back();
     }
 }
