@@ -26,7 +26,6 @@
               <th>urlFace</th>
               <th>urlTwuiter</th>
               <th>UrlGoogle</th>
-              <th>Cabezales</th>
               <th>Imagen</th>
               <th>edit</th>
               <th>delete</th>
@@ -44,7 +43,6 @@
                 <td>{{$age->urlFace}}</td>
                 <td>{{$age->urlTwuiter}}</td>
                 <td>{{$age->urlGoogle}}</td>
-                <td>{{$age->name_marca}}</td>
                 <td><img width="70px" src="{{ Storage::url($age->imgAgent) }}" alt=""/></td>
                    
                 <td>  

@@ -14,7 +14,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agents = Agent::with('cabezals')->get();
+        $agents = Agent::all();
 
         return view('admin.agent.index',compact('agents'));
     }

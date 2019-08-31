@@ -1,6 +1,8 @@
 <?php
 
-Route::resource('/','PruebaController');
+Route::get('/','PruebaController@index');
+
+Route::get('vehicule/{id}','PruebaController@vehicule')->name('vehicule');
 
 Auth::routes();
 

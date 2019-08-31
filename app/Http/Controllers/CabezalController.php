@@ -17,11 +17,13 @@ class CabezalController extends Controller
     public function index()
     {
 
-        $cabezals = Cabezal::all();
+        $cabezals = Cabezal::with('agent')->get();
 
         $categories = Category::all();
          
         $users = User::all(); 
+
+        // dd($cabezals);
 
         return view('admin.cabezal.index',compact('cabezals','categories','users'));    
     }

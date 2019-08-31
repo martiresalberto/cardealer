@@ -22,6 +22,7 @@
           <thead>
             <tr>
               <th>Categoria</th>
+              <th>Agente</th>
               <th>name_marca</th>
               <th>modelo</th>
               <th>type_motor</th>
@@ -48,6 +49,7 @@
             @foreach($cabezals as $cab)
               <tr>
                 <td>{{$cab->category->title}}</td>
+                <td>{{$cab->agent->name_agente}}</td>
                 <td>{{$cab->name_marca}}</td>
                 <td>{{$cab->modelo}}</td>
                 <td>{{$cab->type_motor}}</td>

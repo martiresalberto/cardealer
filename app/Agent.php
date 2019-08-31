@@ -11,7 +11,7 @@ class Agent extends Model
     protected $fillable = ['name_agente','description','imgAgent','urlFace','urlTwuiter','urlGoogle'];
 
 
-    public function cabezals()
+     public function cabezals()
     {
         return $this->hasMany('App\Cabezal');
     }
