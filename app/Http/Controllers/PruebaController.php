@@ -8,6 +8,9 @@ use App\Agent;
 
 class PruebaController extends Controller
 {
+    
+    
+
     /**
      * Display a listing of the resource.
      *

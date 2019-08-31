@@ -37179,7 +37179,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("Example Component")
+            _vm._v("Bienvendio al Admin de Cardealer ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [

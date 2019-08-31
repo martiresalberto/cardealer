@@ -35,6 +35,16 @@
     <nav>
         <h1 class="nocontent outline">--- Main Navigation ---</h1>
         <ul>  
+            
+
+       
+         
+            <li class="menu-item-has-children">
+                <a href="" title="">Home</a>
+            </li>
+
+    
+        
             <li>
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
@@ -46,6 +56,7 @@
                     @csrf
                 </form>
             </li>
+
         </ul>
     </nav>
 

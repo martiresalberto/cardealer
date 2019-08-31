@@ -49,4 +49,23 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Cabezal');
     }
+
+
+    public function hasRoles(array $roles)
+    {
+       
+       foreach ($roles as $role)
+       {
+
+         if($this->role === $role)
+         {
+            return true;
+         }
+
+       }
+
+       return false;
+    }
+
+
 }
