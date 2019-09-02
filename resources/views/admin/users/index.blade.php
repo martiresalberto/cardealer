@@ -7,44 +7,45 @@
     <div class="box">
       <center>
       <div class="box-header">
-        <h3 class="box-title">Categorias</h3>
+        <h3 class="box-title">Usuarios</h3>
       </div>
       </center> 
+    
 
-       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+         <!-- Button trigger modal -->
+      <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#usuario">
         Add New
       </button>
 
-      <button type="button" class="btn btn-info">
-        Regresar
-      </button>
-
-      <div class="box-body mt-1">
+      <div class="box-body">
         <table class="table table-responsive table-dark">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Edita</th>
-              <th>Eliminar</th>
+              <th>Nombre</th>
+              <th>mail</th>
+              <th>Role</th>
+              <th>edit</th>
+              <th>delete</th>
+
             </tr>
             
           </thead>
 
           <tbody>
 
-            @foreach($categories as $cat)
+            @foreach($users as $user)
               <tr>
-                <td>{{$cat->title}}</td>
-                <td>{{$cat->description}}</td>
-
-                <td>
-                  <button class="btn btn-info" data-mytitle="{{$cat->title}}" data-mydescription="{{$cat->description}}" data-catid={{$cat->id}} data-toggle="modal" data-target="#edit">Edit</button>
-                </td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->role->name}}</td>
+                   
                 <td>  
-                  <button class="btn btn-danger" data-catid={{$cat->id}} data-toggle="modal" data-target="#delete">Delete</button>
+                  <button class="btn btn-success" data-name="{{$user->name}}" data-mail="{{$user->mail }}" data-toggle="modal" data-target="#editUser">Edit</button>
                 </td>
+                <td>
+                  <button class="btn btn-danger" data-userid={{$user->id}} data-toggle="modal" data-target="#deleteUser">Delete</button>
+                </td>
+     
               </tr>
 
             @endforeach
@@ -54,32 +55,31 @@
         </table>        
       </div>
 
-
     </div>
-
   </div>
 
-
- <center>
-   <div class="form-group">
-      <img src="images/category.png" style="height:450px; width:750px">
+  
+  <center>
+    <div class="form-group">
+      <img src="images/users.png" style="height:450px; width:750px">
     </div>
- </center>
+  </center>
 
-   
  
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4 class="modal-title" id="myModalLabel">New Category</h4>
+        <h4 class="modal-title" id="myModalLabel">New User</h4>
       </div>
-      <form action="{{route('category.store')}}" method="post">
+      <form action="{{route('users.store')}}" method="post" enctype="multipart/form-data">
           {{csrf_field()}}
         <div class="modal-body">
-        @include('admin.category.partials.form')
+        
+         @include('admin.users.partials.form')
+        
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -91,19 +91,19 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4 class="modal-title" id="myModalLabel">Edit Category</h4>
+        <h4 class="modal-title" id="myModalLabel">Edit Agente</h4>
       </div>
-      <form action="{{route('category.update','test')}}" method="post">
+      <form action="{{route('users.update','test')}}" method="post" enctype="multipart/form-data">
           {{method_field('patch')}}
           {{csrf_field()}}
         <div class="modal-body">
-            <input type="hidden" name="category_id" id="cat_id" value="">
-        @include('admin.category.partials.form')
+            <input type="hidden" name="user_id" id="user_id" value="">
+            @include('admin.users.partials.form')
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -115,21 +115,21 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         
         <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
       </div>
-      <form action="{{route('category.destroy','test')}}" method="post">
+      <form action="{{route('users.destroy','test')}}" method="post">
           {{method_field('delete')}}
           {{csrf_field()}}
         <div class="modal-body">
         <p class="text-center">
           Are you sure you want to delete this?
         </p>
-            <input type="hidden" name="category_id" id="cat_id" value="">
+            <input type="hidden" name="user_id" id="user_id" value="">
 
         </div>
         <div class="modal-footer">

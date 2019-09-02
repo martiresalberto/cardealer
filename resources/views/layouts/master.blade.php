@@ -20,7 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
 
-    @include('admin.category.partials.nav')
+    @include('admin.partials.nav')
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -45,7 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.content-wrapper -->
 
 
- @include('admin.category.partials.footer')
+ @include('admin.partials.footer')
 
 </div>
 <!-- ./wrapper -->

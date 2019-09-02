@@ -16,4 +16,9 @@ class Agent extends Model
         return $this->hasMany('App\Cabezal');
     }
 
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
+    }
+
 }

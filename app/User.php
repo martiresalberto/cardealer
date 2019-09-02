@@ -42,6 +42,11 @@ class User extends Authenticatable
     public function categories()
     {
         return $this->hasMany('App\Category');
+    }
+
+    public function agents()
+    {
+        return $this->hasMany('App\Agent');
     } 
 
 
@@ -51,13 +56,18 @@ class User extends Authenticatable
     }
 
 
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
+    }
+
     public function hasRoles(array $roles)
     {
        
        foreach ($roles as $role)
        {
 
-         if($this->role === $role)
+         if ($this->role->name === $role)
          {
             return true;
          }
