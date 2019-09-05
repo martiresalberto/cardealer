@@ -7,12 +7,18 @@
    
     <div class="box">
      
-      <center>
+      <center class="mt-3">
       <div class="box-header">
-        <h3 class="box-title">Predio</h3>
+        <h1 class="box-title" style="font-family: 'Anton', sans-serif;">Predio</h1>
       </div>
       </center> 
     
+         <center>
+          <div class="form-group">
+            <img src="images/cars2.png" style="height:250px; width:400px">
+          </div>
+        </center>
+
 
          <!-- Button trigger modal -->
       <button type="button" class="btn btn-warning mb-2" data-toggle="modal" data-target="#Publicar">
@@ -25,21 +31,15 @@
           <thead>
             <tr>
               <th>Categoria</th>
-              <th>Agente</th>
-              <th>name_marca</th>
+              <th>Usuario</th>
+              <th>titulo</th>
+              <th>precio</th>
               <th>modelo</th>
-              <th>type_motor</th>
-              <th>type_camarote</th>
-              <th>type_caja</th>
-              <th>type_llantas</th>
-              <th>type_freno</th>
-              <th>color</th>
-              <th>type_ejes</th>
+              <th>km</th>
+              <th>descripcion</th>
+              <th>Condicion</th>
               <th>ubication</th>
-              <th>price</th>
-              <th>Estado</th>
               <th>Imagen</th>
-              <th>User</th>
               <th>edit</th>
               <th>delete</th>
 
@@ -90,17 +90,10 @@
 
     </div>
   </div>
-
-  <center>
-    <div class="form-group">
-      <img src="images/cars2.png" style="height:450px; width:750px">
-    </div>
-  </center>
-
  
 <!-- Modal -->
 <div class="modal fade" id="Publicar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         
@@ -109,32 +102,7 @@
       <form action="{{route('predio.store')}}" method="post" enctype="multipart/form-data">
           {{csrf_field()}}
         <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-4">.col-md-4</div>
-              <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
-              <div class="col-md-2 ml-auto">.col-md-2 .ml-auto</div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 ml-auto">.col-md-6 .ml-auto</div>
-            </div>
-            <div class="row">
-              <div class="col-sm-9">
-                Level 1: .col-sm-9
-                <div class="row">
-                  <div class="col-8 col-sm-6">
-                    Level 2: .col-8 .col-sm-6
-                  </div>
-                  <div class="col-4 col-sm-6">
-                    Level 2: .col-4 .col-sm-6
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          @include('admin.predio.partials.form')
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

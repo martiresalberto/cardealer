@@ -39,8 +39,8 @@
 
        
          
-            <li class="menu-item-has-children">
-                <a href="" title="">Home</a>
+            <li class="menu-item">
+                <a href="{{ url('home') }}" title="">Admin</a>
             </li>
 
     
@@ -49,7 +49,7 @@
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-                LOGOUT
+                Logout
                </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

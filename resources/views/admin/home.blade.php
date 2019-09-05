@@ -5,6 +5,11 @@
 <div class="container">
    
  
+   <center>
+   <div class="form-group">
+      <img src="images/dashboard.png" style="height:300px; width:400px">
+    </div>
+   </center>
 
   <div class="row mt-3">
 
@@ -71,12 +76,6 @@
           <!-- ./col -->
      
      </div>
-
- <center>
- <div class="form-group">
-    <img src="images/dashboard.png" style="height:450px; width:750px">
-  </div>
- </center>
    
 </div>
 

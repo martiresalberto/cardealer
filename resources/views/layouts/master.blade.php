@@ -16,6 +16,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
  
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+  <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+  
+  <style type="text/css">
+
+    html {
+    overflow: hidden;
+    }
+    -->
+</style>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">

@@ -5,12 +5,17 @@
 
   <div class="">
     <div class="box">
-      <center>
+      <center class="mt-3">
       <div class="box-header">
-        <h3 class="box-title">Usuarios</h3>
+        <h1 class="box-title" style="font-family: 'Anton', sans-serif;">Usuarios</h1>
       </div>
       </center> 
-    
+          
+            <center>
+              <div class="form-group">
+                <img src="images/users.png" style="height:250px; width:400px">
+              </div>
+            </center>    
 
          <!-- Button trigger modal -->
       <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#usuario">
@@ -57,13 +62,6 @@
 
     </div>
   </div>
-
-  
-  <center>
-    <div class="form-group">
-      <img src="images/users.png" style="height:450px; width:750px">
-    </div>
-  </center>
 
  
 <!-- Modal -->

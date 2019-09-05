@@ -16,11 +16,10 @@ class PredioController extends Controller
      */
     public function index()
     {
-         $cabezals = Cabezal::with('agent')->get();
 
         $categories = Category::all();
          
-        $users = User::all(); 
+        $users = User::where('id','=', auth()->id())->get(); 
 
         return view('admin.predio.index',compact('cabezals','categories','users'));
     }
