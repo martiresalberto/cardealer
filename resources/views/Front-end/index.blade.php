@@ -10,12 +10,11 @@
 <div class="tp-banner" >
 <ul> 
 
-@foreach($cabezales as $cab)
 
 <li data-transition="fade" data-slotamount="7" data-masterspeed="2000" 
     data-saveperformance="on"  data-title="Ken Burns Slide">
     <!-- MAIN IMAGE -->
-    <img src="{{ Storage::url($cab->imgCabezal) }}"  alt="2" data-lazyload="{{ Storage::url($cab->imgCabezal) }}" 
+    <img src=""  alt="2" data-lazyload="" 
          data-bgposition="right top" data-kenburns="off" data-duration="12000" 
          data-ease="Power0.easeInOut" data-bgfit="115" data-bgfitend="100" 
          data-bgpositionend="center bottom">
@@ -67,7 +66,7 @@
 
 </li> 
 
-@endforeach
+
 
 </ul>
 <div class="tp-bannertimer"></div>
@@ -177,32 +176,30 @@
 <div class="vehiculs-sec">
     <div class="carousel-prop">
        
-      @foreach($cabezales as $cab)  
 
         <div class="vehiculs-box">
             <div class="vehiculs-thumb">
-                <img src="{{ Storage::url($cab->imgCabezal) }}" alt="" /> 
+                <img src="" alt="" /> 
                 <span class="spn-status"> Damaged</span>
                 <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
                 <div class="user-preview">
                     <a class="col" href="agent.html">
-                        <img alt="Camilė" class="avatar avatar-small" src="{{ Storage::url($cab->agent->imgAgent) }}" title="{{$cab->agent->name_agente}}">
+                        <img alt="Camilė" class="avatar avatar-small" src="">
                     </a> 
                 </div>
-                <a class="proeprty-sh-more" href="{{ route('vehicule',$cab->id) }}"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+                <a class="proeprty-sh-more" href=""><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
                 <p class="car-info-smal">
-                    Registration {{ $cab->modelo }}<br>
-                    {{ $cab->type_motor }}<br>
+                    Registration<br>
+                    <br>
                     230 HP<br>
                     Body Coupe<br>
                     80 000 Miles
                 </p>
             </div>
-            <h3><a href="vehicul.html" title="Mercedes-Benz">{{ $cab->name_marca }}</a></h3>
-            <span class="price">${{ $cab->price }}</span>
+            <h3><a href="vehicul.html" title="Mercedes-Benz"></a></h3>
+            <span class="price">$</span>
         </div> 
         
-      @endforeach
 
     </div><!-- Carousel -->
 </div>
@@ -237,12 +234,11 @@
 <div class="vehiculs-sec">
     <div class="row">   
       
-       @foreach($cabezales as $cab)
        
         <div class="col-md-4">
             <div class="vehiculs-box">
                 <div class="vehiculs-thumb">
-                    <img src="{{ Storage::url($cab->imgCabezal) }}" alt="" />
+                    <img src="" alt="" />
                     <span class="spn-status"> Semi-New </span>
                     <span class="spn-save"> <i class="ti ti-heart"></i> </span>
 
@@ -272,7 +268,6 @@
             </div><!-- prop Box -->
         </div>                                
         
-       @endforeach
 
     </div>
 </div>
@@ -292,12 +287,12 @@
 </div>
 <div class="agents-carousal-sec">
     <ul class="carousel">
-          @foreach($agents as $age)
+
             <li>
                 <div class="agent-content">
-                    <a href=""><img src="{{ Storage::url($age->imgAgent) }}" alt="" /></a>
-                    <h3>{{ $age->name_agente }}</h3>
-                    <p>{{ $age->description }}</p>
+                    <a href=""><img src="" alt="" /></a>
+                    <h3></h3>
+                    <p></p>
 
                     <div class="agent-social-wrap">
                         <div class="social-list agent-social">
@@ -308,7 +303,7 @@
                     </div>
                 </div>
             </li>
-          @endforeach  
+
         </ul>
 </div>
 </div>

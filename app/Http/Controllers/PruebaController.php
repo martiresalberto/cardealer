@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cabezal;
-use App\Agent;
+
+
 
 class PruebaController extends Controller
 {
@@ -19,8 +19,7 @@ class PruebaController extends Controller
     public function index()
     {
         
-        $agents = Agent::all();
-        $cabezales = Cabezal::whereMonth('created_at','06')->get();    
+        // $cabezales = Cabezal::whereMonth('created_at','06')->get();    
 
         return view('front-end.index',compact('cabezales','agents'));
     }
@@ -29,7 +28,7 @@ class PruebaController extends Controller
 
     public function vehicule($id)
     {
-        $cabezals = Cabezal::where('id', $id)->first();
+        // $cabezals = Cabezal::where('id', $id)->first();
         
         // dd($cabezals);
 
