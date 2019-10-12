@@ -38,21 +38,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-     
+
     public function categories()
     {
         return $this->hasMany('App\Category');
-    }
-
-    public function agents()
-    {
-        return $this->hasMany('App\Agent');
-    } 
-
-
-     public function cabezals()
-    {
-        return $this->hasMany('App\Cabezal');
     }
 
 
@@ -63,19 +52,14 @@ class User extends Authenticatable
 
     public function hasRoles(array $roles)
     {
-       
-       foreach ($roles as $role)
-       {
 
-         if ($this->role->name === $role)
-         {
-            return true;
-         }
+        foreach ($roles as $role) {
 
-       }
+            if ($this->role->name === $role) {
+                return true;
+            }
+        }
 
-       return false;
+        return false;
     }
-
-
 }

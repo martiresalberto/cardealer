@@ -3,26 +3,15 @@
 
 Auth::routes();
 
-Route::get('/','PruebaController@index');
+Route::get('/', 'PruebaController@index');
 
-Route::get('vehicule/{id}','PruebaController@vehicule')->name('vehicule');
+Route::get('vehicule/{id}', 'PruebaController@vehicule')->name('vehicule');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('users','UsersController');
+Route::resource('users', 'UsersController');
 
-Route::resource('category','CategoryController');
+Route::resource('category', 'CategoryController');
 
-Route::resource('predio','PredioController');
-
-Route::get('publicar', function () {
-    return view('admin.publicar.index');
-});
-
-
-
-
-Route::get('prueba', function() {
-     return view('prueba.index');
-});
+Route::resource('predio', 'PredioController');
