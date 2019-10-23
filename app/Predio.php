@@ -20,4 +20,9 @@ class Predio extends Model
     {
         return $this->hasMany('App\Category');
     }
+
+    public function condicions()
+    {
+        return $this->hasMany('App\Condicion');
+    }
 }

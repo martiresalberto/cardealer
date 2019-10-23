@@ -3,10 +3,7 @@
 
 Auth::routes();
 
-Route::get('/', 'PruebaController@index');
-
-Route::get('vehicule/{id}', 'PruebaController@vehicule')->name('vehicule');
-
+Route::get('/', 'InicioController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

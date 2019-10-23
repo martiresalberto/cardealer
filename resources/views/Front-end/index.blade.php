@@ -170,37 +170,34 @@
 <div class="row">
 <div class="col-md-12">
 <div class="heading4">
-    <h2>RECENT VEHICULS </h2>
+    <h2>Vehiculos recientes </h2>
     <span>Lorem ipsum dolor</span>
 </div>
 <div class="vehiculs-sec">
     <div class="carousel-prop">
-       
-
+@foreach($vehiculos_recientes as $res)       
         <div class="vehiculs-box">
             <div class="vehiculs-thumb">
-                <img src="" alt="" /> 
-                <span class="spn-status"> Damaged</span>
+                <img src="{{ Storage::url($res->imgTrans) }}" alt=""/> 
+                <span class="spn-status">{{$res->condicions->titulo}}</span>
                 <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
                 <div class="user-preview">
                     <a class="col" href="agent.html">
-                        <img alt="Camilė" class="avatar avatar-small" src="">
+                         @if($res->user_id)
+                        <img alt="{{$res->user->name}}" class="avatar avatar-small" src="">
+                         @endif
                     </a> 
                 </div>
                 <a class="proeprty-sh-more" href=""><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
                 <p class="car-info-smal">
-                    Registration<br>
-                    <br>
-                    230 HP<br>
-                    Body Coupe<br>
-                    80 000 Miles
+                    {{$res->titulo}}<br>
+                    {{$res->km}}
                 </p>
             </div>
             <h3><a href="vehicul.html" title="Mercedes-Benz"></a></h3>
-            <span class="price">$</span>
+            <span class="price">${{ $res->precio }}</span>
         </div> 
-        
-
+@endforeach()  
     </div><!-- Carousel -->
 </div>
 </div>

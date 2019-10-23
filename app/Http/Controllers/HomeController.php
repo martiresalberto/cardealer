@@ -13,9 +13,14 @@ class HomeController extends Controller
      */
     function __construct()
     {
-          $this->middleware(['auth','roles:admin,visitante,agente']);
+        $this->middleware(['auth', 'roles:admin,visitante,agente']);
     }
-    
+
+
+    public function home()
+    {
+        return view('front-end.index');
+    }
 
     /**
      * Show the application dashboard.
