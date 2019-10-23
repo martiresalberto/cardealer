@@ -3,39 +3,41 @@
 <div class="form-row">
     
     <div class="form-group col-md-6">
-      <label for="user_id">Nombre de usuario</label>
-      <input type="text" name="user_id" id="user_id" class="form-control" value="{{ $user->name }}"> 
+      <label for="">Nombre de usuario</label>
+      <input type="text" class="form-control" value="{{ $user->name }}"> 
     </div>
     
     <div class="form-group col-md-6">
       <label for="user_id">Tipo de usuario</label>
-      <input type="text" name="user_id" id="user_id" class="form-control" value="{{ $user->role->name }}"> 
+      <input type="text" name="user_id" id="user_id" class="form-control" value="{{ $user->role->id }}"> 
     </div>
-   </div>
+
+</div>
 
 @endforeach
 
 <div  class="form-row">
 
 <div class="form-group col-md-6">
-  <label for="categories">Categoria</label>
+  <label for="category_id">Categoria</label>
   <select class="form-control">
      <option value="">Selecciona la categoria</option>
      @foreach($categories as $cat)
-       <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+       <option name="category_id" id="category_id" value="{{ $cat->id }}">{{ $cat->title }}</option>
      @endforeach  
   </select>
 </div>
 
 <div class="form-group col-md-6">
-  <label for="condicion">condicion</label>
-   <select class="form-control">
-    <option value="">Selecciona una condicion</option>
-     <option value="">Nuevo</option>
-     <option value="">Semi Nuevo</option>
-     <option value="">Usado</option>
-   </select>  
-</div>  
+  <label for="condicion_id">Condicion</label>
+  <select class="form-control">
+     <option value="">Selecciona una condicion</option>
+     @foreach($condicion as $con)
+       <option name="condicion_id" id="condicion_id" value="{{ $con->id }}">{{ $con->title }}</option>
+     @endforeach  
+  </select>
+</div>
+
 
 </div>
 

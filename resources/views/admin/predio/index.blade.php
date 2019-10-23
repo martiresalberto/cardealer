@@ -97,16 +97,16 @@
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4 class="modal-title" id="myModalLabel">New Cabezal</h4>
+        <h4 class="modal-title" id="myModalLabel">Nuevo anuncio</h4>
       </div>
       <form action="{{route('predio.store')}}" method="post" enctype="multipart/form-data">
           {{csrf_field()}}
         <div class="modal-body">
-          @include('admin.predio.partials.form')
+            @include('admin.predio.partials.form')
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Crear</button>
         </div>
       </form>
     </div>
@@ -115,22 +115,22 @@
 
 <!-- Modal -->
 <div class="modal fade" id="editCabezal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4 class="modal-title" id="myModalLabel">Edit Cabezal</h4>
+        <h4 class="modal-title" id="myModalLabel">Edit Anuncio</h4>
       </div>
       <form action="{{route('predio.update','test')}}" method="post" enctype="multipart/form-data">
           {{method_field('patch')}}
           {{csrf_field()}}
         <div class="modal-body">
             <input type="hidden" name="cabezal_id" id="cab_id" value="">
-            @include('admin.cabezal.partials.form')
+            @include('admin.predio.partials.form')
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
         </div>
       </form>
     </div>
@@ -143,21 +143,21 @@
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+        <h4 class="modal-title text-center" id="myModalLabel">Eliminar</h4>
       </div>
       <form action="{{route('predio.destroy','test')}}" method="post">
           {{method_field('delete')}}
           {{csrf_field()}}
         <div class="modal-body">
         <p class="text-center">
-          Are you sure you want to delete this?
+          Estas seguro de eliminar el anuncio?
         </p>
             <input type="hidden" name="cabezal_id" id="cab_id" value="">
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
-          <button type="submit" class="btn btn-warning">Yes, Delete</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancelar</button>
+          <button type="submit" class="btn btn-warning">Si, Eliminar</button>
         </div>
       </form>
     </div>

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cabezal;
+use App\Predio;
 use App\Category;
 use App\User;
+use App\Condicion;
 
 class PredioController extends Controller
 {
@@ -16,22 +17,13 @@ class PredioController extends Controller
      */
     public function index()
     {
+        $condicion = Condicion::all();
 
         $categories = Category::all();
-         
-        $users = User::where('id','=', auth()->id())->get(); 
 
-        return view('admin.predio.index',compact('cabezals','categories','users'));
-    }
+        $users = User::where('id', '=', auth()->id())->get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('admin.predio.index', compact('condicion', 'categories', 'users'));
     }
 
     /**
@@ -42,29 +34,16 @@ class PredioController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $predio = Predio::create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        if ($request->hasFile('imgTrans')) {
+            $predio->imgTrans = $request->file('imgTrans')->store('public');
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+
+        $predio->save();
+
+        return back();
     }
 
     /**
