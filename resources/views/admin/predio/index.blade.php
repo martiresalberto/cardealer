@@ -49,39 +49,50 @@
 
           <tbody>
 
-            {{-- @foreach($cabezals as $cab)
+            @foreach($predio as $pre)
               <tr>
-                <td>{{$cab->category->title}}</td>
-                <td>{{$cab->agent->name_agente}}</td>
-                <td>{{$cab->name_marca}}</td>
-                <td>{{$cab->modelo}}</td>
-                <td>{{$cab->type_motor}}</td>
-                <td>{{$cab->type_camarote}}</td>
-                <td>{{$cab->type_caja}}</td>
-                <td>{{$cab->type_llantas}}</td>
-                <td>{{$cab->type_freno}}</td>
-                <td>{{$cab->color}}</td>
-                <td>{{$cab->type_ejes}}</td>
-                <td>{{$cab->ubication}}</td>
-                <td>{{$cab->price}}</td>
-                <td>{{$cab->state_cabezal }}</td>
-                <td><img width="70px" src="{{ Storage::url($cab->imgCabezal) }}" alt=""/></td>
+                <td>{{$pre->category_id}}</td>
+                <td>{{$pre->user_id}}</td>
+                <td>{{$pre->titulo}}</td>
+                <td>{{$pre->precio}}</td>
+                <td>{{$pre->modelo}}</td>
+                <td>{{$pre->km}}</td>
+                <td>{{$pre->descripcion}}</td>
+                <td>{{$pre->estado}}</td>
+                <td>{{$pre->ubicacion}}</td>
+                <td>{{$pre->condicion_id}}</td>
+                <td>{{$pre->imgTrans}}</td>
+                <td><img width="70px" src="{{ Storage::url($pre->imgTrans) }}" alt=""/></td>
                 <td>
-                   @if($cab->user_id)
-                  {{$cab->user->name}}
+                   @if($pre->user_id)
+                  {{$pre->user->name}}
                    @endif
                 </td>
                    
                 <td>  
-                  <button class="btn btn-info" data-marca="{{$cab->name_marca}}" data-modelo="{{$cab->modelo}}" data-motor="{{$cab->type_motor}}" data-camarote="{{$cab->type_camarote}}" data-caja="{{$cab->type_caja}}" data-llantas="{{$cab->type_llantas}}" data-freno="{{$cab->type_freno}}" data-color="{{$cab->color}}" data-ejes="{{$cab->type_ejes}}" data-ubication="{{$cab->ubication}}" data-price="{{$cab->price}}" data-statecab="{{$cab->state_cabezal}}" data-cabid={{$cab->id}} data-toggle="modal" data-target="#editCabezal">Edit</button>
+                  <button class="btn btn-info" 
+                  data-titulo="{{$pre->titulo}}" 
+                  data-precio="{{$pre->precio}}" 
+                  data-modelo="{{$pre->modelo}}" 
+                  data-km="{{$pre->km}}" 
+                  data-descripcion="{{$pre->descripcion}}" 
+                  data-estado="{{$pre->estado}}" 
+                  data-ubicacion="{{$pre->ubicacion}}" 
+                  data-condicion="{{$pre->condicion}}" 
+                  data-preid={{$pre->id}} 
+                  data-toggle="modal" 
+                  data-target="#editCabezal">Edit</button>
                 </td>
                 <td>
-                  <button class="btn btn-danger" data-cabid={{$cab->id}} data-toggle="modal" data-target="#deleteCabezal">Delete</button>
+                  <button class="btn btn-danger" 
+                  data-cabid={{$pre->id}} 
+                  data-toggle="modal" 
+                  data-target="#deleteCabezal">Delete</button>
                 </td>
      
               </tr>
 
-            @endforeach --}}
+            @endforeach
           </tbody>
 
 
@@ -115,7 +126,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="editCabezal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         

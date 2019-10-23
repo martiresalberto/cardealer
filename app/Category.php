@@ -8,17 +8,16 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    protected $fillable = ['title','description'];
+    protected $fillable = ['title', 'description'];
 
 
-      public function user()
+    public function user()
     {
         return $this->belongsTo('App\User');
     }
 
-     public function cabezals()
+    public function predio()
     {
-        return $this->hasMany('App\Cabezal');
+        return $this->belongsTo('App\Predio');
     }
-
 }

@@ -6,19 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Predio extends Model
 {
-     protected $table = 'predios';
+    protected $table = 'predios';
 
-    protected $fillable = ['categoria','usuario','titulo','precio','modelo','km','descripcion','estado','ubicacion','condicion','imgTrans','user_id','category_id'];
+    protected $fillable = ['titulo', 'precio', 'modelo', 'km', 'descripcion', 'estado', 'ubicacion', 'condicion', 'imgTrans', 'user_id', 'category_id'];
 
 
-     public function user()
+    public function user()
     {
         return $this->belongsTo('App\User');
     }
 
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->hasMany('App\Category');
     }
 
+    public function condicions()
+    {
+        return $this->hasMany('App\Condicion');
+    }
 }

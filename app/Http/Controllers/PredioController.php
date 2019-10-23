@@ -17,13 +17,15 @@ class PredioController extends Controller
      */
     public function index()
     {
+        $predio = Predio::all();
+
         $condicion = Condicion::all();
 
         $categories = Category::all();
 
         $users = User::where('id', '=', auth()->id())->get();
 
-        return view('admin.predio.index', compact('condicion', 'categories', 'users'));
+        return view('admin.predio.index', compact('predio', 'condicion', 'categories', 'users'));
     }
 
     /**
