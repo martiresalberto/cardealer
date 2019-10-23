@@ -33,7 +33,7 @@
   <select class="form-control">
      <option value="">Selecciona una condicion</option>
      @foreach($condicion as $con)
-       <option name="condicion_id" id="condicion_id" value="{{ $con->id }}">{{ $con->title }}</option>
+       <option name="condicion_id" id="condicion_id" value="{{ $con->id }}">{{ $con->titulo }}</option>
      @endforeach  
   </select>
 </div>

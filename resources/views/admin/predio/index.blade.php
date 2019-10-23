@@ -30,15 +30,8 @@
         <table class="table table-responsive table-dark">
           <thead>
             <tr>
-              <th>Categoria</th>
-              <th>Usuario</th>
+              <th>Usuario</th>      
               <th>titulo</th>
-              <th>precio</th>
-              <th>modelo</th>
-              <th>km</th>
-              <th>descripcion</th>
-              <th>Condicion</th>
-              <th>ubication</th>
               <th>Imagen</th>
               <th>edit</th>
               <th>delete</th>
@@ -51,24 +44,14 @@
 
             @foreach($predio as $pre)
               <tr>
-                <td>{{$pre->category_id}}</td>
-                <td>{{$pre->user_id}}</td>
-                <td>{{$pre->titulo}}</td>
-                <td>{{$pre->precio}}</td>
-                <td>{{$pre->modelo}}</td>
-                <td>{{$pre->km}}</td>
-                <td>{{$pre->descripcion}}</td>
-                <td>{{$pre->estado}}</td>
-                <td>{{$pre->ubicacion}}</td>
-                <td>{{$pre->condicion_id}}</td>
-                <td>{{$pre->imgTrans}}</td>
-                <td><img width="70px" src="{{ Storage::url($pre->imgTrans) }}" alt=""/></td>
                 <td>
                    @if($pre->user_id)
                   {{$pre->user->name}}
                    @endif
                 </td>
-                   
+                <td>{{$pre->titulo}}</td>
+                <td><img width="70px" src="{{ Storage::url($pre->imgTrans) }}" alt=""/></td>
+                 
                 <td>  
                   <button class="btn btn-info" 
                   data-titulo="{{$pre->titulo}}" 
