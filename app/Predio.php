@@ -8,7 +8,7 @@ class Predio extends Model
 {
     protected $table = 'predios';
 
-    protected $fillable = ['titulo', 'precio', 'modelo', 'km', 'descripcion', 'estado', 'ubicacion', 'condicion', 'imgTrans', 'user_id', 'category_id'];
+    protected $fillable = ['titulo', 'precio', 'modelo', 'km', 'descripcion', 'ubicacion', 'imgTrans', 'user_id', 'category_id', 'condicion_id'];
 
 
     public function user()

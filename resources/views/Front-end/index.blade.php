@@ -178,8 +178,8 @@
 @foreach($vehiculos_recientes as $res)       
         <div class="vehiculs-box">
             <div class="vehiculs-thumb">
-                <img src="{{ Storage::url($res->imgTrans) }}" alt=""/> 
-                <span class="spn-status">{{$res->condicions->titulo}}</span>
+                <img src="{{ Storage::url($res->imgTrans) }}" alt=""/>
+                 <span class="spn-status">{{$res->condicion_id}}</span>
                 <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
                 <div class="user-preview">
                     <a class="col" href="agent.html">
@@ -194,7 +194,6 @@
                     {{$res->km}}
                 </p>
             </div>
-            <h3><a href="vehicul.html" title="Mercedes-Benz"></a></h3>
             <span class="price">${{ $res->precio }}</span>
         </div> 
 @endforeach()  
