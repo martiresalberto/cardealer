@@ -165,7 +165,7 @@
 </div>
 </section>
 
-<section class="block remove-top">
+{{-- <section class="block remove-top">
 <div class="container">
 <div class="row">
 <div class="col-md-12">
@@ -202,7 +202,7 @@
 </div>
 </div>
 </div>
-</section>
+</section> --}}
 
 <section class="block">
 <div style="background: url(img/call-to-action-bg.jpg) repeat scroll 50% 422.28px transparent; background-attachment: fixed;" class="parallax scrolly-invisible  blackish"></div><!-- PARALLAX BACKGROUND IMAGE -->	

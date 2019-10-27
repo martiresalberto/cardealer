@@ -1,5 +1,10 @@
 <?php
 
+// App\User::create([
+//     'name' => 'berto orozco',
+//     'email' => 'beto@gmail.com',
+//     'password' => bcrypt('12345678'),
+// ]);
 
 Auth::routes();
 
