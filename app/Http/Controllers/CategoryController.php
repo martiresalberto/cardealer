@@ -30,11 +30,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = Category::create($request->all());
+        auth()->user()->category()->create($request->all());
 
-        if (auth()->check()) {
-            auth()->user()->category()->save($category);
-        }
+        // $category = Category::create($request->all());
+        // if (auth()->check()) {
+        //     auth()->user()->category()->save($category);
+        // }
 
         return back();
     }

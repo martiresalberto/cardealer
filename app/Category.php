@@ -8,7 +8,7 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['title'];
 
 
     public function user()

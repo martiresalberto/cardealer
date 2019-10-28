@@ -20,20 +20,16 @@
 
        <!-- Button trigger modal -->
       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
-        Add New
+        Crear categoria
       </button>
 
-      <button type="button" class="btn btn-info">
-        Regresar
-      </button>
 
       <div class="box-body mt-1">
         <table class="table table-responsive table-dark">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Edita</th>
+              <th>Nombre</th>
+              <th>Editar</th>
               <th>Eliminar</th>
             </tr>
             
@@ -44,7 +40,6 @@
             @foreach($categories as $cat)
               <tr>
                 <td>{{$cat->title}}</td>
-                <td>{{$cat->description}}</td>
 
                 <td>
                   <button class="btn btn-info" data-mytitle="{{$cat->title}}" data-mydescription="{{$cat->description}}" data-catid={{$cat->id}} data-toggle="modal" data-target="#edit">Edit</button>
@@ -73,7 +68,7 @@
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4 class="modal-title" id="myModalLabel">New Category</h4>
+        <h4 class="modal-title" id="myModalLabel">Nueva categoria</h4>
       </div>
       <form action="{{route('category.store')}}" method="post">
           {{csrf_field()}}
@@ -81,8 +76,8 @@
         @include('admin.category.partials.form')
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Crear</button>
         </div>
       </form>
     </div>
@@ -95,7 +90,7 @@
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4 class="modal-title" id="myModalLabel">Edit Category</h4>
+        <h4 class="modal-title" id="myModalLabel">Editar Categoria</h4>
       </div>
       <form action="{{route('category.update','test')}}" method="post">
           {{method_field('patch')}}
@@ -105,8 +100,8 @@
         @include('admin.category.partials.form')
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
         </div>
       </form>
     </div>
@@ -119,21 +114,21 @@
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+        <h4 class="modal-title text-center" id="myModalLabel">Borrar categoria</h4>
       </div>
       <form action="{{route('category.destroy','test')}}" method="post">
           {{method_field('delete')}}
           {{csrf_field()}}
         <div class="modal-body">
         <p class="text-center">
-          Are you sure you want to delete this?
+          estas seguro de borrar esta categoria ?
         </p>
             <input type="hidden" name="category_id" id="cat_id" value="">
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
-          <button type="submit" class="btn btn-warning">Yes, Delete</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-warning">Si , Eliminar</button>
         </div>
       </form>
     </div>
