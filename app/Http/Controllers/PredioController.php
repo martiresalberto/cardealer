@@ -17,15 +17,15 @@ class PredioController extends Controller
      */
     public function index()
     {
-        $predio = Predio::all();
-
         $condicion = Condicion::all();
+
+        $predio = Predio::all();
 
         $categories = Category::all();
 
         $users = User::where('id', '=', auth()->id())->get();
 
-        return view('admin.predio.index', compact('predio', 'condicion', 'categories', 'users'));
+        return view('admin.predio.index', compact('predio', 'categories', 'users', 'condicion'));
     }
 
     /**
@@ -38,10 +38,11 @@ class PredioController extends Controller
     {
         $predio = Predio::create($request->all());
 
-        if ($request->hasFile('imgTrans')) {
-            $predio->imgTrans = $request->file('imgTrans')->store('public');
+        if ($request->hasFile('image')) {
+            $predio->image = $request->file('image')->store('public');
         }
 
+        // dd($predio);
 
         $predio->save();
 
@@ -57,7 +58,19 @@ class PredioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $predio = Predio::findOrFail($request->predio_id);
+
+        $predio->update($request->all());
+
+        if ($request->hasFile('image')) {
+            $predio->image = $request->file('image')->store('public');
+        }
+
+        // dd($predio);
+
+        $predio->update();
+
+        return back();
     }
 
     /**
@@ -66,8 +79,13 @@ class PredioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+
+        $predio = Predio::findOrFail($request->predio_id);
+
+        $predio->delete();
+
+        return back();
     }
 }

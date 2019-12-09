@@ -8,5 +8,11 @@ class Condicion extends Model
 {
     protected $table = 'condicions';
 
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['titulo'];
+
+
+    public function predio()
+    {
+        return $this->belongsTo('App\Predio');
+    }
 }

@@ -15,11 +15,12 @@ class CreatePrediosTable extends Migration
     {
         Schema::create('predios', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('categoria');
             $table->string('titulo', 100);
             $table->tinyInteger('precio');
             $table->tinyInteger('modelo');
             $table->tinyInteger('km');
-            $table->text('descripcion');
+            $table->text('descripcioncompleta');
             $table->string('ubicacion');
             $table->string('imgTrans');
 

@@ -89,34 +89,24 @@ $('#editCabezal').on('show.bs.modal', function (event) {
     
     var button = $(event.relatedTarget)
     
-    var marca = button.data('marca') 
+    var titulo = button.data('titulo') 
+    var precio = button.data('precio') 
     var modelo = button.data('modelo') 
-    var motor = button.data('motor') 
-    var camarote = button.data('camarote') 
-    var caja = button.data('caja') 
-    var llantas = button.data('llantas') 
-    var freno = button.data('freno') 
-    var color = button.data('color') 
-    var ejes = button.data('ejes') 
-    var ubication = button.data('ubication') 
-    var estado = button.data('statecab') 
-    var price = button.data('price') 
-    var cab_id = button.data('cabid') 
+    var km = button.data('km') 
+    var ubicacion = button.data('ubicacion') 
+    var image = button.data('image') 
+    var descripcioncompleta = button.data('descripcioncompleta') 
+    var pre_id = button.data('preid') 
     var modal = $(this)
 
-    modal.find('.modal-body #name_marca').val(marca);
+    modal.find('.modal-body #titulo').val(titulo);
     modal.find('.modal-body #modelo').val(modelo);
-    modal.find('.modal-body #type_motor').val(motor);
-    modal.find('.modal-body #type_camarote').val(camarote);
-    modal.find('.modal-body #type_caja').val(caja);
-    modal.find('.modal-body #type_llantas').val(llantas);
-    modal.find('.modal-body #type_freno').val(freno);
-    modal.find('.modal-body #color').val(marca);
-    modal.find('.modal-body #type_ejes').val(ejes);
-    modal.find('.modal-body #ubication').val(ubication);
-    modal.find('.modal-body #state_cabezal').val(estado);
-    modal.find('.modal-body #price').val(price);
-    modal.find('.modal-body #cab_id').val(cab_id);
+    modal.find('.modal-body #precio').val(precio);
+    modal.find('.modal-body #km').val(km);
+    modal.find('.modal-body #ubicacion').val(ubicacion);
+    modal.find('.modal-body #image').val(image);
+    modal.find('.modal-body #descripcioncompleta').val(descripcioncompleta);
+    modal.find('.modal-body #pre_id').val(pre_id);
 })
 
 
@@ -124,10 +114,10 @@ $('#deleteCabezal').on('show.bs.modal', function (event) {
       
       var button = $(event.relatedTarget) 
       
-      var cab_id = button.data('cabid') 
+      var pre_id = button.data('preid') 
       var modal = $(this)
 
-      modal.find('.modal-body #cab_id').val(cab_id);
+      modal.find('.modal-body #pre_id').val(pre_id);
 })  
 
 

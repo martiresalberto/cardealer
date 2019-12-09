@@ -1,17 +1,17 @@
+
 <!-- Modal -->
-<div class="modal fade" id="Publicar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          
-          <h4 class="modal-title" id="myModalLabel">Nuevo anuncio</h4>
-        </div>
-        <form action="{{route('predio.store')}}" method="post" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <div class="modal-body">
-
-
-
+<div class="modal fade" id="editCabezal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              
+              <h4 class="modal-title" id="myModalLabel">Edit Anuncio</h4>
+            </div>
+            <form action="{{route('predio.update','test')}}" method="post" enctype="multipart/form-data">
+                {{method_field('patch')}}
+                {{csrf_field()}}
+              <div class="modal-body">
+                  <input type="hidden" name="predio_id" id="pre_id" value="">
 
 
             @foreach($users as $user)
@@ -37,9 +37,8 @@
             <div class="form-group col-md-6">
               <label for="categoria">Categoria</label>
               <select class="form-control" name="categoria">
-                <option value="">Selecciona la categoria</option>
                 @foreach($categories as $cat)
-                  <option name="categoria" id="categoria" value="{{ $cat->title }}">{{ $cat->title }}</option>
+                  <option value="{{ $cat->id }}">{{ $cat->title }}</option>
                 @endforeach  
               </select>
             </div>
@@ -47,9 +46,8 @@
             <div class="form-group col-md-6">
               <label for="condicion">Condicion</label>
               <select class="form-control" name="condicion">
-                <option value="">Selecciona una condicion</option>
                 @foreach($condicion as $con)
-                  <option name="condicion" id="condicion" value="{{ $con->titulo }}">{{ $con->titulo }}</option>
+                  <option name="condicion" id="condicion" value="{{ $con->id }}">{{ $con->titulo }}</option>
                 @endforeach  
               </select>
             </div>
@@ -98,15 +96,15 @@
 
             <div class="form-group">
               <label for="image">imgTrans</label>
-              <input type="file" name="image" id="image"> 
+              <input type="file" name="image"> 
             </div>  
 
 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Crear</button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
       </form>
     </div>
   </div>
