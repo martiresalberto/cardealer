@@ -4,76 +4,6 @@
 @section('content')
 
 
-
-<div id="rev_slider-wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classicslider1" >
-<div class="tp-banner-container">
-<div class="tp-banner" >
-<ul> 
-
-
-<li data-transition="fade" data-slotamount="7" data-masterspeed="2000" 
-    data-saveperformance="on"  data-title="Ken Burns Slide">
-    <!-- MAIN IMAGE -->
-    <img src=""  alt="2" data-lazyload="" 
-         data-bgposition="right top" data-kenburns="off" data-duration="12000" 
-         data-ease="Power0.easeInOut" data-bgfit="115" data-bgfitend="100" 
-         data-bgpositionend="center bottom">
-    <div class="tp-caption tentered_white_huge lft tp-resizeme" 
-         data-endspeed="300" data-easing="Power4.easeOut" data-start="400" data-speed="600"
-         data-y="130" data-hoffset="0" data-x="center"
-         style="">
-        <img alt="" src="img/4.png" style="width: 110px; height: 110px;">
-    </div>
-    <div class="tp-caption tentered_white_huge lft tp-resizeme" 
-         data-endspeed="300" data-easing="Power4.easeOut" data-start="400" data-speed="600"
-         data-y="272" data-hoffset="0" data-x="center"
-         style="color: #fff; text-transform: uppercase; font-size: 40px; letter-spacing: 6px;
-         font-weight: 400;">
-        Mercedes-Benz
-    </div>
-    <div class="tp-caption tentered_white_huge lfb tp-resizeme" data-endspeed="300" 
-         data-easing="Power4.easeOut" data-start="800" data-speed="600" data-y="320" 
-         data-hoffset="0" data-x="center"
-         style="color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 10px;">
-        <i class="fa fa-map-marker"> </i> Not caroliana 234 
-    </div>
-    <div class="tp-caption tentered_white_huge lft tp-resizeme" 
-         data-endspeed="300" data-easing="Power4.easeOut" data-start="400" data-speed="600"
-         data-y="365" data-hoffset="0" data-x="center"
-         style="color: #fff; text-transform: uppercase; font-size: 40px; letter-spacing: 6px;
-         font-family: Montserrat; font-weight: 400;">
-        345000 $
-    </div>
-    <a href="vehicul.html" class="pull-left tp-caption lfb tp-resizeme rs-parallaxlevel-0"
-       data-x="center"
-       data-y="420"
-       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;
-       scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-       data-speed="500"
-       data-start="1200"
-       data-easing="Power3.easeInOut"
-       data-splitin="none"
-       data-splitout="none"
-       data-elementdelay="0.1"
-       data-endelementdelay="0.1"
-       data-linktoslide="next"
-       style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;padding:15px 28px;
-       color: #fff;text-transform: uppercase;
-       border: none; background:#000;
-       font-size: 12px; letter-spacing: 3px;
-       font-family: Montserrat; border-radius: 0px;
-       display: table; transition: .4s;">More Details</a>
-
-</li> 
-
-
-
-</ul>
-<div class="tp-bannertimer"></div>
-</div>
-</div>
-</div><!-- END REVOLUTION SLIDER -->
-
 <section class="horizontal-search">
 <div class="container">
 <h1 class="nocontent outline">--- Search form  ---</h1>
@@ -165,7 +95,7 @@
 </div>
 </section>
 
-{{-- <section class="block remove-top">
+<section class="block remove-top">
 <div class="container">
 <div class="row">
 <div class="col-md-12">
@@ -175,19 +105,13 @@
 </div>
 <div class="vehiculs-sec">
     <div class="carousel-prop">
-@foreach($vehiculos_recientes as $res)       
+@foreach($predio as $res)       
         <div class="vehiculs-box">
             <div class="vehiculs-thumb">
-                <img src="{{ Storage::url($res->imgTrans) }}" alt=""/>
-                 <span class="spn-status">{{$res->condicion_id}}</span>
-                <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
-                <div class="user-preview">
-                    <a class="col" href="agent.html">
-                         @if($res->user_id)
-                        <img alt="{{$res->user->name}}" class="avatar avatar-small" src="">
-                         @endif
-                    </a> 
-                </div>
+                <img src="{{ Storage::url($res->image) }}" alt=""/>
+                 {{-- <span class="spn-status">{{$res->condicion}}</span> --}}
+                 <span class="spn-save"> <i class="ti ti-heart"></i> </span>    
+                
                 <a class="proeprty-sh-more" href=""><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
                 <p class="car-info-smal">
                     {{$res->titulo}}<br>
@@ -202,7 +126,7 @@
 </div>
 </div>
 </div>
-</section> --}}
+</section>
 
 <section class="block">
 <div style="background: url(img/call-to-action-bg.jpg) repeat scroll 50% 422.28px transparent; background-attachment: fixed;" class="parallax scrolly-invisible  blackish"></div><!-- PARALLAX BACKGROUND IMAGE -->	
@@ -229,31 +153,33 @@
 <div class="col-md-12">
 <div class="vehiculs-sec">
     <div class="row">   
-      
-       
+   
+        @foreach ( $featured as $fea )    
+        
         <div class="col-md-4">
             <div class="vehiculs-box">
                 <div class="vehiculs-thumb">
-                    <img src="" alt="" />
-                    <span class="spn-status"> Semi-New </span>
+                    <img src="{{ Storage::url($fea->image) }}" alt="" />
+                    <span class="spn-status"> {{$fea->condicion}} </span>
                     <span class="spn-save"> <i class="ti ti-heart"></i> </span>
 
                     <div class="user-preview">
-                        <a class="col" href="agent.html">
-                            <img alt="Camilė" class="avatar avatar-small" src="img/4.png" title="Camilė">
+                        <a class="col" href="">
+                        <img alt="Camilė" class="avatar avatar-small" src="img/4.png" title="{{$fea->usuario}}">
                         </a> 
                     </div> 
-                    <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+                    <a class="proeprty-sh-more" 
+                       href=""><i 
+                       class="fa fa-angle-double-right"> 
+                       </i><i class="fa fa-angle-double-right"> </i></a>
                     <p class="car-info-smal">
-                        Registration 2010<br>
-                        3.0 Diesel<br>
-                        230 HP<br>
-                        Body Coupe<br>
-                        80 000 Miles
+
+                    Registration {{$fea->created_at}}<br>
+                    {{$fea->km}}
                     </p>
                 </div>
-                <h3><a href="vehicul.html" title="">Mercedes-Benz</a></h3>
-                <span class="price">$444000</span>
+            <h3><a href="vehicul.html" title="">{{$fea->titulo}}</a></h3>
+            <span class="price">${{$fea->precio}}</span>
                 <span class="rate-it">
                     <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
                     <i title="nice" class="ti ti-star  star-on-png"></i>&nbsp;
@@ -264,7 +190,8 @@
             </div><!-- prop Box -->
         </div>                                
         
-
+        @endforeach
+    
     </div>
 </div>
 </div>

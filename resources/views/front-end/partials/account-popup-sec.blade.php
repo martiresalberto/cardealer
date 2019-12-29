@@ -6,11 +6,9 @@
         <div class="col-md-6">
             <div class="account-user">
                 <div class="logo">
-                    <a href="#" title="">
-                        <i class="fa fa-get-pocket"></i>
-                        <span>KwitaraCars</span>
-                        <strong>SELL VEHICULS</strong>
-                    </a>
+                       <i class="fa fa-get-pocket"></i>
+                       <span>KwitaraCars</span>
+                       <strong>SELL VEHICULS</strong>
                 </div><!-- LOGO -->
                 
                 <form method="POST" action="{{ route('login') }}">

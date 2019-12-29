@@ -16,7 +16,7 @@
 <div class="menu">
 <div class="container">
     <div class="logo">
-        <a href="{{ url('/') }}" title="">
+        <a>
             <i class="fa fa-get-pocket"></i>
             <span>CarDealer</span>
             <strong>SELL VEHICULS</strong>

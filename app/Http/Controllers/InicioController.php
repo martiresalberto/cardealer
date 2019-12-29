@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Predio;
 use Illuminate\Http\Request;
+use App\Predio;
+use App\Category;
 
 class InicioController extends Controller
 {
@@ -16,9 +17,12 @@ class InicioController extends Controller
     public function index()
     {
 
-        // $vehiculos_recientes = Predio::whereMonth('created_at', '06')->get();
-        // $vehiculos_recientes = Predio::all();
+        $predio = Predio::whereMonth('created_at', '12')->get();
+        $featured = Predio::whereYear('updated_at', '2019')
+            ->get();
 
-        return view('Front-end.index', compact('vehiculos_recientes'));
+        // dd($featured);
+
+        return view('Front-end.index', compact('predio', 'featured'));
     }
 }

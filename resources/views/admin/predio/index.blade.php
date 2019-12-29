@@ -56,7 +56,7 @@
                    {{$pre->usuario}}
                 </td>
                 <td>{{$pre->titulo}}</td>
-                <td>{{$pre->categoria}}</td>
+                <td>{{ $pre->category_id ?? 'categoria not found' }}</td>
                 <td>{{$pre->precio}}</td>
                 <td>{{$pre->modelo}}</td>
                 <td>{{$pre->km}}</td>
