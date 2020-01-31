@@ -55,7 +55,7 @@
 <script src="{{ asset('js/jquery-1.10.2.min.js') }}"></script><!-- Jquery -->
 
 
-<script src="{{ asset('js/bootstrap.min.js') }}"></script><!-- Bootstrap -->
+<script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script><!-- Owl Carousal -->
 <script src="{{ asset('js/html5lightbox.js') }}"></script><!-- HTML -->
 <script src="{{ asset('js/scrolly.js') }}"></script><!-- Parallax -->

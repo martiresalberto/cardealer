@@ -85,6 +85,29 @@ $('#delete').on('show.bs.modal', function (event) {
 })  
 
 
+$('#editCondicion').on('show.bs.modal', function (event) {
+    
+    var button = $(event.relatedTarget)
+    
+    var titulo = button.data('mytitulo') 
+    var con_id = button.data('conid') 
+    var modal = $(this)
+
+    modal.find('.modal-body #titulo').val(titulo);
+    modal.find('.modal-body #con_id').val(con_id);
+})
+
+$('#deleteCondicion').on('show.bs.modal', function (event) {
+      
+      var button = $(event.relatedTarget) 
+      
+      var con_id = button.data('conid') 
+      var modal = $(this)
+
+      modal.find('.modal-body #con_id').val(con_id);
+})  
+
+
 $('#editCabezal').on('show.bs.modal', function (event) {
     
     var button = $(event.relatedTarget)
@@ -121,36 +144,6 @@ $('#deleteCabezal').on('show.bs.modal', function (event) {
 })  
 
 
-$('#editAgent').on('show.bs.modal', function (event) {
-    
-    var button = $(event.relatedTarget)
-    
-    var name = button.data('name') 
-    var description = button.data('description') 
-    var url_face = button.data('url_face') 
-    var url_twuiter = button.data('url_twuiter') 
-    var url_google = button.data('url_google') 
-    var age_id = button.data('ageid') 
-    var modal = $(this)
-
-    modal.find('.modal-body #name_agente').val(name);
-    modal.find('.modal-body #description').val(description);
-    modal.find('.modal-body #urlFace').val(url_face);
-    modal.find('.modal-body #urlTwuiter').val(url_twuiter);
-    modal.find('.modal-body #urlGoogle').val(url_google);
-    modal.find('.modal-body #age_id').val(age_id);
-})
-
-
-$('#deleteAgent').on('show.bs.modal', function (event) {
-      
-      var button = $(event.relatedTarget) 
-      
-      var age_id = button.data('ageid') 
-      var modal = $(this)
-
-      modal.find('.modal-body #age_id').val(age_id);
-}) 
  
 </script>
 

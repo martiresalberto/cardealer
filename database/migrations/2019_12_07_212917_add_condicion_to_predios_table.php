@@ -14,7 +14,7 @@ class AddCondicionToPrediosTable extends Migration
     public function up()
     {
         Schema::table('predios', function (Blueprint $table) {
-            $table->integer('condicion')->after('titulo');
+            $table->string('condicion')->after('titulo');
         });
     }
 

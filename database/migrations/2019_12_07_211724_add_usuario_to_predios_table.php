@@ -14,7 +14,7 @@ class AddUsuarioToPrediosTable extends Migration
     public function up()
     {
         Schema::table('predios', function (Blueprint $table) {
-            $table->integer('usuario')->after('titulo');
+            $table->string('usuario')->after('titulo');
         });
     }
 

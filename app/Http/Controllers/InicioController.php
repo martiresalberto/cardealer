@@ -17,11 +17,11 @@ class InicioController extends Controller
     public function index()
     {
 
-        $predio = Predio::whereMonth('created_at', '12')->get();
-        $featured = Predio::whereYear('updated_at', '2019')
+        $predio = Predio::whereMonth('created_at', '1')->get();
+        $featured = Predio::whereYear('updated_at', '2020')
             ->get();
 
-        // dd($featured);
+        // dd($predio);
 
         return view('Front-end.index', compact('predio', 'featured'));
     }

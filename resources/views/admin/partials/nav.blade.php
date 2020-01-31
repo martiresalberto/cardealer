@@ -68,6 +68,14 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ url('condicion') }}" class="nav-link">
+              <i class="nav-icon fas fa-list red"></i>
+               <p>
+                Condicion
+               </p>
+            </a>
+          </li>
          
           <li class="nav-item">
             <a href="{{ url('users') }}" class="nav-link">

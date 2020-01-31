@@ -15,7 +15,9 @@ class CreateCondicionsTable extends Migration
     {
         Schema::create('condicions', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->string('titulo');
+
             $table->timestamps();
         });
     }

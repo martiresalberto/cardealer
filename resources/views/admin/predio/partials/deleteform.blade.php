@@ -13,7 +13,7 @@
               <p class="text-center">
                 Estas seguro de eliminar el anuncio?
               </p>
-                  <input type="hidden" name="cabezal_id" id="cab_id" value="">
+              <input type="hidden" name="predio_id" id="pre_id" value="">
       
               </div>
               <div class="modal-footer">

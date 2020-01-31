@@ -10,7 +10,6 @@ class Condicion extends Model
 
     protected $fillable = ['titulo'];
 
-
     public function predio()
     {
         return $this->belongsTo('App\Predio');

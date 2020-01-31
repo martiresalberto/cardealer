@@ -36,13 +36,12 @@ class PredioController extends Controller
      */
     public function store(Request $request)
     {
-        $predio = Predio::create($request->all());
+
+        $predio = Auth()->user()->predios()->create($request->all());
 
         if ($request->hasFile('image')) {
             $predio->image = $request->file('image')->store('public');
         }
-
-        // dd($predio);
 
         $predio->save();
 

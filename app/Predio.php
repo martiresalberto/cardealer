@@ -8,7 +8,12 @@ class Predio extends Model
 {
     protected $table = 'predios';
 
-    protected $fillable = ['titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'image', 'categoria', 'condicion'];
+    protected $fillable = [
+        'titulo', 'usuario', 'precio',
+        'modelo', 'km', 'descripcioncompleta',
+        'ubicacion', 'image', 'categoria',
+        'condicion', 'user_id', 'condicion_id'
+    ];
 
 
     public function user()
@@ -21,7 +26,7 @@ class Predio extends Model
         return $this->belongsTo('App\Category');
     }
 
-    public function condicions()
+    public function condicion()
     {
         return $this->hasMany('App\Condicion');
     }

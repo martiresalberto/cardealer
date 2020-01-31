@@ -56,7 +56,7 @@
                    {{$pre->usuario}}
                 </td>
                 <td>{{$pre->titulo}}</td>
-                <td>{{ $pre->category_id ?? 'categoria not found' }}</td>
+                <td>{{ $pre->categoria ?? 'categoria not found' }}</td>
                 <td>{{$pre->precio}}</td>
                 <td>{{$pre->modelo}}</td>
                 <td>{{$pre->km}}</td>
@@ -82,7 +82,7 @@
                 </td>
                 <td>
                   <button class="btn btn-danger" 
-                  data-cabid={{$pre->id}} 
+                  data-preid={{$pre->id}} 
                   data-toggle="modal" 
                   data-target="#deleteCabezal">Delete</button>
                 </td>
