@@ -8,10 +8,10 @@ class Condicion extends Model
 {
     protected $table = 'condicions';
 
-    protected $fillable = ['titulo'];
+    protected $fillable = ['titulo', 'user_id'];
 
-    public function predio()
+    public function user()
     {
-        return $this->belongsTo('App\Predio');
+        return $this->belongsTo('App\User');
     }
 }

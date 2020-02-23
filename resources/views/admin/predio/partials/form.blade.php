@@ -10,10 +10,6 @@
             {{csrf_field()}}
             <div class="modal-body">
 
-
-
-
-
             @foreach($users as $user)
 
             <div class="form-row">
@@ -97,8 +93,8 @@
             </div>  
 
             <div class="form-group">
-              <label for="image">imgTrans</label>
-              <input type="file" name="image" id="image"> 
+              <label for="url">Imagenes</label>
+              <input type="file" name="url[]" multiple="multiple"> 
             </div>  
 
 

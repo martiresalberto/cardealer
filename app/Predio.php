@@ -11,7 +11,7 @@ class Predio extends Model
     protected $fillable = [
         'titulo', 'usuario', 'precio',
         'modelo', 'km', 'descripcioncompleta',
-        'ubicacion', 'image', 'categoria',
+        'ubicacion', 'categoria',
         'condicion', 'user_id', 'condicion_id'
     ];
 
@@ -26,8 +26,8 @@ class Predio extends Model
         return $this->belongsTo('App\Category');
     }
 
-    public function condicion()
+    public function files()
     {
-        return $this->hasMany('App\Condicion');
+        return $this->hasMany('App\File', 'predio_id');
     }
 }

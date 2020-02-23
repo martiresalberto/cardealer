@@ -36,7 +36,6 @@
               <th>precio</th>
               <th>modelo</th>
               <th>km</th>
-              <th>descripcion</th>
               <th>imagen</th>
               <th>edit</th>
               <th>delete</th>
@@ -60,9 +59,8 @@
                 <td>{{$pre->precio}}</td>
                 <td>{{$pre->modelo}}</td>
                 <td>{{$pre->km}}</td>
-                <td>{{$pre->descripcioncompleta}}</td>
                 <td>
-                  <img width="70px" src="{{ Storage::url($pre->image) }}" alt=""/>
+                  <img width="70px" src="{{ Storage::url($pre->files[0]->url) }}" alt=""/>
                 </td>
                  
                 <td>  

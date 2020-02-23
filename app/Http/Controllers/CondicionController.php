@@ -31,9 +31,10 @@ class CondicionController extends Controller
     public function store(Request $request)
     {
 
-        $condicion = Condicion::create($request->all());
+        // $condicion = Condicion::create($request->all());
+        auth()->user()->condicions()->create($request->all());
 
-        $condicion->save();
+        // $condicion->save();
 
         return back();
     }

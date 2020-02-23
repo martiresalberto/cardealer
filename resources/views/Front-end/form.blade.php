@@ -1,6 +1,6 @@
-@foreach($predio as $pre )
+{{-- @foreach($predios as $pre ) --}}
   <!-- Modal -->
-  <div class="modal fade" id="predio{{$pre->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="predio{{$predio->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         {{-- <div class="modal-header">
@@ -15,46 +15,46 @@
              <div class="row mt-5">
                 <!--Grid column-->
                 <div class="col-md-5">
-                 <img src="{{ Storage::url($pre->image) }}" width="400px" class="img-fluid" alt="">
+                 <img src="" width="400px" class="img-fluid" alt="">
                 </div>
     
                 <div class="col-md-2">
                   <div class="col">
-                    <img src="{{ Storage::url($pre->image) }}" width="80px" class="img-fluid" alt="">
+                    <img src="" width="80px" class="img-fluid" alt="">
                   </div>
                   <br>
                   <div class="col">
-                    <img src="{{ Storage::url($pre->image) }}" width="80px" class="img-fluid" alt="">
+                    <img src="" width="80px" class="img-fluid" alt="">
                   </div>
                   <br>
                   <div class="col">
-                    <img src="{{ Storage::url($pre->image) }}" width="80px" class="img-fluid" alt="">
+                    <img src="" width="80px" class="img-fluid" alt="">
                   </div>
                   <br>
                   <div class="col">
-                    <img src="{{ Storage::url($pre->image) }}" width="80px" class="img-fluid" alt="">
+                    <img src="" width="80px" class="img-fluid" alt="">
                   </div>
                   <br>
-                </div>  
+                </div>  ,
                 <!--Grid column-->
                 <div class="col-md-3">
 
                   <span class="badge badge-pill badge-secondary">
-                    {{$pre->condicion}}
+                    {{$predio->condicion}}
                   </span>
 
                    <h4>
-                       {{$pre->titulo}}
+                       {{$predio->titulo}}
                     </h4>
                 
                     <span>Descripcion</span>
                     <br>
                     <p>
-                       {{$pre->descripcioncompleta}}
+                       {{$predio->descripcioncompleta}}
                     </p>
                 
                     <p>
-                      <span>Q{{$pre->precio}}</span>
+                      <span>Q{{$predio->precio}}</span>
                     </p>
                 
                     <!--Grid column-->
@@ -72,4 +72,4 @@
     </div>
   </div>
 
-@endforeach  
+{{-- @endforeach   --}}

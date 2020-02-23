@@ -25,7 +25,6 @@ class CreatePrediosTable extends Migration
             $table->string('km');
             $table->longText('descripcioncompleta');
             $table->string('ubicacion');
-            $table->string('image');
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')

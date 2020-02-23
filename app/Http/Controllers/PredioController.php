@@ -7,6 +7,8 @@ use App\Predio;
 use App\Category;
 use App\User;
 use App\Condicion;
+use App\File;
+use Illuminate\Support\Facades\Auth;
 
 class PredioController extends Controller
 {
@@ -39,11 +41,15 @@ class PredioController extends Controller
 
         $predio = Auth()->user()->predios()->create($request->all());
 
-        if ($request->hasFile('image')) {
-            $predio->image = $request->file('image')->store('public');
-        }
+        foreach ($request->url as $photo) {
 
-        $predio->save();
+            $filename = $photo->store('public');
+
+            File::create([
+                'predio_id' => $predio->id,
+                'url' => $filename
+            ]);
+        }
 
         return back();
     }
@@ -60,10 +66,6 @@ class PredioController extends Controller
         $predio = Predio::findOrFail($request->predio_id);
 
         $predio->update($request->all());
-
-        if ($request->hasFile('image')) {
-            $predio->image = $request->file('image')->store('public');
-        }
 
         // dd($predio);
 

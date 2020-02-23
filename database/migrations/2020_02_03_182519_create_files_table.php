@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCondicionsTable extends Migration
+class CreateFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,12 @@ class CreateCondicionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('condicions', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('user_id')->unsigned();
+            $table->unsignedinteger('predio_id');
 
-
-            $table->string('titulo');
-
-            $table->foreign('user_id')->references('id')->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-
+            $table->string('url');
 
             $table->timestamps();
         });
@@ -37,6 +31,6 @@ class CreateCondicionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('condicions');
+        Schema::dropIfExists('files');
     }
 }
