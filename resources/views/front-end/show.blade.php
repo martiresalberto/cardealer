@@ -3,38 +3,36 @@
 
 @section('head')
 
- @parent
+@parent
 
- <link type="text/css" rel="stylesheet" href="{{ asset('css/lightslider.css') }}" />                  
+<link type="text/css" rel="stylesheet" href="{{ asset('css/lightslider.css') }}" />                  
 
 @stop
 
 @section('Script')
 
- @parent
+@parent
 
- <script src="{{ asset('js/lightslider.js') }}"></script>
+<script src="{{ asset('js/lightslider.js') }}"></script>
 
- <script>
-
- $(document).ready(function () {
-
+<script>
+$(document).ready(function () {
 $('#image-gallery').lightSlider({
 gallery: true,
 item: 1,
 thumbItem: 9,
 slideMargin: 0,
-speed: 2000,
-auto: true,
+speed: 6000,
+auto: false,
 loop: true,
 onSliderLoad: function () {
 $('#image-gallery').removeClass('cS-hidden');
 }
 });
- });
- </script>
+});
+</script>
 
- <script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function () {
 "use strict";
 $(".related-vehiculs-items").owlCarousel({
@@ -48,23 +46,23 @@ marging: 30,
 items: 4,
 responsiveClass: true,
 responsive: {
-    0: {
-        items: 1,
-        nav: false
-    },
-    600: {
-        items: 2,
-        nav: false
-    },
-    1000: {
-        items: 3,
-        nav: true,
-        loop: false
-    }
+0: {
+items: 1,
+nav: false
+},
+600: {
+items: 2,
+nav: false
+},
+1000: {
+items: 3,
+nav: true,
+loop: false
+}
 }
 });
 });
- </script>
+</script>
 
 @stop
 
@@ -72,105 +70,93 @@ responsive: {
 
 
 <div class="inner-head overlap" style="margin-top: 1px;">
-    <div style="background: url(/img/portadaAdmin.jpg) repeat scroll 50% 333px transparent;" class="parallax scrolly-invisible"></div><!-- PARALLAX BACKGROUND IMAGE --> 
-    <div class="container">
-        <div class="inner-content">
-            <span><i class="ti ti-home"></i></span>
-            <h2>TransVentas</h2>
-            <ul>
-            <li><a href="{{ url('/') }}" title="">Inicio</a></li>
+<div style="background: url(/img/parallax1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible"></div><!-- PARALLAX BACKGROUND IMAGE --> 
+<div class="container">
+<div class="inner-content">
+    <span><i class="ti ti-home"></i></span>
+    <h2>TransVentas</h2>
+    <ul>
+        <li><a href="{{ url('/') }}" title="">Inicio</a></li>
+    </ul>
+</div>
+</div>
+</div><!-- inner Head -->
+
+<section class="block">
+<div class="container">
+<div class="row">
+<div class="col-md-12"> 
+<div class="row">
+<div class="col-md-8 column">
+<div class="single-post-sec">
+<div class="blog-post vehicul-post">
+<div class="vehicul-gallery"> 
+    <div class="light-slide-item">  
+        <div class="favorite-and-print"> 
+            
+            
+
+            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                
+                @foreach ($files as $files)
+                <li data-thumb="{{ Storage::url($files->url) }}" with="300">
+                    <img src="{{ Storage::url($files->url) }}" alt="KwitaraCars" />
+                </li>
+                @endforeach  
+                        
+                                                    
             </ul>
         </div>
     </div>
-</div><!-- inner Head -->
+</div> 
 
+<h1>Price : Q{{ $predios->precio }}</h1>
 
-    
+<div class="row">
+    <div class="col-md-5">
+        <div class="vehicul-detail">
 
-<section class="block">
-    <div class="container">
+            <div class="detail-field row" >
+                <span class="col-xs-6 col-md-5 detail-field-label">Marca</span>
+            <span class="col-xs-6 col-md-7 detail-field-value"><a href="#" rel="tag">{{ $predios->titulo }}</a></span>
+                <span class="col-xs-6 col-md-5 detail-field-label">Modelo</span>
+            <span class="col-xs-6 col-md-7 detail-field-value"><a href="#" rel="tag">{{ $predios->modelo }}</a></span>
+                <span class="col-xs-6 col-md-5 detail-field-label">Tipo de Vehiculo</span>
+            <span class="col-xs-6 col-md-7 detail-field-value"><a href="#" rel="tag">{{ $predios->categoria }}</a></span>
+                <span class="col-xs-6 col-md-5 detail-field-label">Condicion</span>
+                <span class="col-xs-6 col-md-7 detail-field-value">
+                <span class="amount">{{ $predios->condicion }}</span> 
+                </span>
+                <span class="col-xs-6 col-md-5 detail-field-label">Kilometraje</span>
+                <span class="col-xs-6 col-md-7 detail-field-value">{{ $predios->km }} KM</span>
+                                                
+                <span class="col-xs-6 col-md-5 detail-field-label">Ubicacion</span>
+            <span class="col-xs-6 col-md-7 detail-field-value">{{ $predios->ubicacion }}</span>                                                        
+            </div>
 
-
-        <div class="row">
-            <div class="col-md-12"> 
-                <div class="row">
-            <div class="col-md-8 column">
-                <div class="single-post-sec">
-                 @foreach ($predios as $predio)
-                    <div class="blog-post vehicul-post">
-                          
-                        <div class="vehicul-gallery"> 
-                            <div class="light-slide-item">  
-                                <div class="favorite-and-print"> 
-                                    <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        
-                                    @foreach ($predio->files as $imagenes)
-                                    <li data-thumb="{{ Storage::url($imagenes->url) }}"> 
-                                    <img src="{{ Storage::url($imagenes->url) }}" width="600px" alt="{{$imagenes->url}}" />
-                                    </li>                                
-                                    @endforeach 
-                                         
-                                    
-                                    </ul>
-                                </div>
-                            </div>
-                        </div> 
-
-                        <h1>Price : {{$predio->precio}}Q</h1>
-                       
-    
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="vehicul-detail">
-
-                                    <div class="detail-field row" >
-                                        <span class="col-xs-6 col-md-5 detail-field-label">Titulo</span>
-                                    <span class="col-xs-6 col-md-7 detail-field-value">{{ $predio->titulo }}</span>
-                                        <span class="col-xs-6 col-md-5 detail-field-label">Modelo</span>
-                                    <span class="col-xs-6 col-md-7 detail-field-value">{{$predio->modelo}}</span>
-                                        <span class="col-xs-6 col-md-5 detail-field-label">Condicion</span>
-                                    <span class="col-xs-6 col-md-7 detail-field-value">{{$predio->condicion}}</span>
-                                        <span class="col-xs-6 col-md-5 detail-field-label">Color</span>
-                                        <span class="col-xs-6 col-md-7 detail-field-value">
-                                            <span class="amount">Red</span> 
-                                        </span>
-                                        <span class="col-xs-6 col-md-5 detail-field-label">Millaje</span>
-                                    <span class="col-xs-6 col-md-7 detail-field-value">{{$predio->km}}</span>
-                                        
-                                        
-                                        <span class="col-xs-6 col-md-5 detail-field-label">fuel</span>
-                                        <span class="col-xs-6 col-md-7 detail-field-value">Diesel</span>
-                                        
-                                        <span class="col-xs-6 col-md-5 detail-field-label">Places</span>
-                                        <span class="col-xs-6 col-md-7 detail-field-value">5</span>                                                        
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                            <p>{{ $predio->descripcioncompleta }}</p>
-                            </div>
-                        </div>
-{{-- <div class="vehicul-video">
-    <div class="heading3">
-        <h2>vehicul Video </h2> 
+        </div>
     </div>
-    <iframe height="400" src="https://www.youtube.com/embed/rlasf0cUfzU" allowfullscreen></iframe>
-</div> --}}
-                  </div><!-- Blog Post -->
-                @endforeach
-
-                </div><!-- Blog POst Sec -->
+    <div class="col-md-7">
+    <p>{{ $predios->descripcioncompleta }}</p>
+    </div>
 </div>
+                
+
+</div><!-- Blog Post -->
+</div><!-- Blog POst Sec -->
+</div>
+
+
 
 <aside class="col-md-4 column">
     <div class="agent_bg_widget widget"> 
+        
         <div class="agent_widget">
             <div class="agent_pic">
                 <a href="agent.html" title="">
                     <img src="/img/demo/man1.jpg" alt="" />
                     <h3 class="nocontent outline">--- document outline needed 3 ---</h3>
-                    <h4>Smith forbes</h4> 
+                <h4>{{ $predios->usuario }}</h4> 
                 </a>
             </div>   
             <div class="agent_social">
@@ -183,10 +169,11 @@ responsive: {
                 <i class="fa fa-phone"> </i> +1 9090909090 
             </span>
             <span>
-                <i class="fa fa-envelope"> </i> agent@company.com
+                <i class="fa fa-envelope"> </i> {{ $predios->user->email }}
             </span>
             <a href="agent.html"  title="" class="btn contact-agent">Find more</a>                                        
         </div>
+
     </div><!-- Follow Widget -->
 
     <div class="search_widget widget">
@@ -212,7 +199,7 @@ responsive: {
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="form-group col-md-12">
                             <div class="label-select">  
                                 <select class="form-control" name="anymodule">
@@ -228,7 +215,7 @@ responsive: {
                                 </select>
                             </div>
                         </div>  
-                        
+
                         <div class="form-group col-md-12">
                             <div class="label-select">
                                 <select class="form-control" name="s_location"> 
@@ -241,7 +228,7 @@ responsive: {
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="form-group col-md-12">
                             <div class="label-select"> 
                                 <select class="form-control" name="s_statu">
@@ -253,7 +240,19 @@ responsive: {
                                 </select>
                             </div>
                         </div> 
-                                                                
+
+                        <div class="form-group col-md-12">
+                            <span class="gprice-label">Price Range</span>
+                            <input type="text" class="span2" value="" data-slider-min="0" 
+                                    data-slider-max="60000" data-slider-step="5" 
+                                    data-slider-value="[0,60000]" id="price-range" >
+                        </div>
+                        <div class="form-group col-md-12">
+                            <span class="garea-label">Mileage Range</span> 
+                            <input type="text" class="span2" value="" data-slider-min="0" 
+                                    data-slider-max="60000" data-slider-step="5" 
+                                    data-slider-value="[50,60000]" id="vehicul-geo" >
+                        </div>                                            
                     </div> 
                 </div>
                 <div class="search-form-submit">
@@ -264,12 +263,13 @@ responsive: {
     </div><!-- Category Widget -->
 </aside>
 
-</div>
 
+
+</div>
 
 <div class="related-vehiculs-">
     <div class="heading3">
-        <h3>VEHICULOS RELACIONADOS</h3>
+        <h3>RELATED VEHICULS</h3>
         <span>Lorem ipsum dolor amet</span>
     </div>
     <div class="related">
@@ -298,16 +298,133 @@ responsive: {
                     <span class="price">$340000</span>
                 </div>
             </div> 
+            <div class="item">
+                <div class="vehiculs-box">
+                    <div class="vehiculs-thumb">
+                        <img src="/img/demo/vehicul1.jpg" alt="" /> 
+                        <span class="spn-status"> Damaged</span>
+                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
+                        <div class="user-preview">
+                            <a class="col" href="agent.html">
+                                <img alt="Camilė" class="avatar avatar-small" src="/img/4.png" title="Camilė">
+                            </a> 
+                        </div>
+                        <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+                        <p class="car-info-smal">
+                            Registration 2010<br>
+                            3.0 Diesel<br>
+                            230 HP<br>
+                            Body Coupe<br>
+                            80 000 Miles
+                        </p>
+                    </div>
+                    <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
+                    <span class="price">$340000</span>
+                </div>
+            </div> 
+            <div class="item">
+                <div class="vehiculs-box">
+                    <div class="vehiculs-thumb">
+                        <img src="/img/demo/vehicul1.jpg" alt="" /> 
+                        <span class="spn-status"> Damaged</span>
+                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
+                        <div class="user-preview">
+                            <a class="col" href="agent.html">
+                                <img alt="Camilė" class="avatar avatar-small" src="/img/4.png" title="Camilė">
+                            </a> 
+                        </div>
+                        <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+                        <p class="car-info-smal">
+                            Registration 2010<br>
+                            3.0 Diesel<br>
+                            230 HP<br>
+                            Body Coupe<br>
+                            80 000 Miles
+                        </p>
+                    </div>
+                    <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
+                    <span class="price">$340000</span>
+                </div>
+            </div> 
+            <div class="item">
+                <div class="vehiculs-box">
+                    <div class="vehiculs-thumb">
+                        <img src="/img/demo/vehicul1.jpg" alt="" /> 
+                        <span class="spn-status"> Damaged</span>
+                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
+                        <div class="user-preview">
+                            <a class="col" href="agent.html">
+                                <img alt="Camilė" class="avatar avatar-small" src="/img/4.png" title="Camilė">
+                            </a> 
+                        </div>
+                        <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+                        <p class="car-info-smal">
+                            Registration 2010<br>
+                            3.0 Diesel<br>
+                            230 HP<br>
+                            Body Coupe<br>
+                            80 000 Miles
+                        </p>
+                    </div>
+                    <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
+                    <span class="price">$340000</span>
+                </div>
+            </div> 
+            <div class="item">
+                <div class="vehiculs-box">
+                    <div class="vehiculs-thumb">
+                        <img src="/img/demo/vehicul1.jpg" alt="" /> 
+                        <span class="spn-status"> Damaged</span>
+                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
+                        <div class="user-preview">
+                            <a class="col" href="agent.html">
+                                <img alt="Camilė" class="avatar avatar-small" src="/img/4.png" title="Camilė">
+                            </a> 
+                        </div>
+                        <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+                        <p class="car-info-smal">
+                            Registration 2010<br>
+                            3.0 Diesel<br>
+                            230 HP<br>
+                            Body Coupe<br>
+                            80 000 Miles
+                        </p>
+                    </div>
+                    <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
+                    <span class="price">$340000</span>
+                </div>
+            </div> 
+            <div class="item">
+                <div class="vehiculs-box">
+                    <div class="vehiculs-thumb">
+                        <img src="/img/demo/vehicul1.jpg" alt="" /> 
+                        <span class="spn-status"> Damaged</span>
+                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
+                        <div class="user-preview">
+                            <a class="col" href="agent.html">
+                                <img alt="Camilė" class="avatar avatar-small" src="/img/4.png" title="Camilė">
+                            </a> 
+                        </div>
+                        <a class="proeprty-sh-more" href="vehicul.html"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+                        <p class="car-info-smal">
+                            Registration 2010<br>
+                            3.0 Diesel<br>
+                            230 HP<br>
+                            Body Coupe<br>
+                            80 000 Miles
+                        </p>
+                    </div>
+                    <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
+                    <span class="price">$340000</span>
+                </div>
+            </div> 
         </div>
     </div>
 </div><!-- Related Posts -->
-        
 
 </div>
 </div>
 </div>
 </section>
 
-
 @endsection
-

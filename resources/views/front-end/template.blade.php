@@ -22,7 +22,7 @@
 <!-- REVOLUTION STYLE SHEETS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('js/rs-plugin/css/settings.css') }}">
 
-
+<link rel="stylesheet" href="/css/app.css">
 
 @show
     

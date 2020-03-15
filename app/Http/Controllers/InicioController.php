@@ -19,10 +19,7 @@ class InicioController extends Controller
 
         $predios = Predio::with('files')->get();
 
-        // $predios = DB::table('predios')
-        //     ->join('files', 'files.id', '=', 'files.predio_id')
-        //     ->select('files.url as imagen')
-        //     ->get();
+
 
         $featured = Predio::whereYear('updated_at', '2020')
             ->get();
@@ -36,10 +33,13 @@ class InicioController extends Controller
     public function show($id)
     {
 
-        $predios = Predio::with('files')->findOrFail($id)->get();
+        $predios =  Predio::findOrFail($id);
+
+        $files = $predios->files()->get();
+
 
         // dd($predios);
 
-        return view('Front-end.show', compact('predios'));
+        return view('Front-end.show', compact('predios', 'files'));
     }
 }

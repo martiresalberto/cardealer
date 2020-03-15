@@ -1,32 +1,15 @@
 <template>
-
-<form-wizard>
-    <tab-content title="Detalles personales">
-        Primer paso
-    </tab-content>
-    <tab-content title="Información adicional">
-        Segundo paso
-    </tab-content>
-    <tab-content title="Verificación">
-        Tercer paso
-    </tab-content>
-</form-wizard>
-
+  <div class="agent_pic">
+    <a href="agent.html" title>
+      <img src="/img/demo/man1.jpg" alt />
+      <h3 class="nocontent outline">--- document outline needed 3 ---</h3>
+      <h4>Smith forbes</h4>
+    </a>
+  </div>
 </template>
 
 <script>
-
-import {FormWizard, TabContent} from 'vue-form-wizard'
-import 'vue-form-wizard/dist/vue-form-wizard.min.css'
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        },
-        components: {
-            FormWizard,
-            TabContent
-        }
-    }
+export default {};
 </script>
 
 

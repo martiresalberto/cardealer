@@ -112,7 +112,7 @@
                     <div class="col-md-4">
                         <div class="vehiculs-box">
                             <div class="vehiculs-thumb">
-                            <img src="{{ Storage::url($predio->files[0]->url) }}" alt="" />
+                            <img src="{{ Storage::url($predio->files->first()->url) }}" alt="" />
                                 <span class="spn-status"> {{$predio->condicion}} </span>
                                 <span class="spn-save"> <i class="ti ti-heart"></i> </span>
 

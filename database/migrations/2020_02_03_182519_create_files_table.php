@@ -16,9 +16,14 @@ class CreateFilesTable extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedinteger('predio_id');
+            $table->bigInteger('predio_id')->unsigned();
 
             $table->string('url');
+
+            $table->foreign('predio_id')->references('id')->on('predios')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
 
             $table->timestamps();
         });
