@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+
+
 @section('content')
 
 
@@ -7,21 +9,10 @@
     <div class="box">
       <center class="mt-3">
       <div class="box-header">
-        <h1 class="box-title" style="font-family: 'Anton', sans-serif;">Usuarios</h1>
+        <h1 class="box-title" style="font-family: 'Anton', sans-serif;">Usuarios de la pagina</h1>
       </div>
       </center> 
-          
-            <center>
-              <div class="form-group">
-                <img src="images/users.png" style="height:250px; width:400px">
-              </div>
-            </center>    
-
-         <!-- Button trigger modal -->
-      <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#usuario">
-        Add New
-      </button>
-
+            
       <div class="box-body">
         <table class="table table-responsive table-dark">
           <thead>
@@ -29,8 +20,9 @@
               <th>Nombre</th>
               <th>mail</th>
               <th>Role</th>
-              <th>edit</th>
-              <th>delete</th>
+              <th>Imagen</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
 
             </tr>
             
@@ -43,12 +35,16 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->role->name}}</td>
+                <td>
+                  <img style="width: 70px" src="{{ Storage::url($user->image)}}" alt="">
+                </td>
+
                    
                 <td>  
-                  <button class="btn btn-success" data-name="{{$user->name}}" data-mail="{{$user->mail }}" data-toggle="modal" data-target="#editUser">Edit</button>
+                  <button class="btn btn-success" data-name="{{$user->name}}" data-email="{{$user->email }}" data-userid="{{$user->id}}" data-toggle="modal" data-target="#editUser">Editar</button>
                 </td>
                 <td>
-                  <button class="btn btn-danger" data-userid={{$user->id}} data-toggle="modal" data-target="#deleteUser">Delete</button>
+                  <button class="btn btn-danger" data-userid={{$user->id}} data-toggle="modal" data-target="#deleteUser">Eliminar</button>
                 </td>
      
               </tr>
@@ -60,33 +56,15 @@
         </table>        
       </div>
 
-    </div>
-  </div>
+      {{-- <center>
+        <div class="form-group">
+          <img src="images/users.png" style="height:250px; width:400px">
+        </div>
+      </center>     --}}
 
- 
-<!-- Modal -->
-<div class="modal fade" id="usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        
-        <h4 class="modal-title" id="myModalLabel">New User</h4>
-      </div>
-      <form action="{{route('users.store')}}" method="post" enctype="multipart/form-data">
-          {{csrf_field()}}
-        <div class="modal-body">
-        
-         @include('admin.users.partials.form')
-        
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-      </form>
+
     </div>
   </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -94,7 +72,7 @@
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4 class="modal-title" id="myModalLabel">Edit Agente</h4>
+        <h4 class="modal-title" id="myModalLabel">Agregar Imagen de usuario</h4>
       </div>
       <form action="{{route('users.update','test')}}" method="post" enctype="multipart/form-data">
           {{method_field('patch')}}
@@ -104,8 +82,8 @@
             @include('admin.users.partials.form')
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Agregar imagen</button>
         </div>
       </form>
     </div>
@@ -131,8 +109,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
-          <button type="submit" class="btn btn-warning">Yes, Delete</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancelar</button>
+          <button type="submit" class="btn btn-warning">Si, Eliminar</button>
         </div>
       </form>
     </div>

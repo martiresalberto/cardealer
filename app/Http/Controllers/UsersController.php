@@ -19,15 +19,6 @@ class UsersController extends Controller
         return view('admin.users.index',compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,29 +28,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+       //
     }
 
     /**
@@ -71,7 +40,16 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $users = User::findOrFail($request->user_id);
+
+        if ($request->hasFile('image')) {
+            $users->image = $request->file('image')->store('public');
+        }
+
+        $users->update();
+
+        return back();
     }
 
     /**
@@ -80,8 +58,12 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $users = User::findOrFail($request->user_id);
+
+        $users->delete();
+
+        return back();
     }
 }

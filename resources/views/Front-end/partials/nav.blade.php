@@ -40,6 +40,13 @@
             <a href="" title="" style="text-decoration: none;">Acerca de</a>
         </li>
 
+        <li class="menu-item">
+            <a href="{{ url('login') }}" title="" style="text-decoration: none;">Iniciar secion</a>
+        </li>
+
+        <li class="menu-item">
+            <a href="{{ url('register') }}" title="" style="text-decoration: none;">Registrarce</a>
+        </li>
 
     @else    
     
@@ -49,6 +56,10 @@
         
         <li class="menu-item">
             <a href="{{ url('home') }}" title="" style="text-decoration: none;">Administrar pagina</a>
+        </li>
+
+        <li class="menu-item">
+            <a href="" title="" style="text-decoration: none;">Publicar</a>
         </li>
 
         <li>

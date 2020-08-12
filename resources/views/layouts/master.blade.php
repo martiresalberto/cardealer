@@ -19,7 +19,7 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
 
-    @include('admin.partials.nav')
+    @includeIf('admin.partials.nav')
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -56,18 +56,50 @@
 <!-- Script para mostrar datos en el modal update -->
 <script>
  
-  $('#edit').on('show.bs.modal', function (event) {
-    
-    var button = $(event.relatedTarget)
-    
-    var title = button.data('mytitle') 
-    var des = button.data('mydescription') 
-    var cat_id = button.data('catid') 
-    var modal = $(this)
+ <!-- Administracion de usuario -->
 
-    modal.find('.modal-body #title').val(title);
-    modal.find('.modal-body #des').val(des);
-    modal.find('.modal-body #cat_id').val(cat_id);
+ $('#editUser').on('show.bs.modal', function (event) {
+    
+  var button = $(event.relatedTarget)
+  
+  var name = button.data('name') 
+  var email = button.data('email') 
+  var image = button.data('image')
+  var user_id = button.data('userid') 
+  var modal = $(this)
+
+  modal.find('.modal-body #name').val(name);
+  modal.find('.modal-body #email').val(email);
+  modal.find('.modal-body #image').val(image);
+  modal.find('.modal-body #user_id').val(user_id);
+})
+
+$('#deleteUser').on('show.bs.modal', function (event) {
+      
+  var button = $(event.relatedTarget) 
+  
+  var user_id = button.data('userid') 
+  var modal = $(this)
+
+  modal.find('.modal-body #user_id').val(user_id);
+})  
+
+<!-- Administracion de usuario -->
+
+<!-- Administracion de las categorias -->
+
+$('#edit').on('show.bs.modal', function (event) {
+  
+  var button = $(event.relatedTarget)
+  
+  var title = button.data('mytitle') 
+  var des = button.data('mydescription') 
+  var cat_id = button.data('catid') 
+  var modal = $(this)
+
+  modal.find('.modal-body #title').val(title);
+  modal.find('.modal-body #des').val(des);
+  modal.find('.modal-body #cat_id').val(cat_id);
 })
 
 $('#delete').on('show.bs.modal', function (event) {
@@ -80,6 +112,10 @@ $('#delete').on('show.bs.modal', function (event) {
       modal.find('.modal-body #cat_id').val(cat_id);
 })  
 
+<!-- Administracion de las categorias -->
+
+
+<!-- Administracion de la condicion -->
 
 $('#editCondicion').on('show.bs.modal', function (event) {
     
@@ -103,6 +139,10 @@ $('#deleteCondicion').on('show.bs.modal', function (event) {
       modal.find('.modal-body #con_id').val(con_id);
 })  
 
+<!-- Administracion de la condicion -->
+
+
+<!-- Administracion de los cabezales -->
 
 $('#editCabezal').on('show.bs.modal', function (event) {
     
@@ -139,6 +179,7 @@ $('#deleteCabezal').on('show.bs.modal', function (event) {
       modal.find('.modal-body #pre_id').val(pre_id);
 })  
 
+<!-- Administracion de los cabezales -->
 
  
 </script>

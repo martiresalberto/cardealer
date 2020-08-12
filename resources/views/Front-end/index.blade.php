@@ -64,9 +64,9 @@
 <div class="row">
 <div class="col-md-12">
 <div class="vehiculs-text-bar">
-<h3>Registrate <span> y envianos </span>Mensaje ! </h3>
+<h3>Registrate <span> publica y vende  </span>tus cabezales ! </h3>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare porttitor diam<br/> a accumsan justo laoreet suscipit. Maecenas at bibendum nunc</p>
-<a href="#" title="" class="flat-btn">Joing us</a>
+<a href="#" title="" class="flat-btn">Unete a nuestra comunidad</a>
 </div>
 </div>
 </div>

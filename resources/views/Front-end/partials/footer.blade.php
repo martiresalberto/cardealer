@@ -2,7 +2,7 @@
 
 <div class="bottom-line">
 <div class="container">
-    <span>Copyright All Right Reserved 2016 <a href="#" title="">KimaroTec</a></span>
+    <span>Derechos reservados 2020 <a href="#" title="">Cardealer</a></span>
     <ul>
         <li><a title="" href="{{ url('/') }}">INICIO</a></li>
         <li><a title="" href="#">CABEZALES</a></li>
