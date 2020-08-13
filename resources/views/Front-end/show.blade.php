@@ -5,7 +5,7 @@
 
 @parent
 
-<link type="text/css" rel="stylesheet" href="{{ asset('css/lightslider.css') }}" />                  
+<link type="text/css" rel="stylesheet" href="{{ asset('css/lightslider.min.css') }}" />                  
 
 @stop
 

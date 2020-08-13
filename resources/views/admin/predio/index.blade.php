@@ -60,7 +60,7 @@
                 <td>{{$pre->modelo}}</td>
                 <td>{{$pre->km}}</td>
                 <td>
-                  <img src="{{ Storage::url($pre->files[0]->url) }}"  alt=""/>
+                  <img src="{{ Storage::url($pre->files[0]->url) }}" style="width: 60px" alt=""/>
                 </td>
                  
                 <td>  

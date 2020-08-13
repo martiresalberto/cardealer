@@ -214,7 +214,6 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
-  width:100%;
 }
 
 svg:not(:root) {
@@ -13740,7 +13739,7 @@ sup {
 }
 
 a {
-  color: #bcd8ee;
+  color: #3490dc;
   text-decoration: none;
   background-color: transparent;
 }
