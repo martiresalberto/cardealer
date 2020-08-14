@@ -33,11 +33,11 @@
         </li>
 
         <li class="menu-item">
-            <a href="" title="" style="text-decoration: none;">Contacto</a>
+            <a href="" title="" style="text-decoration: none;">Acerca de</a>
         </li>
 
         <li class="menu-item">
-            <a href="" title="" style="text-decoration: none;">Acerca de</a>
+            <a href="" title="" style="text-decoration: none;">Contacto</a>
         </li>
 
         <li class="menu-item">
@@ -59,11 +59,11 @@
         </li>
 
         <li class="menu-item">
-            <a href="" title="" style="text-decoration: none;">Contacto</a>
+            <a href="" title="" style="text-decoration: none;">Acerca de</a>
         </li>
 
         <li class="menu-item">
-            <a href="" title="" style="text-decoration: none;">Acerca de</a>
+            <a href="" title="" style="text-decoration: none;">Contacto</a>
         </li>
         
         <li class="menu-item">

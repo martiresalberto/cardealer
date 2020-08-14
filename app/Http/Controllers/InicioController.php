@@ -16,12 +16,14 @@ class InicioController extends Controller
      */
     public function index()
     {
+        
+        //cabezales de reciente ingreso 
 
         $predios = Predio::with('files')->get();
 
+        //cabezales por ingresar 
 
-
-        $featured = Predio::whereYear('updated_at', '2020')
+        $featured = Predio::whereYear('created_at', '2020')
             ->get();
 
         // dd($predios);
@@ -52,9 +54,6 @@ class InicioController extends Controller
         $predios = Predio::all();
         return view('Front-end.cabezales.index',compact('predios'));
     }
-
-
-
 
 
 }
