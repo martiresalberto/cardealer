@@ -1,11 +1,20 @@
 <?php
 
+// Rutas de la pagina usuarios
+
 Route::get('/', 'InicioController@index');
 
 Route::get('cabezal/{id}', [
     'as' => 'detalle-cabezal',
     'uses' => 'InicioController@show'
 ]);
+
+Route::get('cabezales', [
+    'as' => 'cabezales',
+    'uses' => 'InicioController@cabezales'
+]);
+
+// Admin de la pagina
 
 Route::get('/home', 'HomeController@index')->name('home');
 

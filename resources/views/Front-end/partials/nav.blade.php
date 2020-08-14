@@ -29,7 +29,7 @@
         </li>
 
         <li class="menu-item">
-            <a href="" title="" style="text-decoration: none;">Cabezales</a>
+            <a href="{{ url('cabezales') }}" title="" style="text-decoration: none;">Cabezales</a>
         </li>
 
         <li class="menu-item">
@@ -53,16 +53,24 @@
         <li class="menu-item">
             <a href="{{ url('/') }}" title="" style="text-decoration: none;">Inicio</a>
         </li>
+
+        <li class="menu-item">
+            <a href="{{ url('cabezales') }}" title="" style="text-decoration: none;">Cabezales</a>
+        </li>
+
+        <li class="menu-item">
+            <a href="" title="" style="text-decoration: none;">Contacto</a>
+        </li>
+
+        <li class="menu-item">
+            <a href="" title="" style="text-decoration: none;">Acerca de</a>
+        </li>
         
         <li class="menu-item">
             <a href="{{ url('home') }}" title="" style="text-decoration: none;">Administrar pagina</a>
         </li>
-
+        
         <li class="menu-item">
-            <a href="" title="" style="text-decoration: none;">Publicar</a>
-        </li>
-
-        <li>
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Cerrar cesion
         </a>

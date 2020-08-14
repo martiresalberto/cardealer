@@ -13785,6 +13785,8 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+  height:425px;
+  width: 550px;
 }
 
 svg {
