@@ -42,4 +42,19 @@ class InicioController extends Controller
 
         return view('Front-end.show', compact('predios', 'files'));
     }
+
+
+    // Pagina de inicio cabezales
+
+
+    public function cabezales()
+    {
+        $predios = Predio::all();
+        return view('Front-end.cabezales.index',compact('predios'));
+    }
+
+
+
+
+
 }
