@@ -74,7 +74,9 @@ loop: false
 <div class="row">
 
 <div class="col-md-12"> 
-    
+   
+{{-- Seccion de la galeria de imagenes --}}
+
  <div class="row">
   <div class="col-md-8 column">
     <div class="single-post-sec">
@@ -100,7 +102,7 @@ loop: false
 
      </div>
     </div>
-    </div>
+  </div>
 
 {{--Section de informacion de Usuario--}}
 
@@ -131,8 +133,6 @@ loop: false
 
         
 </aside>
-
-
 
 {{--  Detalles Cabezal  --}}
 

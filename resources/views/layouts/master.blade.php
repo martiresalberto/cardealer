@@ -17,76 +17,86 @@
  
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper" id="app">
 
-    @includeIf('admin.partials.nav')
+<!-- Aqui esta todo el contenido de la pagina -->
 
+<div class="wrapper">
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    
-    <!-- Main content -->
-    <div class="content">
-      <div class="container">
-        
-        
+    <!-- Aqui esta el menu de navegacion de la pagina -->
+      @includeIf('admin.partials.nav')
+    <!-- Aqui esta el menu de navegacion de la pagina -->
+
+    <!-- Todo el contenido de las subpaginas -->
+    <div class="content-wrapper">
+      
+      <div class="content">
+      
+        <div class="container">
+            
+            @yield('content')
           
-          @yield('content')
-
-     
-         
+         </div>
+      
       </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+      
+      </div>
+      <!-- Todo el contenido de las subpaginas-->
 
-
- @include('admin.partials.footer')
+      <!-- Aqui esta el footer de la pagina -->
+      @include('admin.partials.footer')
+      <!-- Aqui esta el footer de la pagina -->
 
 </div>
-<!-- ./wrapper -->
 
+<!-- Aqui esta todo el contenido de la pagina -->
+
+<!-- Script general -->
 
 <script src="{{ asset('js/app.js') }}"></script>
 
+<!-- Script general -->
 
-<!-- Script para mostrar datos en el modal update -->
 <script>
- 
- <!-- Administracion de usuario -->
-
- $('#editUser').on('show.bs.modal', function (event) {
-    
-  var button = $(event.relatedTarget)
-  
-  var name = button.data('name') 
-  var email = button.data('email') 
-  var image = button.data('image')
-  var user_id = button.data('userid') 
-  var modal = $(this)
-
-  modal.find('.modal-body #name').val(name);
-  modal.find('.modal-body #email').val(email);
-  modal.find('.modal-body #image').val(image);
-  modal.find('.modal-body #user_id').val(user_id);
-})
-
-$('#deleteUser').on('show.bs.modal', function (event) {
-      
-  var button = $(event.relatedTarget) 
-  
-  var user_id = button.data('userid') 
-  var modal = $(this)
-
-  modal.find('.modal-body #user_id').val(user_id);
-})  
 
 <!-- Administracion de usuario -->
 
+<!-- Editar de usuario -->
+
+    $('#editUser').on('show.bs.modal', function (event) {
+        
+      var button = $(event.relatedTarget)
+      
+      var name = button.data('name') 
+      var email = button.data('email') 
+      var image = button.data('image')
+      var user_id = button.data('userid') 
+      var modal = $(this)
+
+      modal.find('.modal-body #name').val(name);
+      modal.find('.modal-body #email').val(email);
+      modal.find('.modal-body #image').val(image);
+      modal.find('.modal-body #user_id').val(user_id);
+    })
+
+<!-- Editar de usuario -->
+
+<!-- Eliminar de usuario -->
+
+    $('#deleteUser').on('show.bs.modal', function (event) {
+          
+      var button = $(event.relatedTarget) 
+      
+      var user_id = button.data('userid') 
+      var modal = $(this)
+
+      modal.find('.modal-body #user_id').val(user_id);
+    })  
+
+<!-- Eliminar de usuario -->
+
 <!-- Administracion de las categorias -->
+
+<!-- Editar de categoria -->
 
 $('#edit').on('show.bs.modal', function (event) {
   
@@ -102,6 +112,10 @@ $('#edit').on('show.bs.modal', function (event) {
   modal.find('.modal-body #cat_id').val(cat_id);
 })
 
+<!-- Editar de categoria -->
+
+<!-- Eliminar de categoria -->
+
 $('#delete').on('show.bs.modal', function (event) {
       
       var button = $(event.relatedTarget) 
@@ -112,10 +126,13 @@ $('#delete').on('show.bs.modal', function (event) {
       modal.find('.modal-body #cat_id').val(cat_id);
 })  
 
+<!-- Eliminar de categoria -->
+
 <!-- Administracion de las categorias -->
 
-
 <!-- Administracion de la condicion -->
+
+<!-- Editar de condicion -->
 
 $('#editCondicion').on('show.bs.modal', function (event) {
     
@@ -129,6 +146,8 @@ $('#editCondicion').on('show.bs.modal', function (event) {
     modal.find('.modal-body #con_id').val(con_id);
 })
 
+<!-- Eliminar de condicion -->
+
 $('#deleteCondicion').on('show.bs.modal', function (event) {
       
       var button = $(event.relatedTarget) 
@@ -141,8 +160,9 @@ $('#deleteCondicion').on('show.bs.modal', function (event) {
 
 <!-- Administracion de la condicion -->
 
+<!-- Administracion de Predio -->
 
-<!-- Administracion de los cabezales -->
+<!-- Editar de predio -->
 
 $('#editCabezal').on('show.bs.modal', function (event) {
     
@@ -168,6 +188,7 @@ $('#editCabezal').on('show.bs.modal', function (event) {
     modal.find('.modal-body #pre_id').val(pre_id);
 })
 
+<!-- Eliminar predio -->
 
 $('#deleteCabezal').on('show.bs.modal', function (event) {
       

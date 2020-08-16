@@ -124,7 +124,7 @@
 .lSSlideOuter .lSPager.lSGallery img {
     display: flex;
     height: auto;
-    /* width: 100%; */
+    width: 16000px;
 }
 .lSSlideOuter .lSPager.lSGallery:before, .lSSlideOuter .lSPager.lSGallery:after {
     content: " ";
