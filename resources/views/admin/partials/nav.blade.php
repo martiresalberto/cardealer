@@ -35,8 +35,20 @@
     <div class="sidebar">
      
      <div id="app"> 
-      <userimg-component></userimg-component>      
-     </div>
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          @if (Auth::user()->image)
+           <img src="{{ asset('/storage/imagesUser/'.Auth::user()->image) }}" alt="imagen">
+          @endif
+        </div>
+        <div class="info">
+          <a href="#" class="d-block"> Usuario : {{ Auth::user()->name}}</a>
+        </div>
+      </div>
+
+    </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">

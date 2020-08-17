@@ -1937,7 +1937,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      nombre: '',
+      email: '',
+      image: '',
+      arrayUsuario: []
+    };
+  },
+  methods: {
+    listarUsuario: function listarUsuario() {
+      var me = this;
+      axios.get('/profile').then(function (response) {
+        me.arrayUsuario = response.data;
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.listarUsuario();
+  }
+});
 
 /***/ }),
 

@@ -80,6 +80,14 @@
             </form>
         </li>
 
+        <li>
+        <div class="image">
+            @if (Auth::user()->image)
+            <img src="{{ asset('/storage/imagesUser/'.Auth::user()->image) }}" width="40px" alt="imagen">
+            @endif
+        </div>
+        </li>
+
         </ul>
         
     </nav>

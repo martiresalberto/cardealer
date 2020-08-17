@@ -36,7 +36,7 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->role->name}}</td>
                 <td>
-                  <img style="width: 70px" src="{{ Storage::url($user->image)}}" alt="">
+                  <img style="width: 70px" src="{{ asset('/storage/imagesUser/'.Auth::user()->image) }}" alt="">
                 </td>
 
                    

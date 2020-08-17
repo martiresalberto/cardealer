@@ -12,7 +12,29 @@
 
 <script>
 export default {
-
+  data(){
+    return{
+       nombre : '',
+       email : '',
+       image : '',
+       arrayUsuario : []
+    }
+  },
+  methods: {
+    listarUsuario (){
+        let me=this;
+        axios.get('/profile').then(function (response) {
+            me.arrayUsuario = response.data;
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          });
+       }
+  },
+  mounted() {
+    this.listarUsuario();
+  }
 }
 </script>
 

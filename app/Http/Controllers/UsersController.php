@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Storage;
 
 class UsersController extends Controller
 {
@@ -45,10 +46,16 @@ class UsersController extends Controller
         $users = User::findOrFail($request->user_id);
 
         if ($request->hasFile('image')) {
-            $users->image = $request->file('image')->store('public');
-        }
+            $filename = $request->image->getClientOriginalName();
+            if (auth()->user()->image) {
+                
+                // dd('/public/imagesUser/' , auth()->user()->image);
+                Storage::delete('/public/imagesUser/' . auth()->user()->image);
 
-        $users->update();
+            }
+            $request->image->storeAs('imagesUser', $filename , 'public');
+            auth()->user()->update(['image' => $filename]);
+        }
 
         return back();
     }
