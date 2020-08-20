@@ -14,6 +14,11 @@ Route::get('cabezales', [
     'uses' => 'InicioController@cabezales'
 ]);
 
+Route::get('mensaje', [
+    'as' => 'mensaje',
+    'uses' => 'MensajeController@index'
+]);
+
 // Admin de la pagina
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -21,6 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UsersController');
 
 Route::get('/profile','ProfileController@index');
+
+Route::resource('/mensajes', 'MensajesController');
 
 Route::resource('category', 'CategoryController');
 

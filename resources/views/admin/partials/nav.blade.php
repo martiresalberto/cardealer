@@ -96,6 +96,16 @@
           @endauth 
 
           <li class="nav-item">
+            <a href="{{ url('/mensajes') }}" class="nav-link">
+              <i class="nav-icon fas fa-envelope red"></i>
+               <p>
+                Mensajes
+               </p>
+                <span style="width:20px; height:15px;" class="badge bg-white"> 1</span>
+            </a>
+          </li>  
+
+          <li class="nav-item">
             <a href="{{ url('predio') }}" class="nav-link">
               <i class="nav-icon fas fa-car red"></i>
                <p>
@@ -104,22 +114,13 @@
             </a>
           </li>
           
-          <li class="nav-item">
-            <a href="{{ url('/') }}" class="nav-link">
-              <i class="nav-icon fas fa-image red"></i>
-               <p>
-                Pagina de Inicio
-               </p>
-            </a>
-          </li>  
 
          <li class="nav-item">
-              <a href="{{ route('logout') }}" class="nav-link" 
-                onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                <i class="nav-icon fas fa-sign-out-alt red"></i>
-
-                Logout
+              <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="nav-icon fas fa-sign-out-alt red"></i> 
+                 <p>
+                   Salir
+                 </p>
                </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

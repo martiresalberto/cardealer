@@ -5,11 +5,11 @@
 <div class="container">
    
  
-   <center>
+   {{--  <center>
    <div class="form-group">
       <img src="images/dashboard.png" style="height:300px; width:400px">
     </div>
-   </center>
+   </center>  --}}
 
   <div class="row mt-3">
 
@@ -20,6 +20,21 @@
                 <h3><i class="nav-icon fas fa-list red"></i></h3>
 
                 <p> Categorias</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="{{ url('category') }}" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner text-center">
+                <h3><i class="nav-icon fas fa-list red"></i></h3>
+
+                <p> Condicon</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -42,6 +57,24 @@
               <a href="{{ url('users') }}" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner text-center">
+                <h3><i class="nav-icon fas fa-image"></i></h3>
+
+                <p>Mensajes</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="{{ url('/mensajes') }}" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -57,23 +90,6 @@
               <a href="{{ url('predio') }}" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner text-center">
-                <h3><i class="nav-icon fas fa-image"></i></h3>
-
-                <p>Pagina de Inicio</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="{{ url('/') }}" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
      
      </div>
    

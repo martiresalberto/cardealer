@@ -16,10 +16,6 @@
       @else
       
       <li><a title="" href="{{ url('/') }}">INICIO</a></li>
-      <li><a title="" href="#">CABEZALES</a></li>
-      <li><a title="" href="#">CONTACTO</a></li>
-      <li><a title="" href="#">ACERCADE</a></li>
-      <li><a title="" href="{{ url('home') }}">ADMINISTRACION PAGINA</a></li>
       
       <li>
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

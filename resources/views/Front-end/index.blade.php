@@ -70,7 +70,7 @@
 </div>
 </div>
 </div>
-</section>
+</section> 
 
 <section class="block">
 <div class="container">
