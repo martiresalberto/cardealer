@@ -3,7 +3,7 @@
 <div class="bottom-line">
 <div class="container">
     <span>Derechos reservados 2020 <a href="#" title="">Cardealer</a></span>
-    <ul>
+    {{--  <ul>
      @guest
      
      <li><a title="" href="{{ url('/') }}">INICIO</a></li>
@@ -27,7 +27,7 @@
       </li>
       
       @endguest  
-    </ul>
+    </ul>  --}}
 </div>
 </div>
 <a href="#" class="scrollToTop"><i class="ti ti-arrow-circle-up"></i></a>

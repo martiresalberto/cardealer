@@ -1,23 +1,51 @@
 <?php
 
-// Rutas de la pagina usuarios
+// Rutas de la pagin de inicio
 
 Route::get('/', 'InicioController@index');
 
-Route::get('cabezal/{id}', [
-    'as' => 'detalle-cabezal',
-    'uses' => 'InicioController@show'
-]);
+//Ruta pára mostrar los cabezales recietne ingreso
 
 Route::get('cabezales', [
     'as' => 'cabezales',
     'uses' => 'InicioController@cabezales'
 ]);
 
+//Rutas de detalle de cabezales reciente ingreso
+
+Route::get('cabezal/{id}', [
+    'as' => 'detalle-cabezal',
+    'uses' => 'InicioController@show'
+]);
+
+//Ruta para Acerca de 
+
+Route::get('acercade', [
+    'as' => 'acercade',
+    'uses' => 'AcercadeController@index'
+]);
+
+//Ruta para Ubicacion 
+
+Route::get('ubicacion', [
+    'as' => 'ubicacion',
+    'uses' => 'UbicacionController@index'
+]);
+
+//Ruta para enviar mensajes 
+
 Route::get('mensaje', [
     'as' => 'mensaje',
     'uses' => 'MensajeController@index'
 ]);
+
+//Ruta para mostrar los mensajes recibios
+
+Route::get('detalle-mensaje', [
+    'as' => 'detalle-mensaje',
+    'uses' => 'MensajeController@show'
+]);
+
 
 // Admin de la pagina
 

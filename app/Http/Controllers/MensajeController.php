@@ -9,5 +9,12 @@ class MensajeController extends Controller
     public function index()
     {
         return view('Front-end.mensajes.index');
-    } 
+    }
+    
+    public function show()
+    {
+        return view('Front-end.mensajes.mostrarMensajes');
+    }
+
+
 }

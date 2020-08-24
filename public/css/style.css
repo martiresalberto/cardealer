@@ -164,6 +164,12 @@ section{
     padding:100px 0;
     position:relative;
 }
+.block-mensajes{
+    float:left;
+    width:100%;
+    padding:30px 0;
+    position:relative;
+}
 .block .container{
     padding:0;
 }
