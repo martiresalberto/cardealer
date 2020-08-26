@@ -18,13 +18,6 @@ Route::get('cabezal/{id}', [
     'uses' => 'InicioController@show'
 ]);
 
-//Ruta para Acerca de 
-
-Route::get('acercade', [
-    'as' => 'acercade',
-    'uses' => 'AcercadeController@index'
-]);
-
 //Ruta para Ubicacion 
 
 Route::get('ubicacion', [

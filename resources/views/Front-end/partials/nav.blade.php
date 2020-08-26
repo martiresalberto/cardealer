@@ -34,12 +34,7 @@
                             <a href="{{ url('cabezales') }}" title="" style="text-decoration: none;">Cabezales <i
                                     class="fas fa-truck fa-lg"></i></a>
                         </li>
-
-                        <li class="menu-item">
-                            <a href="{{ url('acercade') }}" title="" style="text-decoration: none;">Acerca de <i
-                                    class="fas fa-door-open fa-lg"></i></a>
-                        </li>
-
+                       
                         <li class="menu-item">
                             <a href="{{ url('ubicacion') }}" title="" style="text-decoration: none;">Ubicacion <span
                                     style="width:20px; height:15px;"> <i class="fas fa-map-marked-alt fa-lg"></i></span></a>
