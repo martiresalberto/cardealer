@@ -112,14 +112,10 @@
                             <div class="agent_bg_widget widget">
 
                                 <div class="agent_widget">
-                                    <div class="agent_pic">
-                                        <a title="">
-                                            <img src="/img/demo/man1.jpg" alt="" />
-                                            <h3 class="nocontent outline">--- document outline needed 3 ---</h3>
-                                        </a>
+                                   <div class="agent_pic">
+                                       
                                         <h4>{{ $predios->usuario }}</h4>
                                     </div>
-
                                     <span>
                                         <i class="fa fa-phone"> </i> +1 9090909090
                                     </span>
@@ -131,7 +127,21 @@
 
                                 <br><br>
 
-                                <button type="button" class="btn btn-primary btn-lg btn-block">Enviar mensaje</button>
+                                @if (Route::has('login'))
+
+                                    <div class="form-group">
+                                        @auth
+                                            <button type="button" class="btn btn-primary btn-lg btn-block">Enviar
+                                                mensaje</button>
+                                        @else
+                                            <button type="button" class="btn btn-danger btn-lg btn-block">Registrate</button>
+                                        @endauth
+
+
+                                    </div>
+
+                                @endif
+
 
 
                         </aside>

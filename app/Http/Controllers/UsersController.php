@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Storage;
 
+
 class UsersController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('id', '=' , auth()->id())->get();
 
         return view('admin.users.index',compact('users'));
         

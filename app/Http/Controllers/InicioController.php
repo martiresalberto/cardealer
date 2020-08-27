@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Predio;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class InicioController extends Controller
@@ -26,19 +27,16 @@ class InicioController extends Controller
         $featured = Predio::whereYear('created_at', '2020')
             ->get();
 
-        // dd($predios);
-
+       
         return view('Front-end.index', compact('predios', 'featured'));
     }
 
 
     public function show($id)
     {
-
         $predios =  Predio::findOrFail($id);
 
         $files = $predios->files()->get();
-
 
         // dd($predios);
 
@@ -52,6 +50,7 @@ class InicioController extends Controller
     public function cabezales()
     {
         $predios = Predio::all();
+
         return view('Front-end.cabezales.index',compact('predios'));
     }
 

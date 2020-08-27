@@ -44,10 +44,6 @@ Route::get('detalle-mensaje', [
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('users', 'UsersController');
-
-Route::get('/profile','ProfileController@index');
-
 Route::resource('/mensajes', 'MensajesController');
 
 Route::resource('category', 'CategoryController');
@@ -55,6 +51,8 @@ Route::resource('category', 'CategoryController');
 Route::resource('condicion', 'CondicionController');
 
 Route::resource('predio', 'PredioController');
+
+Route::get('user', 'Usercontroller@index');
 
 Auth::routes();
 

@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="heading4">
                     <h2>Nuestra ubicacion</h2>
-                    <span>Colonia Venecia 2-35 zona 4 de VillaNueva </span>
+                    <span> <h3>Colonia Venecia 2-35 zona 4 de VillaNueva</h3> </span>
                 </div>
                 <div class="contact-page-sec">
                     <div class="row">

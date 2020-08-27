@@ -30,11 +30,17 @@
                                     class="fas fa-home fa-lg"></i></a>
                         </li>
 
-                        <li class="menu-item">
-                            <a href="{{ url('cabezales') }}" title="" style="text-decoration: none;">Cabezales <i
-                                    class="fas fa-truck fa-lg"></i></a>
+                        <li class="menu-item-has-children">
+                            <a href="{{ url('cabezales') }}" title="">Cabezales <i
+                                class="fas fa-truck fa-lg"></i></a>
+                            <ul>
+                                <li><a href="#" title="">Cabezales reciente ingreso </a></li>       
+                                <li><a href="#" title="">Cabezales listos para trabajar</a></li>
+                                <li><a href="#" title="">Cabezales por ingresar</a></li>                             
+                                <li><a href="#" title="">Cabezales sin garantia</a></li>              
+                            </ul>
                         </li>
-                       
+
                         <li class="menu-item">
                             <a href="{{ url('ubicacion') }}" title="" style="text-decoration: none;">Ubicacion <span
                                     style="width:20px; height:15px;"> <i class="fas fa-map-marked-alt fa-lg"></i></span></a>
@@ -57,29 +63,51 @@
                             <a href="{{ url('/') }}" title="" style="text-decoration: none;">Inicio <i
                                     class="fas fa-home fa-lg"></i></a>
                         </li>
-
-                        <li class="menu-item">
-                            <a href="{{ url('cabezales') }}" title="" style="text-decoration: none;">Cabezales <i
-                                    class="fas fa-truck fa-lg"></i></a>
+        
+                        <li class="menu-item-has-children">
+                            <a href="{{ url('cabezales') }}" title="">Cabezales <i
+                                class="fas fa-truck fa-lg"></i></a>
+                            <ul>
+                                <li><a href="#" title="">Cabezales reciente ingreso </a></li>       
+                                <li><a href="#" title="">Cabezales listos para trabajar</a></li>
+                                <li><a href="#" title="">Cabezales por ingresar</a></li>                             
+                                <li><a href="#" title="">Cabezales sin garantia</a></li>              
+                            </ul>
                         </li>
 
                         <li class="menu-item">
-                            <a href="{{ url('/mensaje') }}" title="" style="text-decoration: none;">Enviar Mensaje <i
-                                    class="fas fa-envelope fa-lg"></i></a>
+                            <a href="{{ url('detalle-mensaje') }}" title="" style="text-decoration: none;">Notificacion <span
+                                    style="width:25px; height:15px;" class="badge bg-white"><strong>4</strong></span></a>
                         </li>
 
-                        <li class="menu-item">
-                            <a href="{{ url('detalle-mensaje') }}" title="" style="text-decoration: none;">Mensajes recibidos <span
-                                    style="width:25px; height:15px;" class="badge bg-white"><strong>245</strong></span></a>
-                        </li>
-
-                        <li class="menu-item">
-                            <a href="{{ url('home') }}" title="" style="text-decoration: none;">Admin </a>
+                            
+                        <li class="menu-item-has-children">
+                            <a href="#" title="" style="text-decoration: none;"> {{ Auth::user()->name}}</a>
                             @if (Auth::user()->image)
-                                <img src="{{ asset('/storage/imagesUser/' . Auth::user()->image) }}"
-                                    style="margin-left: 1rem;" width="25px" alt="imagen">
+                            <img src="{{ asset('/storage/imagesUser/' . Auth::user()->image) }}"
+                                    style="margin-left: 1rem;" width="50px" alt="imagen">
                             @endif
+                            <ul>
+                            @if ( @auth()->user()->hasRoles(['admin']) )
+                              <li><a href="{{ url('home') }}" title="">Admin</a></li>
+                            @endif
+                              <li><a href="" title="">Mi perfil</a></li>
+
+                              <li>
+                                <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <p>
+                                  Salir
+                                </p>
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                              </li>
+                             
+                            </ul>
                         </li>
+                        
 
                     </ul>
 

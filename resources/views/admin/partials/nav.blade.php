@@ -64,7 +64,36 @@
             </a>
           </li>
 
-         @if ( @auth()->user()->hasRoles(['admin']) )
+          <li class="nav-item">
+            <a href="{{ url('/mensajes') }}" class="nav-link">
+              <i class="nav-icon fas fa-envelope red"></i>
+               <p>
+                Mi mensajes
+               </p>
+                <span style="width:20px; height:15px;" class="badge bg-white"> 1</span>
+            </a>
+          </li>  
+
+          <li class="nav-item">
+            <a href="{{ url('predio') }}" class="nav-link">
+              <i class="nav-icon fas fa-car red"></i>
+               <p>
+                Predio
+               </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url('miperfil') }}" class="nav-link">
+              <i class="nav-icon fas fa-user red"></i>
+               <p>
+                Mi perfil
+               </p>
+            </a>
+          </li>
+ 
+
+          @if ( @auth()->user()->hasRoles(['admin']) )
 
           <li class="nav-item">
             <a href="{{ url('category') }}" class="nav-link">
@@ -84,36 +113,8 @@
             </a>
           </li>
          
-          <li class="nav-item">
-            <a href="{{ url('users') }}" class="nav-link">
-              <i class="nav-icon fas fa-users red"></i>
-               <p>
-                Usuarios
-               </p>
-            </a>
-          </li>
-
-          @endauth 
-
-          <li class="nav-item">
-            <a href="{{ url('/mensajes') }}" class="nav-link">
-              <i class="nav-icon fas fa-envelope red"></i>
-               <p>
-                Mensajes
-               </p>
-                <span style="width:20px; height:15px;" class="badge bg-white"> 1</span>
-            </a>
-          </li>  
-
-          <li class="nav-item">
-            <a href="{{ url('predio') }}" class="nav-link">
-              <i class="nav-icon fas fa-car red"></i>
-               <p>
-                Predio
-               </p>
-            </a>
-          </li>
           
+          @endauth 
 
          <li class="nav-item">
               <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

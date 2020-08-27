@@ -12,6 +12,7 @@
         <h1 class="box-title" style="font-family: 'Anton', sans-serif;">Usuarios de la pagina</h1>
       </div>
       </center> 
+
             
       <div class="box-body">
         <table class="table table-responsive table-dark">
@@ -30,26 +31,24 @@
 
           <tbody>
 
-            @foreach($users as $user)
               <tr>
-                <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->role->name}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
-                  <img style="width: 70px" src="{{ asset('/storage/imagesUser/'.Auth::user()->image) }}" alt="">
+                  <img style="width: 70px" src="" alt="">
                 </td>
 
                    
                 <td>  
-                  <button class="btn btn-success" data-name="{{$user->name}}" data-email="{{$user->email }}" data-userid="{{$user->id}}" data-toggle="modal" data-target="#editUser">Editar</button>
+                  <button class="btn btn-success" data-name="" data-email="" data-userid="" data-toggle="modal" data-target="#editUser">Editar</button>
                 </td>
                 <td>
-                  <button class="btn btn-danger" data-userid={{$user->id}} data-toggle="modal" data-target="#deleteUser">Eliminar</button>
+                  <button class="btn btn-danger" data-userid="" data-toggle="modal" data-target="#deleteUser">Eliminar</button>
                 </td>
      
               </tr>
 
-            @endforeach
           </tbody>
 
 
@@ -66,6 +65,7 @@
     </div>
   </div>
 
+
 <!-- Modal -->
 <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -74,12 +74,12 @@
         
         <h4 class="modal-title" id="myModalLabel">Agregar Imagen de usuario</h4>
       </div>
-      <form action="{{route('users.update','test')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('miperfil.update','test')}}" method="post" enctype="multipart/form-data">
           {{method_field('patch')}}
           {{csrf_field()}}
         <div class="modal-body">
-            <input type="hidden" name="user_id" id="user_id" value="">
-            @include('admin.users.partials.form')
+            <input type="hidden" name="miperfil_id" id="miperfil_id" value="">
+            @include('admin.profile.partials.form')
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -98,14 +98,14 @@
         
         <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
       </div>
-      <form action="{{route('users.destroy','test')}}" method="post">
+      <form action="{{route('miperfil.destroy','test')}}" method="post">
           {{method_field('delete')}}
           {{csrf_field()}}
         <div class="modal-body">
         <p class="text-center">
           Are you sure you want to delete this?
         </p>
-            <input type="hidden" name="user_id" id="user_id" value="">
+            <input type="hidden" name="miperfil_id" id="miperfil_id" value="">
 
         </div>
         <div class="modal-footer">

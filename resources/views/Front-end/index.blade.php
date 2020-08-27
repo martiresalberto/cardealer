@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="vehiculs-text-bar">
-                        <h3>Registrate <span> y recibe notificaciones de los tranportes</span> por ingresar! </h3>
+                        <h3>Registrate <span> y unete a nuestra comunidad de venta de cabezales</span> y furgones! </h3>
                         <a href="#" title="" class="flat-btn">Unete a nuestra comunidad</a>
                     </div>
                 </div>
