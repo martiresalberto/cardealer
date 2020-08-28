@@ -61,6 +61,7 @@ class UsersController extends Controller
         return back();
     }
 
+
     /**
      * Remove the specified resource from storage.
      *

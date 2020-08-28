@@ -108,44 +108,64 @@
 
                         {{--Section de informacion de Usuario--}}
 
+                        @if (Route::has('login'))
+
+                        @auth
+                        
                         <aside class="col-md-4 column">
-                            <div class="agent_bg_widget widget">
 
-                                <div class="agent_widget">
-                                   <div class="agent_pic">
-                                       
-                                        <h4>{{ $predios->usuario }}</h4>
-                                    </div>
-                                    <span>
-                                        <i class="fa fa-phone"> </i> +1 9090909090
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-envelope"> </i> {{ $predios->user->email }}
-                                    </span>
+                                <div class="agent_bg_widget widget">
+                                     
+                                    @foreach ($users as $profile)
 
+                                        <div class="agent_widget">
+                                            <div class="agent_pic">
+
+                                                @if (Auth::user()->image)
+                                                <img src="{{ asset('/storage/imagesUser/' . Auth::user()->image) }}"
+                                                        style="margin-left: 1rem;" width="50px" alt="imagen">
+                                                @endif
+                                                
+                                                <h4>{{ $profile->name }}</h4>
+                                            </div>
+                                            <span>
+                                                <i class="fa fa-phone"> </i> +1 9090909090
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-envelope"> </i> {{ $profile->email }}
+                                            </span>
+
+                                        </div>
+
+                                    @endforeach
+
+                                    <br><br>
+
+                                        <div class="form-group">
+                                                <button type="button" class="btn btn-primary btn-lg btn-block">Enviar mensaje</button>
+                                        </div>
+
+                                </div>    
+
+                            </aside>
+                                
+                                @else
+
+                            <aside class="col-md-4 column">
+
+                                <div class="agent_bg_widget widget">
+                                    
+                                    <button type="button" class="btn btn-danger btn-lg btn-block">Registrate</button>
+                                    
                                 </div>
+                                
+                            </aside>
 
-                                <br><br>
+                           @endauth 
+                            
+                       @endif
 
-                                @if (Route::has('login'))
-
-                                    <div class="form-group">
-                                        @auth
-                                            <button type="button" class="btn btn-primary btn-lg btn-block">Enviar
-                                                mensaje</button>
-                                        @else
-                                            <button type="button" class="btn btn-danger btn-lg btn-block">Registrate</button>
-                                        @endauth
-
-
-                                    </div>
-
-                                @endif
-
-
-
-                        </aside>
-
+    
                         {{-- Detalles Cabezal --}}
 
                         <div class="col-md-6">

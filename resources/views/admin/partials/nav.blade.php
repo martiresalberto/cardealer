@@ -7,17 +7,7 @@
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
+   
 
   </nav>
   <!-- /.navbar -->
@@ -65,10 +55,19 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{ url('miperfil') }}" class="nav-link">
+              <i class="nav-icon fas fa-user red"></i>
+               <p>
+                Mi perfil
+               </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ url('/mensajes') }}" class="nav-link">
               <i class="nav-icon fas fa-envelope red"></i>
                <p>
-                Mi mensajes
+                Mensajes
                </p>
                 <span style="width:20px; height:15px;" class="badge bg-white"> 1</span>
             </a>
@@ -84,10 +83,10 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('miperfil') }}" class="nav-link">
-              <i class="nav-icon fas fa-user red"></i>
+            <a href="{{ url('users') }}" class="nav-link">
+              <i class="nav-icon fas fa-users red"></i>
                <p>
-                Mi perfil
+                Usuarios
                </p>
             </a>
           </li>

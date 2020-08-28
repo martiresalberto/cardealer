@@ -34,13 +34,17 @@ class InicioController extends Controller
 
     public function show($id)
     {
+        
+        $users = User::all();
+
         $predios =  Predio::findOrFail($id);
 
         $files = $predios->files()->get();
 
+
         // dd($predios);
 
-        return view('Front-end.show', compact('predios', 'files'));
+        return view('Front-end.show', compact('users','predios', 'files'));
     }
 
 

@@ -40,6 +40,11 @@ Route::get('detalle-mensaje', [
 ]);
 
 
+//Ruta para editar mi perfil
+
+Route::get('miperfil','MiperfilController@index');
+
+
 // Admin de la pagina
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -52,7 +57,7 @@ Route::resource('condicion', 'CondicionController');
 
 Route::resource('predio', 'PredioController');
 
-Route::get('user', 'Usercontroller@index');
+Route::resource('users', 'Userscontroller');
 
 Auth::routes();
 
@@ -64,7 +69,6 @@ Route::post('ejemplo', 'EjemploController@upload');
 //     'title' => 'Cabezal',
 //     'user_id' => 1,
 // ]);
-
 
 // App\Condicion::create([
 //     'titulo' => 'Usado',
