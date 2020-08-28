@@ -110,84 +110,105 @@
 
                         @if (Route::has('login'))
 
-                        @auth
-                        
-                        <aside class="col-md-4 column">
+                            @auth
 
-                                <div class="agent_bg_widget widget">
-                                     
-                                    @foreach ($users as $profile)
+                                <aside class="col-md-4 column">
 
-                                        <div class="agent_widget">
-                                            <div class="agent_pic">
+                                    <div class="agent_bg_widget widget">
 
-                                                @if (Auth::user()->image)
-                                                <img src="{{ asset('/storage/imagesUser/' . Auth::user()->image) }}"
-                                                        style="margin-left: 1rem;" width="50px" alt="imagen">
-                                                @endif
-                                                
-                                                <h4>{{ $profile->name }}</h4>
+                                        @foreach ($users as $profile)
+
+                                            <div class="agent_widget">
+                                                <div class="agent_pic">
+
+                                                    @if (Auth::user()->image)
+                                                        <img src="{{ asset('/storage/imagesUser/' . Auth::user()->image) }}"
+                                                            style="margin-left: 1rem;" width="50px" alt="imagen">
+                                                    @endif
+
+                                                    <h4>{{ $profile->name }}</h4>
+                                                </div>
+                                                <span>
+                                                    <i class="fa fa-phone"> </i> +1 9090909090
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-envelope"> </i> {{ $profile->email }}
+                                                </span>
+
                                             </div>
-                                            <span>
-                                                <i class="fa fa-phone"> </i> +1 9090909090
-                                            </span>
-                                            <span>
-                                                <i class="fa fa-envelope"> </i> {{ $profile->email }}
-                                            </span>
 
+                                        @endforeach
+
+                                        <br><br>
+
+                                        <a href="#" class="btn btn-danger btn-lg btn-block">Enviar mensaje</a>
+
+                                    </div>
+
+                                </aside>
+
+                            @else
+
+                                <aside class="col-md-4 column">
+
+                                    <div class="agent_bg_widget widget">
+
+                                        <div class="card">
+                                           
+
+                                            <h1 class="text-center" style="padding-top: 5px; color:black;">TransVentas</h1>
+                                   
+                                            <img src="{{ asset('images/predio.jpg') }}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                    Hola bienvenido aca encontraras cabezales y furgones de distintas marcas y
+                                                    modelos
+                                                    de reciente ingreso listos para trabajar , inicia secion para poder enviar
+                                                    mensaje
+                                                    al vendedor o registrate si aun no lo has hecho .
+                                                </p>
+                                            </div>
                                         </div>
 
-                                    @endforeach
+                                        <a href="http://" class="btn btn-danger btn-lg btn-block">Registrate</a>
 
-                                    <br><br>
+                                    </div>
 
-                                        <div class="form-group">
-                                                <button type="button" class="btn btn-primary btn-lg btn-block">Enviar mensaje</button>
-                                        </div>
+                                </aside>
 
-                                </div>    
+                            @endauth
 
-                            </aside>
-                                
-                                @else
+                        @endif
 
-                            <aside class="col-md-4 column">
 
-                                <div class="agent_bg_widget widget">
-                                    
-                                    <button type="button" class="btn btn-danger btn-lg btn-block">Registrate</button>
-                                    
-                                </div>
-                                
-                            </aside>
-
-                           @endauth 
-                            
-                       @endif
-
-    
                         {{-- Detalles Cabezal --}}
 
                         <div class="col-md-6">
+
+
                             <div class="vehicul-detail">
 
                                 <h2 style="color: blue; ">Detalles del Cabezal</h2>
                                 <div class="detail-field row">
-                                    <ul style="list-style:none;">
+                                    <ul style="color:red;">
                                         <li>Marca : {{ $predios->titulo }}</li>
                                         <li>Modelo : {{ $predios->modelo }}</li>
                                         <li>Papeles tipo : {{ $predios->categoria }}</li>
                                         <li>Condicion : {{ $predios->condicion }}</li>
-                                        <li>Ubicacion :_{{ $predios->ubicacion }}</li>
+                                        <li>Ubicacion : {{ $predios->ubicacion }}</li>
                                     </ul>
                                 </div>
-
+                                <h2 style="color: blue;padding-bottom:10px; ">Precio Financiado : Q {{ $predios->precio }}
+                                </h2>
                             </div>
+
+
                         </div>
 
                         {{-- Descripcion completa --}}
 
                         <div class="col-md-6">
+
                             <div class="vehicul-detail">
 
                                 <h2 style="color: blue; ">Descripcion</h2>
@@ -207,7 +228,7 @@
 
                     <div class="related-vehiculs-">
                         <div class="heading3">
-                            <h3>Otro cabezales</h3>
+                            <h3>Cabezales listos para trabajar</h3>
                         </div>
 
                         <div class="related">
