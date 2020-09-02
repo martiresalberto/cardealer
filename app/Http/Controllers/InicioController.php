@@ -35,7 +35,7 @@ class InicioController extends Controller
     public function show($id)
     {
         
-        $users = User::all();
+         $users = User::where('id', '=' , auth()->id())->get();
 
         $predios =  Predio::findOrFail($id);
 

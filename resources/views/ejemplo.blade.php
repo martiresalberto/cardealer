@@ -23,4 +23,16 @@
 
 </div>
 
+
+
+@foreach ($role as $rol)
+
+<div class="form-group">
+
+    <h2>{{ $rol->user->first()->role_id }}</h2>
+    
+</div>
+
+@endforeach
+
 @endsection

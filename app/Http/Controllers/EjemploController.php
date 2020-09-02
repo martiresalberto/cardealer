@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\File;
+use App\Role;
 
 class EjemploController extends Controller
 {
     public function index()
     {
-        return view('ejemplo');
+        $role = Role::with('user')->get();
+
+        // dd($role);
+
+        return view('ejemplo',compact('role'));
     }
 
 

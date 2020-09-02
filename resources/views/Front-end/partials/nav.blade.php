@@ -90,13 +90,14 @@
                             <ul>
                             @if ( @auth()->user()->hasRoles(['admin']) )
                               <li><a href="{{ url('home') }}" title="">Admin</a></li>
-                            @endif
+                              @else
                               <li><a href="{{ url('miperfil') }}" title="">Mi perfil</a></li>
+                              @endif
 
                               <li>
                                 <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <p>
-                                  Salir
+                                  Cerrar sesion
                                 </p>
                                 </a>
 

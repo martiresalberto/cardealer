@@ -34,17 +34,16 @@
                 <td>
                   <img style="width: 70px" src="{{ asset('/storage/imagesUser/'.Auth::user()->image) }}" alt="">
                 </td>
-
                    
                 <td>  
-                  <button class="btn btn-success" data-userid="{{$user->id}}" data-toggle="modal" data-target="#editUser">Editar imagen</button>
+                  <button class="btn btn-success" data-userid="{{$user->id}}" data-toggle="modal" data-target="#editUser">Cambiar imagen</button>
                 </td>
      
               </tr>
 
             @endforeach
+          
           </tbody>
-
 
         </table>        
       </div>
@@ -54,7 +53,6 @@
           <img src="images/users.png" style="height:250px; width:400px">
         </div>
       </center>     --}}
-
 
     </div>
   </div>
@@ -67,7 +65,7 @@
         
         <h4 class="modal-title" id="myModalLabel">Agregar Imagen de perfil</h4>
       </div>
-      <form action="{{route('users.update','test')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('miperfil.update','test')}}" method="post" enctype="multipart/form-data">
           {{method_field('patch')}}
           {{csrf_field()}}
         <div class="modal-body">
@@ -82,6 +80,5 @@
     </div>
   </div>
 </div>
-
 
 @endsection()

@@ -73,6 +73,8 @@
             </a>
           </li>  
 
+          @if ( @auth()->user()->hasRoles(['admin']) )
+
           <li class="nav-item">
             <a href="{{ url('predio') }}" class="nav-link">
               <i class="nav-icon fas fa-car red"></i>
@@ -81,18 +83,6 @@
                </p>
             </a>
           </li>
-
-          <li class="nav-item">
-            <a href="{{ url('users') }}" class="nav-link">
-              <i class="nav-icon fas fa-users red"></i>
-               <p>
-                Usuarios
-               </p>
-            </a>
-          </li>
- 
-
-          @if ( @auth()->user()->hasRoles(['admin']) )
 
           <li class="nav-item">
             <a href="{{ url('category') }}" class="nav-link">
@@ -105,13 +95,22 @@
 
           <li class="nav-item">
             <a href="{{ url('condicion') }}" class="nav-link">
-              <i class="nav-icon fas fa-list red"></i>
+              <i class="nav-icon fas fa-car-crash red"></i>
                <p>
                 Condicion
                </p>
             </a>
           </li>
          
+          <li class="nav-item">
+            <a href="{{ url('users') }}" class="nav-link">
+              <i class="nav-icon fas fa-users red"></i>
+               <p>
+                Usuarios
+               </p>
+            </a>
+          </li>
+ 
           
           @endauth 
 
@@ -119,7 +118,7 @@
               <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="nav-icon fas fa-sign-out-alt red"></i> 
                  <p>
-                   Salir
+                   Cerrar sesion
                  </p>
                </a>
 

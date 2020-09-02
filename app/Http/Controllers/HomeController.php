@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     function __construct()
     {
-        $this->middleware(['auth', 'roles:admin,usuario,agente']);
+        $this->middleware(['auth', 'roles:admin,agente']);
     }
 
 

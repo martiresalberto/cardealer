@@ -42,7 +42,8 @@ Route::get('detalle-mensaje', [
 
 //Ruta para editar mi perfil
 
-Route::get('miperfil','MiperfilController@index');
+Route::get('users', 'Userscontroller@index');
+
 
 
 // Admin de la pagina
@@ -57,13 +58,14 @@ Route::resource('condicion', 'CondicionController');
 
 Route::resource('predio', 'PredioController');
 
-Route::resource('users', 'Userscontroller');
+Route::resource('miperfil','MiperfilController');
 
 Auth::routes();
 
 Route::get('ejemplo', 'EjemploController@index')->name('upload.ejemplo');
 
 Route::post('ejemplo', 'EjemploController@upload');
+
 
 // App\Category::create([
 //     'title' => 'Cabezal',
@@ -76,9 +78,9 @@ Route::post('ejemplo', 'EjemploController@upload');
 // ]);
 
 // App\Role::create([
-//     'name' => 'admin',
-//     'display_name' => 'admin',
-//     'description' => 'admin',
+//     'name' => 'vendedor',
+//     'display_name' => 'vendedor',
+//     'description' => 'vendedor',
 // ]);
 
 // App\User::create([
@@ -87,3 +89,11 @@ Route::post('ejemplo', 'EjemploController@upload');
 //     'password' => bcrypt('123456'),
 //     'role_id' => 1,
 // ]);
+
+// App\User::create([
+//     'name' => 'Carlos',
+//     'email' => 'carlos@gmail.com',
+//     'password' => bcrypt('123456'),
+//     'role_id' => 1,
+// ]);
+
