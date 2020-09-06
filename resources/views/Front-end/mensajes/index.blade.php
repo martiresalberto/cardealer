@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <section class="block-mensajes">
+    <section class="block">
         <div class="container">
 
             <div class="heading4">
@@ -14,12 +14,12 @@
             <div class="contact-form">
                 <form>
                     <div class="row">
-                        <div class="col-md-10" style="padding: 10px">
+                        <div class="col-md-12" style="padding-right: 20px">
                             <i class="fas fa-pencil-alt"></i>
                             <textarea placeholder="Message" style="border: black solid 2px;"></textarea>
                         </div>
                         <div class="col-md-12">
-                            <button class="flat-btn" type="submit">SEND NOW</button>
+                            <button class="flat-btn" type="submit">Enviar</button>
                         </div>
                     </div>
                 </form>

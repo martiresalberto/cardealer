@@ -75,6 +75,12 @@
                             </ul>
                         </li>
 
+                        {{--  <li class="menu-item">
+                            <a href="{{ url('mensaje') }}" title="" style="text-decoration: none;">Enviar mensaje 
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </li>  --}}
+
                         <li class="menu-item">
                             <a href="{{ url('detalle-mensaje') }}" title="" style="text-decoration: none;">Notificacion <span
                                     style="width:25px; height:15px;" class="badge bg-white"><strong>4</strong></span></a>

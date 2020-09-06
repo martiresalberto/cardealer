@@ -35,6 +35,7 @@
               <th>categoria</th>
               <th>precio</th>
               <th>modelo</th>
+              <th>Condicion</th>
               <th>km</th>
               <th>imagen</th>
               <th>edit</th>
@@ -58,9 +59,10 @@
                 <td>{{ $pre->categoria ?? 'categoria not found' }}</td>
                 <td>{{$pre->precio}}</td>
                 <td>{{$pre->modelo}}</td>
+                <td>{{ $pre->condicion }}</td>
                 <td>{{$pre->km}}</td>
                 <td>
-                  <img src="{{ Storage::url($pre->files[0]->url) }}" style="width: 60px" alt=""/>
+                  <img src="{{ asset('storage/predio/thumbnail/'.$pre->files[0]->url) }}" style="width: 60px" alt=""/>
                 </td>
                  
                 <td>  

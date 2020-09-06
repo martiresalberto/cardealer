@@ -8,7 +8,8 @@ use App\Category;
 use App\User;
 use App\Condicion;
 use App\File;
-use Illuminate\Support\Facades\Auth;
+use Image; //Intervention Image
+use Illuminate\Support\Facades\Storage; 
 
 class PredioController extends Controller
 {
@@ -40,14 +41,38 @@ class PredioController extends Controller
     {
 
         $predio = Auth()->user()->predios()->create($request->all());
+        
 
-        foreach ($request->url as $photo) {
+        foreach ($request->url as $file) {
 
-            $filename = $photo->store('public');
+                    //get filename with extension
+            $filenamewithextension = $file->getClientOriginalName();
+
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+            //get file extension
+            $extension = $file->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore = $filename.'_'.time().'.'.$extension;
+            
+            Storage::put('public/predio/'. $filenametostore, fopen($file, 'r+'));
+           
+           
+            Storage::put('public/predio/thumbnail/'. $filenametostore, fopen($file, 'r+'));
+           
+             //Resize image here
+            $thumbnailpath = public_path('storage/predio/thumbnail/'.$filenametostore);
+            
+            $img = Image::make($thumbnailpath)->resize(100, 100)->save($thumbnailpath);
+            
+            $img->save($thumbnailpath);
+
 
             File::create([
                 'predio_id' => $predio->id,
-                'url' => $filename
+                'url' => $filenametostore
             ]);
         }
 

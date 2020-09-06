@@ -89,12 +89,16 @@
                                             <div class="favorite-and-print">
                                                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
 
-                                                    @foreach ($files as $files)
-                                                        <li data-thumb="{{ Storage::url($files->url) }}" alt="CarDealer">
-                                                            <img src="{{ Storage::url($files->url) }}" alt="CarDealer" />
+                                                    @foreach ($files as $pre)
+                                                        <li data-thumb="{{ asset('storage/predio/'.$pre->url) }}" alt="CarDealer">
+                                                            <img src="{{ asset('storage/predio/'.$pre->url) }}" 
+                                                            width="700px"
+                                                            height="600px"
+                                                            alt="CarDealer" />
                                                         </li>
                                                     @endforeach
 
+                                                
 
                                                 </ul>
                                             </div>

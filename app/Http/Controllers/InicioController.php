@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Predio;
 use App\User;
-use Illuminate\Support\Facades\DB;
 
 class InicioController extends Controller
 {
@@ -35,14 +34,14 @@ class InicioController extends Controller
     public function show($id)
     {
         
-         $users = User::where('id', '=' , auth()->id())->get();
+        $users = User::where('id', '=' , auth()->id())->get();
 
         $predios =  Predio::findOrFail($id);
 
         $files = $predios->files()->get();
 
 
-        // dd($predios);
+        // dd($files);
 
         return view('Front-end.show', compact('users','predios', 'files'));
     }
