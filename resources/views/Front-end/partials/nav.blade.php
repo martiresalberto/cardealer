@@ -31,13 +31,12 @@
                         </li>
 
                         <li class="menu-item-has-children">
-                            <a href="{{ url('cabezales') }}" title="">Cabezales <i
+                            <a href="{{ url('cabezales') }}" title="">Predio de Cabezales <i
                                 class="fas fa-truck fa-lg"></i></a>
                             <ul>
                                 <li><a href="#" title="">Cabezales reciente ingreso </a></li>       
                                 <li><a href="#" title="">Cabezales listos para trabajar</a></li>
                                 <li><a href="#" title="">Cabezales por ingresar</a></li>                             
-                                <li><a href="#" title="">Cabezales sin garantia</a></li>              
                             </ul>
                         </li>
 
@@ -65,13 +64,12 @@
                         </li>
         
                         <li class="menu-item-has-children">
-                            <a href="{{ url('cabezales') }}" title="">Cabezales <i
+                            <a href="{{ url('cabezales') }}" title=""> Cabezales <i
                                 class="fas fa-truck fa-lg"></i></a>
                             <ul>
                                 <li><a href="#" title="">Cabezales reciente ingreso </a></li>       
                                 <li><a href="#" title="">Cabezales listos para trabajar</a></li>
                                 <li><a href="#" title="">Cabezales por ingresar</a></li>                             
-                                <li><a href="#" title="">Cabezales sin garantia</a></li>              
                             </ul>
                         </li>
 
