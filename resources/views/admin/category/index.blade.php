@@ -11,13 +11,6 @@
       </div>
       </center> 
 
-      <center>
-       <div class="form-group">
-          <img src="images/category.png" style="height:250px; width:400px">
-        </div>
-     </center>
-
-
        <!-- Button trigger modal -->
       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
         Crear categoria

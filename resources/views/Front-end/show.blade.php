@@ -70,7 +70,6 @@
 
 @section('content')
 
-
     <section class="block">
         <div class="container">
             <div class="row">
@@ -89,11 +88,10 @@
                                             <div class="favorite-and-print">
                                                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
 
-                                                    @foreach ($files as $pre)
-                                                        <li data-thumb="{{ asset('storage/predio/'.$pre->url) }}" alt="CarDealer">
-                                                            <img src="{{ asset('storage/predio/'.$pre->url) }}" 
-                                                            width="700px"
-                                                            height="600px"
+                                                    @foreach ($predio->files as $pre)
+                                                        <li data-thumb="{{ asset('storage/predio/thumbnail/'.$pre->url) }}" alt="CarDealer">
+                                                            <img src="{{ asset('storage/predio/thumbnail/'.$pre->url) }}" 
+                                                            
                                                             alt="CarDealer" />
                                                         </li>
                                                     @endforeach
@@ -120,32 +118,29 @@
 
                                     <div class="agent_bg_widget widget">
 
-                                        @foreach ($users as $profile)
 
                                             <div class="agent_widget">
                                                 <div class="agent_pic">
 
-                                                    @if (Auth::user()->image)
-                                                        <img src="{{ asset('/storage/imagesUser/' . Auth::user()->image) }}"
+                                                        <img src="{{ asset('/storage/imagesUser/' . $predio->user->image) }}"
                                                             style="margin-left: 1rem;" width="50px" alt="imagen">
-                                                    @endif
 
-                                                    <h4>{{ $profile->name }}</h4>
+                                                    <h4>{{ $predio->user->name }}</h4>
                                                 </div>
                                                 <span>
                                                     <i class="fa fa-phone"> </i> +1 9090909090
                                                 </span>
                                                 <span>
-                                                    <i class="fa fa-envelope"> </i> {{ $profile->email }}
+                                                    <i class="fa fa-envelope"> </i> {{ $predio->user->email }}
                                                 </span>
 
                                             </div>
 
-                                        @endforeach
-
-                                        <br><br>
-
-                                        <a href="#" class="btn btn-danger btn-lg btn-block">Enviar mensaje</a>
+                                            
+                                            <br><br>
+                                            
+                                            <a href="{{ route('mensaje') }}" class="btn btn-danger btn-lg btn-block">Enviar mensaje</a>
+                                            
 
                                     </div>
 
@@ -159,10 +154,10 @@
 
                                         <div class="card">
                                            
-
+                                            
                                             <h1 class="text-center" style="padding-top: 5px; color:black;">TransVentas</h1>
                                    
-                                            <img src="{{ asset('images/predio.jpg') }}" class="card-img-top" alt="...">
+                                            <img src="{{ asset('images/predio.jpg') }}" width="350px" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <p class="card-text">
                                                     Hola bienvenido aca encontraras cabezales y furgones de distintas marcas y
@@ -174,7 +169,7 @@
                                             </div>
                                         </div>
 
-                                        <a href="http://" class="btn btn-danger btn-lg btn-block">Registrate</a>
+                                        <a href="{{ route('mensaje') }}" class="btn btn-danger  btn-block"> Enviar mensaje</a>
 
                                     </div>
 
@@ -187,23 +182,25 @@
 
                         {{-- Detalles Cabezal --}}
 
+
+                            
+                        
                         <div class="col-md-6">
 
 
                             <div class="vehicul-detail">
 
-                                <h2 style="color: blue; ">Detalles del Cabezal</h2>
+                                <h4 style="color: blue; ">Detalles del Cabezal</h4>
                                 <div class="detail-field row">
                                     <ul style="color:red;">
-                                        <li>Marca : {{ $predios->titulo }}</li>
-                                        <li>Modelo : {{ $predios->modelo }}</li>
-                                        <li>Papeles tipo : {{ $predios->categoria }}</li>
-                                        <li>Condicion : {{ $predios->condicion }}</li>
-                                        <li>Ubicacion : {{ $predios->ubicacion }}</li>
+                                        <li>Marca : {{ $predio->titulo }}</li>
+                                        <li>Modelo : {{ $predio->modelo }}</li>
+                                        <li>Papeles tipo : {{ $predio->categoria }}</li>
+                                        <li>Condicion : {{ $predio->condicion }}</li>
+                                        <li>Ubicacion : {{ $predio->ubicacion }}</li>
                                     </ul>
                                 </div>
-                                <h2 style="color: blue;padding-bottom:10px; ">Precio Financiado : Q {{ $predios->precio }}
-                                </h2>
+                                <h4 style="color: blue;padding-bottom:10px; ">Precio Financiado : Q {{ $predio->precio }}</h4>
                             </div>
 
 
@@ -215,10 +212,10 @@
 
                             <div class="vehicul-detail">
 
-                                <h2 style="color: blue; ">Descripcion</h2>
+                                <h4 style="color: blue; ">Descripcion</h4>
                                 <div class="detail-field row">
                                     <ul style="list-style:none;">
-                                        <li>{{ $predios->descripcioncompleta }}</li>
+                                        <li>{{ $predio->descripcioncompleta }}</li>
                                     </ul>
 
                                 </div>
@@ -226,45 +223,45 @@
                             </div>
                         </div>
 
+
+
                     </div>
 
                     {{-- Seccion de silder de otros cabezales --}}
 
                     <div class="related-vehiculs-">
                         <div class="heading3">
-                            <h3>Cabezales listos para trabajar</h3>
+                            <h3>Otros cabezales listos para trabajar</h3>
                         </div>
 
                         <div class="related">
                             <div class="related-vehiculs-items">
 
+                                
+                                
+                              
                                 <div class="item">
+                                        
                                     <div class="vehiculs-box">
                                         <div class="vehiculs-thumb">
-                                            <img src="/img/demo/vehicul1.jpg" alt="" />
-                                            <span class="spn-status"> Damaged</span>
-                                            <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-                                            <div class="user-preview">
-                                                <a class="col" href="agent.html">
-                                                    <img alt="Camilė" class="avatar avatar-small" src="/img/4.png"
-                                                        title="Camilė">
-                                                </a>
-                                            </div>
-                                            <a class="proeprty-sh-more" href="vehicul.html"><i
-                                                    class="fa fa-angle-double-right"> </i><i
-                                                    class="fa fa-angle-double-right"> </i></a>
-                                            <p class="car-info-smal">
-                                                Registration 2010<br>
-                                                3.0 Diesel<br>
-                                                230 HP<br>
-                                                Body Coupe<br>
-                                                80 000 Miles
-                                            </p>
+                                            <img src="{{ asset('storage/predio/thumbnail/'.$predio->files[0]->url) }}" alt="" />
+                                            <span class="spn-status"> {{ $predio->categoria }}</span>
+                                            
+                                            <a class="proeprty-sh-more"
+                                            href="{{ route('detalle-cabezal', $predio->id) }}"><i
+                                                class="fa fa-angle-double-right">
+                                            </i><i class="fa fa-angle-double-right"> </i></a>
                                         </div>
-                                        <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
+                                        
+                                        <h3><a title="{{ $predio->titulo }}">{{ $predio->titulo }}</a></h3>
+                                        
                                         <span class="price">$340000</span>
+                                        
                                     </div>
                                 </div>
+                               
+
+                               
 
                             </div>
                         </div>
@@ -277,4 +274,5 @@
         </div>
     </section>
 
+   
 @endsection

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Mensaje;
+use App\Notifications\Msmenviado;
 
 class MensajeController extends Controller
 {
-    
+
     /**
      * Create a new controller instance.
      *
@@ -14,17 +17,45 @@ class MensajeController extends Controller
      */
     function __construct()
     {
-        $this->middleware(['auth', 'roles:admin,agente']);
+        $this->middleware(['auth', 'roles:admin,visitante']);
     }
 
     public function index()
     {
-        return view('Front-end.mensajes.index');
+
+        $users = User::where('id','!=', auth()->id())->select("id","email")->first();
+
+
+        // dd($users);
+
+        return view('Front-end.mensajes.index',compact('users'));
+
     }
-    
-    public function show()
+
+    public function store(Request $request)
     {
-        return view('Front-end.mensajes.mostrarMensajes');
+     
+        //validate
+
+        $mensaje = Mensaje::create([
+           'sender_id' => auth()->id(),
+           'recipient_id' => $request->recipient_id,
+           'email' => $request->email,
+           'nCabezal' => $request->nCabezal,
+           'text' => $request->text, 
+        ]);
+
+
+        // dd($mensaje);
+
+        $recipient_id = User::find($request->recipient_id);
+
+        // dd($recipient_id);
+
+        $recipient_id->notify(new Msmenviado($mensaje));
+
+        return back()->with('flash','Tu mensaje fue enviado');
+
     }
 
 

@@ -74,6 +74,7 @@
                   data-descripcioncompleta="{{$pre->descripcioncompleta}}" 
                   data-estado="{{$pre->estado}}" 
                   data-ubicacion="{{$pre->ubicacion}}" 
+                  data-categoria="{{$pre->categoria}}" 
                   data-condicion="{{$pre->condicion}}" 
                   data-image="{{$pre->image}}"
                   data-preid={{$pre->id}} 

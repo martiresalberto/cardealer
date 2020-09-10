@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mensaje;
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Notifications\DatabaseNotification;
 
 class MensajesController extends Controller
 {
@@ -17,81 +20,38 @@ class MensajesController extends Controller
         $this->middleware(['auth', 'roles:admin,agente']);
     }
 
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function mostrarmensajeadmin()
     {
-        return view('admin.mensajes.index');
+        
+        return view('admin.mensajes.index',[
+            'unreadNotifications' => auth()->user()->unreadNotifications,
+            'readNotifications' => auth()->user()->readNotifications
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $mensaje = Mensaje::findOrFail($id);
+        return view('admin.mensajes.show',compact('mensaje'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function read($id)
     {
-        //
+        DatabaseNotification::find($id)->markAsRead();
+
+        return back()->with('flash','Notificacion marcada como leida');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        DatabaseNotification::find($id)->delete();
+
+        return back()->with('flash','Notificacion eliminada');
     }
+
+
+
 }

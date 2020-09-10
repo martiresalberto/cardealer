@@ -13,10 +13,12 @@
     </div><!-- Top bar -->
 
     <div class="menu">
+
         <div class="container">
 
+            
             <span class="menu-toggle"><i class="fa fa-bars"></i></span>
-
+           
             <nav>
 
                 <h1 class="nocontent outline">--- Main Navigation ---</h1>
@@ -27,12 +29,12 @@
 
                         <li class="menu-item">
                             <a href="{{ url('/') }}" title="" style="text-decoration: none;">Inicio <i
-                                    class="fas fa-home fa-lg"></i></a>
+                                    class="fa fa-home fa-lg"></i></a>
                         </li>
 
                         <li class="menu-item-has-children">
                             <a href="{{ url('cabezales') }}" title="">Predio de Cabezales <i
-                                class="fas fa-truck fa-lg"></i></a>
+                                class="fa fa-truck fa-lg"></i></a>
                             <ul>
                                 <li><a href="#" title="">Cabezales reciente ingreso </a></li>       
                                 <li><a href="#" title="">Cabezales listos para trabajar</a></li>
@@ -40,32 +42,52 @@
                             </ul>
                         </li>
 
-                        <li class="menu-item">
-                            <a href="{{ url('ubicacion') }}" title="" style="text-decoration: none;">Ubicacion <span
-                                    style="width:20px; height:15px;"> <i class="fas fa-map-marked-alt fa-lg"></i></span></a>
+                        <li class="menu-item-has-children">
+                            <a href="{{ url('cabezales') }}" title="">Predio de Furgones <i
+                                class="fa fa-truck fa-lg"></i></a>
+                            <ul>
+                                <li><a href="#" title="">Furgones reciente ingreso </a></li>       
+                                <li><a href="#" title="">Furgones listos para trabajar</a></li>
+                                <li><a href="#" title="">Furgones por ingresar</a></li>                             
+                            </ul>
                         </li>
 
-                        <li class="menu-item">
+                        <li class="menu-item-has-children">
+                            <a href="{{ url('cabezales') }}" title="">Predio de Carros <i
+                                class="fa fa-truck fa-lg"></i></a>
+                            <ul>
+                                <li><a href="#" title="">Carros reciente ingreso </a></li>       
+                                <li><a href="#" title="">Carros listos para trabajar</a></li>
+                                <li><a href="#" title="">Carros por ingresar</a></li>                             
+                            </ul>
+                        </li>
+
+                        {{--  <li class="menu-item">
+                            <a href="{{ url('mensaje') }}" title="" style="text-decoration: none;">Contactanos <span
+                                    style="width:20px; height:15px;"> <i class="fa fa-map fa-lg"></i></span></a>
+                        </li>  --}}
+
+                          <li class="menu-item">
                             <a href="{{ url('login') }}" title="" style="text-decoration: none;">Iniciar sesion <i
-                                    class="fas fa-sign-in-alt fa-lg"></i></a>
+                                    class="fa fa-sign-in fa-lg"></i></a>
                         </li>
 
                         <li class="menu-item">
                             <a href="{{ url('register') }}" title="" style="text-decoration: none;">Registrar <i
-                                    class="fas fa-user fa-lg"></i></a>
-                        </li>
-
+                                    class="fa fa-user fa-lg"></i></a>
+                        </li>  
+            
 
                     @else
 
                         <li class="menu-item">
                             <a href="{{ url('/') }}" title="" style="text-decoration: none;">Inicio <i
-                                    class="fas fa-home fa-lg"></i></a>
+                                    class="fa fa-home fa-lg"></i></a>
                         </li>
         
                         <li class="menu-item-has-children">
                             <a href="{{ url('cabezales') }}" title=""> Cabezales <i
-                                class="fas fa-truck fa-lg"></i></a>
+                                class="fa fa-truck fa-lg"></i></a>
                             <ul>
                                 <li><a href="#" title="">Cabezales reciente ingreso </a></li>       
                                 <li><a href="#" title="">Cabezales listos para trabajar</a></li>
@@ -73,11 +95,11 @@
                             </ul>
                         </li>
 
-                        {{--  <li class="menu-item">
+                         <li class="menu-item">
                             <a href="{{ url('mensaje') }}" title="" style="text-decoration: none;">Enviar mensaje 
-                                <i class="fas fa-envelope"></i>
+                                <i class="fa fa-envelope"></i>
                             </a>
-                        </li>  --}}
+                        </li> 
 
                         <li class="menu-item">
                             <a href="{{ url('detalle-mensaje') }}" title="" style="text-decoration: none;">Notificacion <span

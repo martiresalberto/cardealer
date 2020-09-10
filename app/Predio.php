@@ -12,7 +12,7 @@ class Predio extends Model
         'titulo', 'usuario', 'precio',
         'modelo', 'km', 'descripcioncompleta',
         'ubicacion', 'categoria',
-        'condicion', 'user_id', 'condicion_id'
+        'condicion', 'user_id'
     ];
 
 
@@ -23,7 +23,7 @@ class Predio extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->hasMany('App\Category');
     }
 
     public function files()

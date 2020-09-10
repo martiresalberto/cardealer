@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfilesTable extends Migration
+class CreateMensajesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('mensajes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->string('designacion');
-            $table->string('foto_perfil')->default('default.png');
-            $table->string('telefono_perfil');
+            $table->unsignedInteger('sender_id');
+            $table->unsignedInteger('recipient_id');
+            $table->string('email');
+            $table->string('nCabezal');
+
+            $table->text('text');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('mensajes');
     }
 }

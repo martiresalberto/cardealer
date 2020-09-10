@@ -36,24 +36,13 @@
 
             <div class="form-group col-md-6">
               <label for="categoria">Categoria</label>
-              <select class="form-control" name="categoria">
-                <option value="">Editar categoria</option>
-                @foreach($categories as $cat)
-                  <option value="{{ $cat->id }}">{{ $cat->title }}</option>
-                @endforeach  
-              </select>
-            </div>
-
+                <input type="text" name="categoria" id="categoria"  class="form-control"> 
+            </div>  
+           
             <div class="form-group col-md-6">
-              <label for="condicion">Condicion</label>
-              <select class="form-control" name="condicion">
-                <option value="">Editar condicion</option>
-                @foreach($condicion as $con)
-                  <option name="condicion" id="condicion" value="{{ $con->id }}">{{ $con->titulo }}</option>
-                @endforeach  
-              </select>
-            </div>
-
+              <label for="condicon">Condicion</label>
+                <input type="text" name="comdicion" id="condicion"  class="form-control"> 
+            </div> 
 
             </div>
 

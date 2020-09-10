@@ -18,6 +18,6 @@ class Category extends Model
 
     public function predio()
     {
-        return $this->hasOne('App\Predio');
+        return $this->belongsTo('App\Predio');
     }
 }

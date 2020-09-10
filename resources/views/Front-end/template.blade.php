@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}" type="text/css" /><!-- Owl Carousal-->
 <link rel="stylesheet" href="{{ asset('css/price-range.css') }}" type="text/css" /><!-- Owl Carousal -->
 
+
 <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" /><!-- Style -->	
 <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" type="text/css" /><!-- Responsive -->	
 <link rel="stylesheet" href="{{ asset('css/colors.css') }}" type="text/css" /><!-- color -->	
@@ -22,7 +23,6 @@
 <!-- REVOLUTION STYLE SHEETS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('js/rs-plugin/css/settings.css') }}">
 
-<link rel="stylesheet" href="/css/app.css">
 
 @show
     

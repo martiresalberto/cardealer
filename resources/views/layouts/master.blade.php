@@ -155,6 +155,8 @@
 
     <!-- Administracion de la condicion -->
 
+    
+    
     <!-- Administracion de Predio -->
 
     <!-- Editar de predio -->
@@ -168,6 +170,8 @@
     var modelo = button.data('modelo')
     var km = button.data('km')
     var ubicacion = button.data('ubicacion')
+    var categoria = button.data('categoria')
+    var condicion = button.data('condicion')
     var image = button.data('image')
     var descripcioncompleta = button.data('descripcioncompleta')
     var pre_id = button.data('preid')
@@ -178,6 +182,8 @@
     modal.find('.modal-body #precio').val(precio);
     modal.find('.modal-body #km').val(km);
     modal.find('.modal-body #ubicacion').val(ubicacion);
+    modal.find('.modal-body #categoria').val(categoria);
+    modal.find('.modal-body #condicion').val(condicion);
     modal.find('.modal-body #image').val(image);
     modal.find('.modal-body #descripcioncompleta').val(descripcioncompleta);
     modal.find('.modal-body #pre_id').val(pre_id);

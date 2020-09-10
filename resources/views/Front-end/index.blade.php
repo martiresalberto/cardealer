@@ -21,18 +21,14 @@
                                 <div class="vehiculs-box">
                                     <div class="vehiculs-thumb">
                                         <img src="{{ asset('storage/predio/'.$predio->files[0]->url) }}" alt="" />
-                                        <span class="spn-status"> {{ $predio->condicion }} </span>
+                                        <span class="spn-status"> {{ $predio->categoria }} </span>
                                 
 
                                         <a class="proeprty-sh-more"
                                             href="{{ route('detalle-cabezal', $predio->id) }}"><i
                                                 class="fa fa-angle-double-right">
                                             </i><i class="fa fa-angle-double-right"> </i></a>
-                                        <p class="car-info-smal">
-
-                                            Registration {{ $predio->created_at }}<br>
-                                            {{ $predio->km }}
-                                        </p>
+                                        
                                     </div>
                                     <h3><a href="vehicul.html" title="">{{ $predio->titulo }}</a></h3>
                                     <span class="price">${{ $predio->precio }}</span>

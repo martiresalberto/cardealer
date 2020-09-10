@@ -59,13 +59,12 @@ class PredioController extends Controller
             
             Storage::put('public/predio/'. $filenametostore, fopen($file, 'r+'));
            
-           
             Storage::put('public/predio/thumbnail/'. $filenametostore, fopen($file, 'r+'));
            
              //Resize image here
             $thumbnailpath = public_path('storage/predio/thumbnail/'.$filenametostore);
             
-            $img = Image::make($thumbnailpath)->resize(100, 100)->save($thumbnailpath);
+            $img = Image::make($thumbnailpath)->resize(700, 600)->save($thumbnailpath);
             
             $img->save($thumbnailpath);
 

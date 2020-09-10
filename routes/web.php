@@ -18,39 +18,50 @@ Route::get('cabezal/{id}', [
     'uses' => 'InicioController@show'
 ]);
 
-//Ruta para Ubicacion 
-
-Route::get('ubicacion', [
-    'as' => 'ubicacion',
-    'uses' => 'UbicacionController@index'
-]);
-
-//Ruta para enviar mensajes 
+//Ruta contactanos para enviar mensajes 
 
 Route::get('mensaje', [
     'as' => 'mensaje',
     'uses' => 'MensajeController@index'
 ]);
 
-//Ruta para mostrar los mensajes recibios
+//Ruta para enviar mensajes
 
-Route::get('detalle-mensaje', [
-    'as' => 'detalle-mensaje',
-    'uses' => 'MensajeController@show'
+Route::post('enviarmensaje', [
+    'as' => 'enviarmensaje',
+    'uses' => 'MensajeController@store'
 ]);
+
+
+Route::get('mostrarmensajeadmin', 
+    'MensajesController@mostrarmensajeadmin'
+);
+
+Route::get('mensajes/{id}', [
+    'as' => 'admin.mensajes.show',
+    'uses' => 'MensajesController@show'
+]);
+
+Route::patch('notifications/{id}', [
+    'as' => 'notifications.read',
+    'uses' => 'MensajesController@read'
+]);
+
+Route::delete('notifications/{id}', [
+    'as' => 'notifications.destroy',
+    'uses' => 'MensajesController@destroy'
+]);
+
 
 
 //Ruta para editar mi perfil
 
 Route::get('users', 'Userscontroller@index');
 
-
-
 // Admin de la pagina
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/mensajes', 'MensajesController');
 
 Route::resource('category', 'CategoryController');
 
@@ -91,9 +102,9 @@ Route::post('ejemplo', 'EjemploController@upload');
 // ]);
 
 // App\User::create([
-//     'name' => 'Carlos',
-//     'email' => 'carlos@gmail.com',
+//     'name' => 'Irene Alburez',
+//     'email' => 'irene@gmail.com',
 //     'password' => bcrypt('123456'),
-//     'role_id' => 1,
+//     'role_id' => 2,
 // ]);
 

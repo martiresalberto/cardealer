@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Predio;
 use App\User;
+use App\File;
 
 class InicioController extends Controller
 {
@@ -16,7 +17,7 @@ class InicioController extends Controller
      */
     public function index()
     {
-        
+
         //cabezales de reciente ingreso 
 
         $predios = Predio::with('files')->get();
@@ -26,24 +27,26 @@ class InicioController extends Controller
         $featured = Predio::whereYear('created_at', '2020')
             ->get();
 
-       
+
         return view('Front-end.index', compact('predios', 'featured'));
     }
 
 
     public function show($id)
     {
-        
-        $users = User::where('id', '=' , auth()->id())->get();
 
-        $predios =  Predio::findOrFail($id);
+        $predio = Predio::with([
+            'files' => function ($query) {
+                $query->select('id', 'url', 'predio_id'); # Uno a muchos
+            },
+            'user' => function ($query) {
+                $query->select('id', 'name','image'); # Uno a muchos
+            }
+        ])->first(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'categoria', 'condicion', 'user_id']);
 
-        $files = $predios->files()->get();
+        // dd($predio);
 
-
-        // dd($files);
-
-        return view('Front-end.show', compact('users','predios', 'files'));
+        return view('Front-end.show', compact('predio'));
     }
 
 
@@ -54,8 +57,6 @@ class InicioController extends Controller
     {
         $predios = Predio::all();
 
-        return view('Front-end.cabezales.index',compact('predios'));
+        return view('Front-end.cabezales.index', compact('predios'));
     }
-
-
 }
