@@ -20,10 +20,6 @@
 
 <body class="hold-transition sidebar-mini">
 
-
-
-
-
     <!-- Aqui esta todo el contenido de la pagina -->
 
     <div class="wrapper">

@@ -33,39 +33,28 @@
                         </li>
 
                         <li class="menu-item-has-children">
-                            <a href="{{ url('cabezales') }}" title="">Predio de Cabezales <i
+                            <a title="">Predio de Cabezales <i
                                 class="fa fa-truck fa-lg"></i></a>
                             <ul>
-                                <li><a href="#" title="">Cabezales reciente ingreso </a></li>       
-                                <li><a href="#" title="">Cabezales listos para trabajar</a></li>
-                                <li><a href="#" title="">Cabezales por ingresar</a></li>                             
+                                <li><a href="{{ route('cabezales-reciente-ingreso') }}" title="">Cabezales reciente ingreso </a></li>       
                             </ul>
                         </li>
 
                         <li class="menu-item-has-children">
-                            <a href="{{ url('cabezales') }}" title="">Predio de Furgones <i
+                            <a title="">Predio de Furgones <i
                                 class="fa fa-truck fa-lg"></i></a>
                             <ul>
                                 <li><a href="#" title="">Furgones reciente ingreso </a></li>       
-                                <li><a href="#" title="">Furgones listos para trabajar</a></li>
-                                <li><a href="#" title="">Furgones por ingresar</a></li>                             
                             </ul>
                         </li>
 
                         <li class="menu-item-has-children">
-                            <a href="{{ url('cabezales') }}" title="">Predio de Carros <i
+                            <a title="">Predio de Carros <i
                                 class="fa fa-truck fa-lg"></i></a>
                             <ul>
                                 <li><a href="#" title="">Carros reciente ingreso </a></li>       
-                                <li><a href="#" title="">Carros listos para trabajar</a></li>
-                                <li><a href="#" title="">Carros por ingresar</a></li>                             
                             </ul>
                         </li>
-
-                        {{--  <li class="menu-item">
-                            <a href="{{ url('mensaje') }}" title="" style="text-decoration: none;">Contactanos <span
-                                    style="width:20px; height:15px;"> <i class="fa fa-map fa-lg"></i></span></a>
-                        </li>  --}}
 
                           <li class="menu-item">
                             <a href="{{ url('login') }}" title="" style="text-decoration: none;">Iniciar sesion <i
@@ -86,12 +75,10 @@
                         </li>
         
                         <li class="menu-item-has-children">
-                            <a href="{{ url('cabezales') }}" title=""> Cabezales <i
+                            <a title=""> Predio Cabezales <i
                                 class="fa fa-truck fa-lg"></i></a>
                             <ul>
-                                <li><a href="#" title="">Cabezales reciente ingreso </a></li>       
-                                <li><a href="#" title="">Cabezales listos para trabajar</a></li>
-                                <li><a href="#" title="">Cabezales por ingresar</a></li>                             
+                                <li><a href="{{ route('cabezales-reciente-ingreso') }}" title="">Cabezales reciente ingreso </a></li>       
                             </ul>
                         </li>
 
@@ -102,7 +89,7 @@
                         </li> 
 
                         <li class="menu-item">
-                            <a href="{{ url('detalle-mensaje') }}" title="" style="text-decoration: none;">Notificacion <span
+                            <a href="{{ url('verNotificacionesUsuario') }}" title="" style="text-decoration: none;">Notificacion <span
                                     style="width:25px; height:15px;" class="badge bg-white"><strong>4</strong></span></a>
                         </li>
 

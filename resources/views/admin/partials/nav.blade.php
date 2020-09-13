@@ -81,9 +81,9 @@
           
           <li class="nav-item">
             <a href="{{ url('predio') }}" class="nav-link">
-              <i class="nav-icon fas fa-car red"></i>
+              <i class="nav-icon fas fa-camera red"></i>
                <p>
-                Predio
+                Publicar
               </p>
             </a>
           </li>

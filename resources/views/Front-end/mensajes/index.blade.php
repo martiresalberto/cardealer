@@ -25,8 +25,8 @@
 
             <div class="col-md-12">
                 <div class="heading4">
-                    <h2>Envianos mensaje</h2>
-                    <span>Que cabezal buscas ?</span>
+                    <h2>Enviar mensaje</h2>
+                    <span>Que cabezal buscas aca puedes enviarnos mensaje con tus dudad y con gusto responderemos a la brevedad</span>
                 </div>
  
                 <div class="contact-page-sec">

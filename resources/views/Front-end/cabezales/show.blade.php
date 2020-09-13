@@ -20,11 +20,11 @@
             $('#image-gallery').lightSlider({
                 gallery: true,
                 item: 1,
-                thumbItem: 11,
+                thumbItem: 9,
                 slideMargin: 0,
-                speed:0,
+                speed: 6000,
                 auto: false,
-                loop: false,
+                loop: true,
                 onSliderLoad: function() {
                     $('#image-gallery').removeClass('cS-hidden');
                 }
@@ -112,6 +112,7 @@
 
                         @if (Route::has('login'))
 
+                            @auth
 
                                 <aside class="col-md-4 column">
 
@@ -121,7 +122,8 @@
                                             <div class="agent_widget">
                                                 <div class="agent_pic">
 
-                                                        <img src="{{ asset('/storage/imagesUser/' . $predio->user->image) }}" width="50px" alt="imagen">
+                                                        <img src="{{ asset('/storage/imagesUser/' . $predio->user->image) }}"
+                                                            style="margin-left: 1rem;" width="50px" alt="imagen">
 
                                                     <h4>{{ $predio->user->name }}</h4>
                                                 </div>
@@ -173,19 +175,22 @@
 
                                 </aside>
 
+                            @endauth
 
                         @endif
 
-                      
 
                         {{-- Detalles Cabezal --}}
-                        
 
+
+                            
+                        
                         <div class="col-md-6">
+
 
                             <div class="vehicul-detail">
 
-                                <h4  style="color: blue; ">Detalles del Cabezal</h4>
+                                <h4 style="color: blue; ">Detalles del Cabezal</h4>
                                 <div class="detail-field row">
                                     <ul style="color:red;">
                                         <li>Marca : {{ $predio->titulo }}</li>
@@ -243,7 +248,7 @@
                                             <span class="spn-status"> {{ $predio->categoria }}</span>
                                             
                                             <a class="proeprty-sh-more"
-                                            href="{{ route('detalle-cabezal-inicio', $predio->id) }}"><i
+                                            href="{{ route('detalle-cabezal-reciente-ingreso', $predio->id) }}"><i
                                                 class="fa fa-angle-double-right">
                                             </i><i class="fa fa-angle-double-right"> </i></a>
                                         </div>

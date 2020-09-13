@@ -1,21 +1,28 @@
 <?php
 
-// Rutas de la pagin de inicio
+// Rutas de la pagin de inicio o home
 
 Route::get('/', 'InicioController@index');
 
-//Ruta pára mostrar los cabezales recietne ingreso
-
-Route::get('cabezales', [
-    'as' => 'cabezales',
-    'uses' => 'InicioController@cabezales'
-]);
-
-//Rutas de detalle de cabezales reciente ingreso
+//Rutas pagina detalle de cabezales reciente ingreso  Inicio
 
 Route::get('cabezal/{id}', [
-    'as' => 'detalle-cabezal',
+    'as' => 'detalle-cabezal-inicio',
     'uses' => 'InicioController@show'
+]);
+
+//Ruta pára mostrar Pagina de inicio de los cabezales recietne ingreso
+
+Route::get('cabezales-reciente-ingreso', [
+    'as' => 'cabezales-reciente-ingreso',
+    'uses' => 'CabezalesController@cabezales'
+]);
+
+//Ruta para mostrar la pagina de detalle cabezales reciente ingreso
+
+Route::get('cabezalesshow/{id}', [
+    'as' => 'detalle-cabezal-reciente-ingreso',
+    'uses' => 'CabezalesController@cabezalesshow'
 ]);
 
 //Ruta contactanos para enviar mensajes 
@@ -32,36 +39,47 @@ Route::post('enviarmensaje', [
     'uses' => 'MensajeController@store'
 ]);
 
+//Ruta para mostrar los mensajes en el admin
 
 Route::get('mostrarmensajeadmin', 
     'MensajesController@mostrarmensajeadmin'
 );
+
+//Ruta para mostrar los mensajes en el admin show 
 
 Route::get('mensajes/{id}', [
     'as' => 'admin.mensajes.show',
     'uses' => 'MensajesController@show'
 ]);
 
+//Ruta para mostrar las notifiaciones leidas
+
 Route::patch('notifications/{id}', [
     'as' => 'notifications.read',
     'uses' => 'MensajesController@read'
 ]);
+
+//Ruta para elimianr notificaciones
 
 Route::delete('notifications/{id}', [
     'as' => 'notifications.destroy',
     'uses' => 'MensajesController@destroy'
 ]);
 
+//Ruta para mostrar las notificaciones al usuario en el front
 
+Route::get('verNotificacionesUsuario', [
+    'as' => 'verNotificaciones.verNotificaciones',
+    'uses' => 'InicioController@verNotificacionesUsuario'
+]);
 
 //Ruta para editar mi perfil
 
 Route::get('users', 'Userscontroller@index');
 
-// Admin de la pagina
+// Rutas para el Admin de la pagina
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 Route::resource('category', 'CategoryController');
 
@@ -107,4 +125,3 @@ Route::post('ejemplo', 'EjemploController@upload');
 //     'password' => bcrypt('123456'),
 //     'role_id' => 2,
 // ]);
-
