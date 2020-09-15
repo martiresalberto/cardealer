@@ -23,8 +23,12 @@ class CreatePrediosTable extends Migration
             $table->double('precio');
             $table->year('modelo');
             $table->string('km');
-            $table->longText('descripcioncompleta');
+            $table->longText('descripcion');
             $table->string('ubicacion');
+            $table->string('color');
+            $table->string('llantas');
+            $table->string('color');
+            $table->string('motor');
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')

@@ -33,17 +33,14 @@
 <div id="preloader"></div>
 <div class="theme-layout" id="app">
 
+    @include('Front-end.partials.account-popup-sec')
 
-
-    @include('front-end.partials.account-popup-sec')
-
-    @include('front-end.partials.nav')
-          
+    @include('Front-end.partials.nav')
 
        @yield('content') 
  
 
-    @include('front-end.partials.footer')
+    @include('Front-end.partials.footer')
 
 
 </div>

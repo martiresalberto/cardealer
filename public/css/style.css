@@ -40,10 +40,10 @@
 ===================================================== ***/
 
 
+
 /*=============== General Styling ===================*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,800');
-@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap');
 
 html, body{
     overflow-x:hidden;
@@ -161,7 +161,7 @@ section{
 .block{
     float:left;
     width:100%;
-    padding:60px 0;
+    padding:100px 0;
     position:relative;
 }
 .block .container{
@@ -375,7 +375,7 @@ iframe{
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
     border-radius: 3px;
-    text-decoration: none;
+
     color: #dfdfdf;
     float: left;
     font-size: 11px;
@@ -398,14 +398,46 @@ iframe{
     background: rgba(0, 0, 0, 0.85) none repeat scroll 0 0;
     min-height: auto;
 }
-
-
-.simple-header.for-sticky.sticky > .menu .logo2 {
+.simple-header.for-sticky.sticky > .menu .logo {
     padding: 25px 0;
 }
+.logo {
+    float: left;
+    padding: 38px 0 42px;
+}
+.logo > a {
+    float: left;
+    padding-left: 55px;
+    position: relative;
+}
+.logo > a > i {
+    font-size: 34px;
+    left: 0;
+    position: absolute;
+    top: 50%;
 
-
-
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.logo span {
+    color: #ffffff;
+    float: left;
+    font-family: montserrat;
+    font-size: 21px;
+    font-weight: bold;
+}
+.logo strong {
+    color: #ffffff;
+    display: list-item;
+    font-family: montserrat;
+    font-size: 10px;
+    font-weight: normal;
+    list-style: outside none none;
+    text-transform: uppercase;
+}
 .menu nav {
     float: right;
 }
@@ -491,7 +523,7 @@ iframe{
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.3px;
-    text-decoration: none;
+
 }
 .popup-client {
     float: right;
@@ -701,7 +733,7 @@ iframe{
     margin-left: 12px;
     width: 57px;
 }
-.post-admin h5 {
+.post-admin h5 ,.post-admin h3{
     color: #2e2e2e;
     display: list-item;
     float: none;
@@ -1301,7 +1333,7 @@ aside .widget:first-child {
 .heading4 > h2 {
     color: #1a1a1a;
     float: left;
-    font-family: 'Rowdies', cursive;
+    font-family: Montserrat;
     font-size: 35px;
     margin: -6px 0 10px;
     width: 100%;
@@ -1309,7 +1341,6 @@ aside .widget:first-child {
 .heading4 > span {
     float: left;
     width: 100%;
-    font-family: 'Rowdies', cursive;
 }
 .heading4::before {
     border-left: 1px solid;
@@ -3723,8 +3754,8 @@ margin: 0px;
     background: none repeat scroll 0 0 #FF2929;
 }
 .vehicul-detail{
-    margin-top: 20px;
-    padding: 20px 50px 0px 50px;
+    background: rgba(242, 242, 242, 0.9) none repeat scroll 0 0;
+    padding: 40px 15px;
 }
 .vehicul-detail > span {
     color: #c7c7c7;
@@ -3857,7 +3888,7 @@ margin: 0px;
 .lSGallery {
     position: absolute;
     bottom: 46px;
-    left: 0px;
+    left: 30px;
 }  
 .lSSlideOuter { 
     text-align: center;

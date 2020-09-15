@@ -4,7 +4,7 @@
 (function ($, undefined) {
     'use strict';
     var defaults = {
-        item: 3,
+        item: 11,
         autoWidth: false,
         slideMove: 1,
         slideMargin: 10,
@@ -24,7 +24,7 @@
         prevHtml: '',
         nextHtml: '',
         rtl: false,
-        adaptiveHeight: false,
+        adaptiveHeight: true,
         vertical: false,
         verticalHeight: 500,
         vThumbWidth: 100,

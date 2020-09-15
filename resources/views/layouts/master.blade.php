@@ -121,6 +121,8 @@
 
     <!-- Administracion de las categorias -->
 
+
+
     <!-- Administracion de la condicion -->
 
     <!-- Editar de condicion -->
@@ -168,7 +170,7 @@
     var ubicacion = button.data('ubicacion')
     var categoria = button.data('categoria')
     var condicion = button.data('condicion')
-    var image = button.data('image')
+    var url = button.data('url')
     var descripcioncompleta = button.data('descripcioncompleta')
     var pre_id = button.data('preid')
     var modal = $(this)
@@ -180,7 +182,7 @@
     modal.find('.modal-body #ubicacion').val(ubicacion);
     modal.find('.modal-body #categoria').val(categoria);
     modal.find('.modal-body #condicion').val(condicion);
-    modal.find('.modal-body #image').val(image);
+    modal.find('.modal-body #url').val(url);
     modal.find('.modal-body #descripcioncompleta').val(descripcioncompleta);
     modal.find('.modal-body #pre_id').val(pre_id);
     })

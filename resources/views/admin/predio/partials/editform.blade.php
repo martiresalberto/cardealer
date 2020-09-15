@@ -86,8 +86,8 @@
             </div>  
 
             <div class="form-group">
-              <label for="image">imgTrans</label>
-              <input type="file" name="image[]" multiple> 
+              <label for="url">Imagen</label>
+              <input type="file" name="url[]" multiple> 
             </div>  
 
 

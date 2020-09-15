@@ -11,13 +11,6 @@
                 </div>
             </center>
 
-            <center>
-                <div class="form-group">
-                    <img src="images/category.png" style="height:250px; width:400px">
-                </div>
-            </center>
-
-
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
                 Crear condicion
@@ -44,11 +37,11 @@
                                 <td>
                                     <button class="btn btn-info" data-mytitulo="{{ $con->titulo }}"
                                         data-conid={{ $con->id }} data-toggle="modal"
-                                        data-target="#editCondicion">Edit</button>
+                                        data-target="#editCondicion">Editar</button>
                                 </td>
                                 <td>
-                                    <button class="btn btn-danger" data-catid={{ $con->id }} data-toggle="modal"
-                                        data-target="#deleteCondicion">Delete</button>
+                                    <button class="btn btn-danger" data-conid={{ $con->id }} data-toggle="modal"
+                                        data-target="#deleteCondicion">Eliminar</button>
                                 </td>
                             </tr>
 

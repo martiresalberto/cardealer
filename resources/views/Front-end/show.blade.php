@@ -20,9 +20,9 @@
             $('#image-gallery').lightSlider({
                 gallery: true,
                 item: 1,
-                thumbItem: 11,
-                slideMargin: 0,
-                speed:0,
+                thumbItem: 12,
+                slideMargin: 12,
+                speed: 0,
                 auto: false,
                 loop: false,
                 onSliderLoad: function() {
@@ -32,6 +32,8 @@
         });
 
     </script>
+
+    //Slider donde se muestra los cabezales relacionados 
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -73,11 +75,7 @@
     <section class="block">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-12">
-
-                    {{-- Seccion de la galeria de imagenes --}}
-
                     <div class="row">
                         <div class="col-md-8 column">
                             <div class="single-post-sec">
@@ -87,187 +85,265 @@
                                         <div class="light-slide-item">
                                             <div class="favorite-and-print">
                                                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-
                                                     @foreach ($predio->files as $pre)
-                                                        <li data-thumb="{{ asset('storage/predio/thumbnail/'.$pre->url) }}" alt="CarDealer">
-                                                            <img src="{{ asset('storage/predio/thumbnail/'.$pre->url) }}" 
-                                                            
-                                                            alt="CarDealer" />
+                                                        <li
+                                                            data-thumb="{{ asset('storage/predio/thumbnail/' . $pre->url) }}">
+                                                            <img src="{{ asset('storage/predio/thumbnail/' . $pre->url) }}"
+                                                                alt="KwitaraCars" />
                                                         </li>
                                                     @endforeach
-
-                                                
-
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
 
+                                    <h1>Price : {{ $predio->precio }}Q</h1>
 
-                                </div>
-                            </div>
-                        </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="vehicul-detail">
 
-                        {{--Section de informacion de Usuario--}}
+                                                <div class="detail-field row">
+                                                    <span class="col-xs-6 col-md-5 detail-field-label">Marca</span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
+                                                            rel="tag">{{ $predio->titulo }}</a></span>
+                                                    <span class="col-xs-6 col-md-5 detail-field-label">Modelo</span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
+                                                            rel="tag">{{ $predio->modelo }}</a></span>
+                                                    <span class="col-xs-6 col-md-5 detail-field-label">Categoria</span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
+                                                            rel="tag">{{ $predio->categoria }}</a></span>
+                                                    <span class="col-xs-6 col-md-5 detail-field-label">Ubicacion</span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value">
+                                                        <span class="amount">{{ $predio->ubicacion }}</span>
+                                                    </span>
+                                                    <span class="col-xs-6 col-md-5 detail-field-label">Millage</span>
+                                                    <span
+                                                        class="col-xs-6 col-md-7 detail-field-value">{{ $predio->km }}</span>
 
-                        @if (Route::has('login'))
-
-
-                                <aside class="col-md-4 column">
-
-                                    <div class="agent_bg_widget widget">
-
-
-                                            <div class="agent_widget">
-                                                <div class="agent_pic">
-
-                                                        <img src="{{ asset('/storage/imagesUser/' . $predio->user->image) }}" width="50px" alt="imagen">
-
-                                                    <h4>{{ $predio->user->name }}</h4>
                                                 </div>
-                                                <span>
-                                                    <i class="fa fa-phone"> </i> +1 9090909090
-                                                </span>
-                                                <span>
-                                                    <i class="fa fa-envelope"> </i> {{ $predio->user->email }}
-                                                </span>
 
-                                            </div>
-
-                                            
-                                            <br><br>
-                                            
-                                            <a href="{{ route('mensaje') }}" class="btn btn-danger btn-lg btn-block">Enviar mensaje</a>
-                                            
-
-                                    </div>
-
-                                </aside>
-
-                            @else
-
-                                <aside class="col-md-4 column">
-
-                                    <div class="agent_bg_widget widget">
-
-                                        <div class="card">
-                                           
-                                            
-                                            <h1 class="text-center" style="padding-top: 5px; color:black;">TransVentas</h1>
-                                   
-                                            <img src="{{ asset('images/predio.jpg') }}" width="350px" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                    Hola bienvenido aca encontraras cabezales y furgones de distintas marcas y
-                                                    modelos
-                                                    de reciente ingreso listos para trabajar , inicia secion para poder enviar
-                                                    mensaje
-                                                    al vendedor o registrate si aun no lo has hecho .
-                                                </p>
                                             </div>
                                         </div>
-
-                                        <a href="{{ route('mensaje') }}" class="btn btn-danger  btn-block"> Enviar mensaje</a>
-
+                                        <div class="col-md-7">
+                                            <p>{{ $predio->descripcioncompleta }} </p>
+                                        </div>
                                     </div>
 
-                                </aside>
+                                    <div class="vehicul-video">
+                                        <div class="heading3">
+                                            <h2>VIDEO DEL CABEZAL </h2>
+                                        </div>
+                                        <iframe height="400" src="https://www.youtube.com/embed/rlasf0cUfzU"
+                                            allowfullscreen></iframe>
+                                    </div>
 
+                                    <div class="send-email-to-agent">
+                                        <div class="comment-form">
+                                            <div class="heading3">
+                                                <h2>ENVIAR MENSAJE A TRANSVENTAS</h2>
+                                            </div>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label>
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" placeholder="Name" />
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label>
+                                                            <i class="fa fa-at"></i>
+                                                            <input type="text" placeholder="Email Id" />
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label>
+                                                            <i class="fa fa-phone"></i>
+                                                            <input type="text" placeholder="Phone Number" />
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label>
+                                                            <i class="fa fa-pencil"></i>
+                                                            <textarea placeholder="Your Message"></textarea>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <button type="submit" class="flat-btn">SEND MESSAGE</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
 
-                        @endif
-
-                      
-
-                        {{-- Detalles Cabezal --}}
-                        
-
-                        <div class="col-md-6">
-
-                            <div class="vehicul-detail">
-
-                                <h4  style="color: blue; ">Detalles del Cabezal</h4>
-                                <div class="detail-field row">
-                                    <ul style="color:red;">
-                                        <li>Marca : {{ $predio->titulo }}</li>
-                                        <li>Modelo : {{ $predio->modelo }}</li>
-                                        <li>Papeles tipo : {{ $predio->categoria }}</li>
-                                        <li>Condicion : {{ $predio->condicion }}</li>
-                                        <li>Ubicacion : {{ $predio->ubicacion }}</li>
-                                    </ul>
                                 </div>
-                                <h4 style="color: blue;padding-bottom:10px; ">Precio Financiado : Q {{ $predio->precio }}</h4>
+
+                                <!-- Blog Post -->
+
                             </div>
 
+                            <!-- Blog POst Sec -->
 
                         </div>
 
-                        {{-- Descripcion completa --}}
-
-                        <div class="col-md-6">
-
-                            <div class="vehicul-detail">
-
-                                <h4 style="color: blue; ">Descripcion</h4>
-                                <div class="detail-field row">
-                                    <ul style="list-style:none;">
-                                        <li>{{ $predio->descripcioncompleta }}</li>
-                                    </ul>
-
+                        <aside class="col-md-4 column">
+                            <div class="agent_bg_widget widget">
+                                <div class="agent_widget">
+                                    <div class="agent_pic">
+                                        <a href="" title="">
+                                            <img src="{{ asset('/storage/imagesUser/' . $predio->user->image) }}" alt="" />
+                                            <h3 class="nocontent outline">--- document outline needed 3 ---</h3>
+                                            <h4>{{ $predio->user->name }}</h4>
+                                        </a>
+                                    </div>
+                                    <div class="agent_social">
+                                        <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                                        <a href="#" title=""><i class="fa fa-google-plus"></i></a>
+                                        <a href="#" title=""><i class="fa fa-twitter"></i></a>
+                                        <a href="#" title=""><i class="fa fa-tumblr"></i></a>
+                                    </div>
+                                    <span>
+                                        <i class="fa fa-phone"> </i> +502 43745326
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-envelope"> </i> transventas7@gmail.com
+                                    </span>
+                                    <a href="" title="" class="btn contact-agent">Ver mas</a>
                                 </div>
+                            </div><!-- Follow Widget -->
 
-                            </div>
-                        </div>
+                            <div class="search_widget widget">
+                                <div class="heading2">
+                                    <h3>BUSCAR CABEZALES</h3>
+                                </div>
+                                <div class="search-form">
+                                    <form action="vehiculs.html" method="get" class="form-inline">
+                                        <div class="search-form-content">
+                                            <div class="search-form-field">
+                                                <div class="form-group col-md-12">
+                                                    <div class="label-select">
+                                                        <select class="form-control" name="s_location">
+                                                            <option>Any Manufacturer</option>
+                                                            <option>Audi</option>
+                                                            <option>Mercedes-Benz</option>
+                                                            <option>BMW</option>
+                                                            <option>Lexus</option>
+                                                            <option>Lincoln</option>
+                                                            <option>Ford</option>
+                                                            <option>Fiat</option>
+                                                            <option>Dodge</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
+                                                <div class="form-group col-md-12">
+                                                    <div class="label-select">
+                                                        <select class="form-control" name="anymodule">
+                                                            <option>Any Model </option>
+                                                            <option value="1">R8</option>
+                                                            <option value="2">S500</option>
+                                                            <option value="3">540i</option>
+                                                            <option value="4">RX300</option>
+                                                            <option value="5">Navigator</option>
+                                                            <option value="6">Taurus</option>
+                                                            <option value="7">Doblo</option>
+                                                            <option value="8">Viper</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
+                                                <div class="form-group col-md-12">
+                                                    <div class="label-select">
+                                                        <select class="form-control" name="s_location">
+                                                            <option>Any locations</option>
+                                                            <option>Central New York</option>
+                                                            <option>GreenVille</option>
+                                                            <option>Long Island</option>
+                                                            <option>New York City</option>
+                                                            <option>West Side</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
+                                                <div class="form-group col-md-12">
+                                                    <div class="label-select">
+                                                        <select class="form-control" name="s_statu">
+                                                            <option>Any Status </option>
+                                                            <option value="damaged">Damaged</option>
+                                                            <option value="new">New</option>
+                                                            <option value="semi-new">Semi-New</option>
+                                                            <option value="used">Used</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-12">
+                                                    <span class="gprice-label">Price Range</span>
+                                                    <input type="text" class="span2" value="" data-slider-min="0"
+                                                        data-slider-max="60000" data-slider-step="5"
+                                                        data-slider-value="[0,60000]" id="price-range">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <span class="garea-label">Mileage Range</span>
+                                                    <input type="text" class="span2" value="" data-slider-min="0"
+                                                        data-slider-max="60000" data-slider-step="5"
+                                                        data-slider-value="[50,60000]" id="vehicul-geo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="search-form-submit">
+                                            <button type="submit" class="btn-search">Search</button>
+                                        </div>
+                                    </form>
+                                </div><!-- Services Sec -->
+                            </div><!-- Category Widget -->
+                        </aside>
                     </div>
-
-                    {{-- Seccion de silder de otros cabezales --}}
 
                     <div class="related-vehiculs-">
                         <div class="heading3">
-                            <h3>Otros cabezales listos para trabajar</h3>
+                            <h3>CABEZALES RELACIONADOS</h3>
+                            <span>Lorem ipsum dolor amet</span>
                         </div>
-
                         <div class="related">
                             <div class="related-vehiculs-items">
-
-                                
-                                
-                              
                                 <div class="item">
-                                        
                                     <div class="vehiculs-box">
                                         <div class="vehiculs-thumb">
-                                            <img src="{{ asset('storage/predio/thumbnail/'.$predio->files[0]->url) }}" alt="" />
-                                            <span class="spn-status"> {{ $predio->categoria }}</span>
-                                            
-                                            <a class="proeprty-sh-more"
-                                            href="{{ route('detalle-cabezal-inicio', $predio->id) }}"><i
-                                                class="fa fa-angle-double-right">
-                                            </i><i class="fa fa-angle-double-right"> </i></a>
+                                            <img src="img/demo/vehicul1.jpg" alt="" />
+                                            <span class="spn-status"> Damaged</span>
+                                            <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+                                            <div class="user-preview">
+                                                <a class="col" href="agent.html">
+                                                    <img alt="Camilė" class="avatar avatar-small" src="img/4.png"
+                                                        title="Camilė">
+                                                </a>
+                                            </div>
+                                            <a class="proeprty-sh-more" href="vehicul.html"><i
+                                                    class="fa fa-angle-double-right"> </i><i
+                                                    class="fa fa-angle-double-right"> </i></a>
+                                            <p class="car-info-smal">
+                                                Registration 2010<br>
+                                                3.0 Diesel<br>
+                                                230 HP<br>
+                                                Body Coupe<br>
+                                                80 000 Miles
+                                            </p>
                                         </div>
-                                        
-                                        <h3><a title="{{ $predio->titulo }}">{{ $predio->titulo }}</a></h3>
-                                        
+                                        <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
                                         <span class="price">$340000</span>
-                                        
                                     </div>
                                 </div>
-                               
-
-                               
-
                             </div>
                         </div>
-
                     </div>
+                    <!-- Related Posts -->
 
                 </div>
-
             </div>
         </div>
     </section>
 
-   
+
 @endsection

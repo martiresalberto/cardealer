@@ -37,6 +37,9 @@
               <th>modelo</th>
               <th>Condicion</th>
               <th>km</th>
+              <th>Color</th>
+              <th>Llantas</th>
+              <th>camarote</th>
               <th>imagen</th>
               <th>edit</th>
               <th>delete</th>
@@ -76,11 +79,12 @@
                   data-ubicacion="{{$pre->ubicacion}}" 
                   data-categoria="{{$pre->categoria}}" 
                   data-condicion="{{$pre->condicion}}" 
-                  data-image="{{$pre->image}}"
+                  data-url="{{$pre->url}}"
                   data-preid={{$pre->id}} 
                   data-toggle="modal" 
                   data-target="#editCabezal">Edit</button>
                 </td>
+
                 <td>
                   <button class="btn btn-danger" 
                   data-preid={{$pre->id}} 

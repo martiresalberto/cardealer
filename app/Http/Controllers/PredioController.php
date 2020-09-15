@@ -64,7 +64,7 @@ class PredioController extends Controller
              //Resize image here
             $thumbnailpath = public_path('storage/predio/thumbnail/'.$filenametostore);
             
-            $img = Image::make($thumbnailpath)->resize(700, 600)->save($thumbnailpath);
+            $img = Image::make($thumbnailpath)->resize(700, 500)->save($thumbnailpath);
             
             $img->save($thumbnailpath);
 
@@ -91,7 +91,7 @@ class PredioController extends Controller
 
         $predio->update($request->all());
 
-        // dd($predio);
+        //  dd($predio);
 
         $predio->update();
 
