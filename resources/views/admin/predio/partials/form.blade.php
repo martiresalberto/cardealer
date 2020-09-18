@@ -93,9 +93,11 @@
             </div>  
 
             <div class="form-group">
-              <label for="url">Imagenes</label>
+              <label for="url">imagenes</label>
               <input type="file" name="url[]" multiple="multiple"> 
             </div>  
+
+            
 
 
           </div>

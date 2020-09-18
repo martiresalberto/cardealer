@@ -20,7 +20,7 @@
             $('#image-gallery').lightSlider({
                 gallery: true,
                 item: 1,
-                thumbItem: 12,
+                thumbItem: 11,
                 slideMargin: 12,
                 speed: 0,
                 auto: false,
@@ -33,7 +33,7 @@
 
     </script>
 
-    //Slider donde se muestra los cabezales relacionados 
+    //Slider donde se muestra los cabezales relacionados
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -86,8 +86,7 @@
                                             <div class="favorite-and-print">
                                                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                                                     @foreach ($predio->files as $pre)
-                                                        <li
-                                                            data-thumb="{{ asset('storage/predio/thumbnail/' . $pre->url) }}">
+                                                        <li data-thumb="{{ asset('storage/predio/' . $pre->url) }}">
                                                             <img src="{{ asset('storage/predio/thumbnail/' . $pre->url) }}"
                                                                 alt="KwitaraCars" />
                                                         </li>
@@ -97,7 +96,7 @@
                                         </div>
                                     </div>
 
-                                    <h1>Price : {{ $predio->precio }}Q</h1>
+                                    <h1>Price : Q{{ $predio->precio }}</h1>
 
                                     <div class="row">
                                         <div class="col-md-5">
@@ -105,21 +104,29 @@
 
                                                 <div class="detail-field row">
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Marca</span>
-                                                    <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
-                                                            rel="tag">{{ $predio->titulo }}</a></span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value">
+                                                        <span>{{ $predio->titulo }}</span>
+                                                    </span>
+
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Modelo</span>
-                                                    <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
-                                                            rel="tag">{{ $predio->modelo }}</a></span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value">
+                                                        <span class="amount">{{ $predio->modelo }}</span>
+                                                    </span>
+
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Categoria</span>
-                                                    <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
-                                                            rel="tag">{{ $predio->categoria }}</a></span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value">
+                                                        <span class="amount">{{ $predio->categoria }}</span>
+                                                    </span>
+
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Ubicacion</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
                                                         <span class="amount">{{ $predio->ubicacion }}</span>
                                                     </span>
+
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Millage</span>
-                                                    <span
-                                                        class="col-xs-6 col-md-7 detail-field-value">{{ $predio->km }}</span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value">
+                                                        <span class="amount">{{ $predio->km }}</span>
+                                                    </span>
 
                                                 </div>
 
@@ -130,47 +137,50 @@
                                         </div>
                                     </div>
 
-                                    <div class="vehicul-video">
-                                        <div class="heading3">
-                                            <h2>VIDEO DEL CABEZAL </h2>
-                                        </div>
-                                        <iframe height="400" src="https://www.youtube.com/embed/rlasf0cUfzU"
-                                            allowfullscreen></iframe>
-                                    </div>
 
                                     <div class="send-email-to-agent">
                                         <div class="comment-form">
                                             <div class="heading3">
-                                                <h2>ENVIAR MENSAJE A TRANSVENTAS</h2>
+                                                <h2>ENVIAR MENSAJE A {{ $predio->user->name}}</h2>
                                             </div>
-                                            <form>
+                                            <form action="{{ route('enviarmensaje') }}" method="POST">
+                                                @csrf
+
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <label>
                                                             <i class="fa fa-user"></i>
-                                                            <input type="text" placeholder="Name" />
+                                                            
+                                                            <input type="text" name="recipient_id" value="{{ $predio->user->id }}" >
                                                         </label>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <label>
-                                                            <i class="fa fa-at"></i>
-                                                            <input type="text" placeholder="Email Id" />
+                                                            <i class="fa fa-email"></i>
+                                                         @if (Auth::user()->email)
+                                                            <input type="text" name="email" value="{{ Auth::user()->email }}">
+                                                         @endif  
                                                         </label>
                                                     </div>
+
                                                     <div class="col-md-12">
                                                         <label>
-                                                            <i class="fa fa-phone"></i>
-                                                            <input type="text" placeholder="Phone Number" />
+                                                        <i class="fa fa-truck fa-lg"></i>
+                                                        <input type="text" name="nCabezal"
+                                                            placeholder="Que cabezal buscas ?">
                                                         </label>
                                                     </div>
+
                                                     <div class="col-md-12">
                                                         <label>
                                                             <i class="fa fa-pencil"></i>
-                                                            <textarea placeholder="Your Message"></textarea>
+                                                            <textarea name="text"
+                                                                placeholder="Escribe tu mensaje"></textarea>
                                                         </label>
                                                     </div>
+
                                                     <div class="col-md-12">
-                                                        <button type="submit" class="flat-btn">SEND MESSAGE</button>
+                                                        <button type="submit" class="flat-btn">ENVIAR MENSAJE</button>
                                                     </div>
                                                 </div>
                                             </form>

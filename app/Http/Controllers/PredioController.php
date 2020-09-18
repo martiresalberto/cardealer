@@ -41,7 +41,6 @@ class PredioController extends Controller
     {
 
         $predio = Auth()->user()->predios()->create($request->all());
-        
 
         foreach ($request->url as $file) {
 
@@ -67,8 +66,7 @@ class PredioController extends Controller
             $img = Image::make($thumbnailpath)->resize(700, 500)->save($thumbnailpath);
             
             $img->save($thumbnailpath);
-
-
+        
             File::create([
                 'predio_id' => $predio->id,
                 'url' => $filenametostore

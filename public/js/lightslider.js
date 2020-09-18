@@ -4,7 +4,7 @@
 (function ($, undefined) {
     'use strict';
     var defaults = {
-        item: 11,
+        item: 9,
         autoWidth: false,
         slideMove: 1,
         slideMargin: 10,
@@ -31,7 +31,7 @@
         thumbItem: 10,
         pager: true,
         gallery: false,
-        galleryMargin: 5,
+        galleryMargin: 1,
         thumbMargin: 5,
         currentPagerPosition: 'middle',
         enableTouch: true,

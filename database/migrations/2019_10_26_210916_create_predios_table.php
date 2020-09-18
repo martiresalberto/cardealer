@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class CreatePrediosTable extends Migration
 {
@@ -23,12 +24,9 @@ class CreatePrediosTable extends Migration
             $table->double('precio');
             $table->year('modelo');
             $table->string('km');
-            $table->longText('descripcion');
+            $table->longText('descripcioncompleta');
             $table->string('ubicacion');
-            $table->string('color');
-            $table->string('llantas');
-            $table->string('color');
-            $table->string('motor');
+           
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')

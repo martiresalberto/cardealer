@@ -35,10 +35,10 @@
               <th>categoria</th>
               <th>precio</th>
               <th>modelo</th>
-              <th>Condicion</th>
+              <th>condicion</th>
               <th>km</th>
               <th>Color</th>
-              <th>Llantas</th>
+              <th>llantas</th>
               <th>camarote</th>
               <th>imagen</th>
               <th>edit</th>

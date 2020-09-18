@@ -36,8 +36,6 @@
                                 <form action="{{ route('enviarmensaje') }}" method="POST">
                                     @csrf
                                     <div class="row">
-
-                                            
                                         
                                         <div class="col-md-12">
                                             <i class="fa fa-user"></i>

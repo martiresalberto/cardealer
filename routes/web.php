@@ -107,9 +107,15 @@ Route::post('ejemplo', 'EjemploController@upload');
 // ]);
 
 // App\Role::create([
-//     'name' => 'vendedor',
-//     'display_name' => 'vendedor',
-//     'description' => 'vendedor',
+//     'name' => 'visitante',
+//     'display_name' => 'visitante',
+//     'description' => 'visitante',
+// ]);
+
+// App\Role::create([
+//     'name' => 'admin',
+//     'display_name' => 'admin',
+//     'description' => 'admin',
 // ]);
 
 // App\User::create([
@@ -125,3 +131,4 @@ Route::post('ejemplo', 'EjemploController@upload');
 //     'password' => bcrypt('123456'),
 //     'role_id' => 2,
 // ]);
+

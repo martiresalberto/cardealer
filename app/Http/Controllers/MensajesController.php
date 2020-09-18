@@ -17,7 +17,7 @@ class MensajesController extends Controller
      */
     function __construct()
     {
-        $this->middleware(['auth', 'roles:admin,agente']);
+        $this->middleware(['auth', 'roles:admin']);
     }
 
     public function mostrarmensajeadmin()

@@ -12,7 +12,7 @@
     <form action="{{ route('upload.ejemplo') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-grouo">
-            <input type="file" name="file[]" multiple>
+            <input type="file" name="file">
             <input type="submit" class="btn btn-info"> 
          </div><br>
     </form>
