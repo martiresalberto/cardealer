@@ -31,6 +31,7 @@
 
 <!-- /.preloader -->
 <div id="preloader"></div>
+
 <div class="theme-layout" id="app">
 
     @include('Front-end.partials.account-popup-sec')

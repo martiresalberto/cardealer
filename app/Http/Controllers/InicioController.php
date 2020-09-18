@@ -57,7 +57,7 @@ class InicioController extends Controller
                 $query->select('id', 'url', 'predio_id'); # Uno a muchos
             },
             'user' => function ($query) {
-                $query->select('id', 'name', 'image'); # Uno a muchos
+                $query->select('id', 'name', 'email' , 'image'); # Uno a muchos
             }
         ])->first(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'categoria', 'condicion', 'user_id']);
 
@@ -66,10 +66,5 @@ class InicioController extends Controller
         return view('Front-end.show', compact('predio'));
     }
 
-    // Metodo para mostrar las notificaciones de los mensajes recibidos en respuesta del admin
 
-    public function verNotificacionesUsuario()
-    {
-        //
-    }
 }

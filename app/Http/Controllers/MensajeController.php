@@ -10,15 +10,7 @@ use App\Notifications\Msmenviado;
 class MensajeController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    function __construct()
-    {
-        $this->middleware(['auth', 'roles:admin,visitante']);
-    }
+
 
     public function index()
     {
@@ -54,7 +46,7 @@ class MensajeController extends Controller
 
         $recipient_id->notify(new Msmenviado($mensaje));
 
-        return back()->with('flash','Tu mensaje fue enviado');
+        return back()->with('flash','Tu mensaje fue enviado con exito');
 
     }
 

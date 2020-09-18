@@ -33,8 +33,6 @@
 
     </script>
 
-    //Slider donde se muestra los cabezales relacionados
-
     <script type="text/javascript">
         $(document).ready(function() {
             "use strict";
@@ -75,6 +73,15 @@
     <section class="block">
         <div class="container">
             <div class="row">
+                
+                @if (session()->has('flash'))
+                
+                <div class="container">
+                    <div class="alert alert-success">{{ session('flash') }}</div>
+                </div>
+                
+                @endif
+
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-8 column">
@@ -137,13 +144,28 @@
                                         </div>
                                     </div>
 
+                                    @guest
+                                    
+                                    <div class="send-email-to-agent">
+                                        <div class="comment-form">
+  
+                                            <div class="alert alert-danger">
+                                                <a href="{{ route('register') }}" class="btn btn-xs btn-danger pull-right">REGISTRATE</a>
+                                                <strong>REGISTRATE:</strong> para enviar mensaje y recibir informacion de este cabezal o cualquier otro que busques o inicia sesion si ya eres usuario!
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    
+                                    @else
+
 
                                     <div class="send-email-to-agent">
                                         <div class="comment-form">
                                             <div class="heading3">
                                                 <h2>ENVIAR MENSAJE A {{ $predio->user->name}}</h2>
                                             </div>
-                                            <form action="{{ route('enviarmensaje') }}" method="POST">
+                                            <form action="{{ route('enviarmensaje') }}"  method="POST">
                                                 @csrf
 
                                                 <div class="row">
@@ -151,14 +173,14 @@
                                                         <label>
                                                             <i class="fa fa-user"></i>
                                                             
-                                                            <input type="text" name="recipient_id" value="{{ $predio->user->id }}" >
+                                                            <input type="text" name="recipient_id" value="{{ $predio->user->id }}" class="hidden">
                                                         </label>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <label>
                                                             <i class="fa fa-email"></i>
                                                          @if (Auth::user()->email)
-                                                            <input type="text" name="email" value="{{ Auth::user()->email }}">
+                                                            <input type="text" name="email" value="{{ Auth::user()->email }}" class="hidden">
                                                          @endif  
                                                         </label>
                                                     </div>
@@ -186,6 +208,10 @@
                                             </form>
                                         </div>
                                     </div>
+
+
+                                    @endguest
+
 
                                 </div>
 
@@ -217,7 +243,7 @@
                                         <i class="fa fa-phone"> </i> +502 43745326
                                     </span>
                                     <span>
-                                        <i class="fa fa-envelope"> </i> transventas7@gmail.com
+                                        <i class="fa fa-envelope"> </i> {{ $predio->user->email }}
                                     </span>
                                     <a href="" title="" class="btn contact-agent">Ver mas</a>
                                 </div>
@@ -320,40 +346,38 @@
                             <div class="related-vehiculs-items">
                                 <div class="item">
                                     <div class="vehiculs-box">
+
                                         <div class="vehiculs-thumb">
-                                            <img src="img/demo/vehicul1.jpg" alt="" />
-                                            <span class="spn-status"> Damaged</span>
-                                            <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+                                            <img src="{{ asset('storage/predio/' . $pre->url) }}" alt="" />
+                                            <span class="spn-status"> {{ $predio->condicion }}</span>
                                             <div class="user-preview">
                                                 <a class="col" href="agent.html">
-                                                    <img alt="Camilė" class="avatar avatar-small" src="img/4.png"
-                                                        title="Camilė">
+                                                    <img alt="{{ $predio->user->name }}" class="avatar avatar-small" src="{{ asset('/storage/imagesUser/' . $predio->user->image) }}"
+                                                        title="{{ $predio->user->name }}">
                                                 </a>
                                             </div>
                                             <a class="proeprty-sh-more" href="vehicul.html"><i
                                                     class="fa fa-angle-double-right"> </i><i
-                                                    class="fa fa-angle-double-right"> </i></a>
-                                            <p class="car-info-smal">
-                                                Registration 2010<br>
-                                                3.0 Diesel<br>
-                                                230 HP<br>
-                                                Body Coupe<br>
-                                                80 000 Miles
-                                            </p>
+                                                    class="fa fa-angle-double-right"> </i>
+                                            </a>
+                                            
                                         </div>
-                                        <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
-                                        <span class="price">$340000</span>
+
+                                        <h3><a href="{{ route('detalle-cabezal-inicio', $predio->id) }}" title="Mercedes-Benz">{{ $predio->titulo }}</a></h3>
+                                        <span class="price">{{ $predio->precio }}</span>
+                                    
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <!-- Related Posts -->
 
                 </div>
+                
             </div>
         </div>
     </section>
 
-
-@endsection
+@endsection()

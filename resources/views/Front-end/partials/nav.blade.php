@@ -64,17 +64,18 @@
                         <li class="menu-item-has-children">
                             <a title="">NUESTRO PREDIO <i class="fa fa-truck fa-lg"></i></a>
                             <ul>
-                                <li><a href="{{ route('cabezales-reciente-ingreso') }}" title="">Cabezales reciente ingreso
-                                    </a></li>
-                                <li><a href="" title="">Furgones reciente ingreso </a></li>
-                                <li><a href="" title="">Carros reciente ingreso </a></li>
+                                <li><a href="{{ route('cabezales-reciente-ingreso') }}" title="">Cabezales</a></li>
+                                <li><a href="" title="">Furgones</a></li>
+                                <li><a href="" title="">Carros</a></li>
                             </ul>
                         </li>
 
                         <li class="menu-item">
-                            <a href="{{ url('verNotificacionesUsuario') }}" title=""
-                                style="text-decoration: none;">NOTIFICACIONES <span style="width:25px; height:15px;"
-                                    class="badge bg-white"><strong>4</strong></span></a>
+                            <a href="{{ url('mostrarmensajeadmin') }}" title=""
+                            style="text-decoration: none;">NOTIFICACIONES 
+                            @if ($count = Auth::user()->unreadNotifications->count())
+                                <span style="width:25px; height:15px;" class="badge bg-white"><strong>{{ $count }}</strong></span></a>
+                            @endif           
                         </li>
 
                         <li class="menu-item-has-children">
@@ -84,9 +85,7 @@
                                     style="margin-left: 1rem;" width="50px" alt="imagen">
                             @endif
                             <ul>
-                                @if (@auth()
-            ->user()
-            ->hasRoles(['admin']))
+                                @if (@auth()->user()->hasRoles(['admin']))
                                     <li><a href="{{ url('home') }}" title="">Admin</a></li>
                                 @else
                                     <li><a href="{{ url('miperfil') }}" title="">Mi Perfil</a></li>
