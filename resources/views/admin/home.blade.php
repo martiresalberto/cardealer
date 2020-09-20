@@ -4,12 +4,6 @@
 
 <div class="container">
    
- 
-   {{--  <center>
-   <div class="form-group">
-      <img src="images/dashboard.png" style="height:300px; width:400px">
-    </div>
-   </center>  --}}
 
   <div class="row mt-3">
 
@@ -103,7 +97,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="{{ url('adminprediocabeales') }}" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('adminprediocabezales') }}" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 

@@ -14,50 +14,51 @@
 
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 
-
+    
+    
 </head>
 
 
 <body class="hold-transition sidebar-mini">
-
+    
     <!-- Aqui esta todo el contenido de la pagina -->
-
+    
     <div class="wrapper">
-
+        
         <!-- Aqui esta el menu de navegacion de la pagina -->
          @includeIf('admin.partials.nav')
-        <!-- Aqui esta el menu de navegacion de la pagina -->
+         <!-- Aqui esta el menu de navegacion de la pagina -->
 
-        <!-- Todo el contenido de las subpaginas -->
+         <!-- Todo el contenido de las subpaginas -->
         <div class="content-wrapper">
 
             <div class="content">
-
+                
                 <div class="container">
 
                     @yield('content')
-
+                    
                 </div>
-
+                
             </div>
 
         </div>
         <!-- Todo el contenido de las subpaginas-->
-
+        
         <!-- Aqui esta el footer de la pagina -->
         @include('admin.partials.footer')
         <!-- Aqui esta el footer de la pagina -->
-
+        
     </div>
 
     <!-- Aqui esta todo el contenido de la pagina -->
+    
+    @include('sweet::alert')
 
-
-
-
-
-
+    
     <!-- Script general -->
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
 
@@ -66,13 +67,13 @@
     <script>
         <!-- Administracion de usuario 
         -->
-
+        
     <!-- Editar de usuario -->
 
     $('#editUser').on('show.bs.modal', function (event) {
 
     var button = $(event.relatedTarget)
-
+    
     var image = button.data('image')
     var user_id = button.data('userid')
     var modal = $(this)

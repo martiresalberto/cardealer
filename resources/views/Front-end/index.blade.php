@@ -3,6 +3,7 @@
 
 @section('content')
 
+
     <section class="box-slider-search" style="margin-bottom:-70px;">
         <div class="container">
             <h1 class="nocontent outline">--- Search form  ---</h1>

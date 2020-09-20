@@ -36,7 +36,7 @@ class InicioController extends Controller
             'ubicacion', 'categoria', 'condicion', 'user_id'
         ]);
 
-
+        
         //cabezales por ingresar pagina de inicio
 
         $featured = Predio::whereYear('created_at', '2020')

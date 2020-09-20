@@ -23,6 +23,8 @@
 <!-- REVOLUTION STYLE SHEETS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('js/rs-plugin/css/settings.css') }}">
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 @show
     
@@ -34,16 +36,18 @@
 
 <div class="theme-layout" id="app">
 
+    
     @include('Front-end.partials.account-popup-sec')
-
+    
     @include('Front-end.partials.nav')
-
-       @yield('content') 
- 
-
+    
+    @yield('content') 
+    
+    
     @include('Front-end.partials.footer')
-
-
+    
+    
+    @include('sweet::alert')
 </div>
 
 @section('Script')
@@ -63,7 +67,6 @@
 
 <script src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>   
 <script src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
-
 
  
 

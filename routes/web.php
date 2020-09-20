@@ -77,6 +77,11 @@ Route::get('verNotificacionesUsuario', [
 
 Route::get('users', 'Userscontroller@index');
 
+//Ruta para mostrar todos cabezales publucados
+
+Route::get('adminprediocabezales', 'HomeAdminController@index')->name('adminprediocabezales');
+
+
 // Rutas para el Admin de la pagina
 
 Route::get('/home', 'HomeController@index')->name('home');
