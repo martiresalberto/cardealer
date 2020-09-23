@@ -79,7 +79,14 @@ Route::get('users', 'Userscontroller@index');
 
 //Ruta para mostrar todos cabezales publucados
 
-Route::get('adminprediocabezales', 'HomeAdminController@index')->name('adminprediocabezales');
+Route::get('adminprediocabezales', 'HomeAdminController@cabezales')->name('adminprediocabezales');
+
+//Ruta para mostrar todos furgones publucados
+
+Route::get('adminprediofurgones', [
+    'as' => 'adminprediofurgones',
+    'uses' => 'HomeAdminController@furgones'
+]);
 
 
 // Rutas para el Admin de la pagina
@@ -102,7 +109,12 @@ Route::post('ejemplo', 'EjemploController@upload');
 
 
 // App\Category::create([
-//     'title' => 'Cabezal',
+//     'title' => 'Cabezales',
+//     'user_id' => 1,
+// ]);
+
+// App\Category::create([
+//     'title' => 'Furgones',
 //     'user_id' => 1,
 // ]);
 
@@ -112,16 +124,17 @@ Route::post('ejemplo', 'EjemploController@upload');
 // ]);
 
 // App\Role::create([
+//     'name' => 'admin',
+//     'display_name' => 'admin',
+//     'description' => 'admin',
+// ]);
+
+// App\Role::create([
 //     'name' => 'visitante',
 //     'display_name' => 'visitante',
 //     'description' => 'visitante',
 // ]);
 
-// App\Role::create([
-//     'name' => 'admin',
-//     'display_name' => 'admin',
-//     'description' => 'admin',
-// ]);
 
 // App\User::create([
 //     'name' => 'Beto',

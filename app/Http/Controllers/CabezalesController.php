@@ -18,7 +18,7 @@ class CabezalesController extends Controller
             'files' => function ($query) {
                 $query->select('id', 'url', 'predio_id'); # Uno a muchos
             }
-        ])->get(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'categoria', 'condicion', 'user_id']);
+        ])->get(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'category_id', 'condicion', 'user_id']);
 
 
         return view('Front-end.cabezales.index', compact('predios'));
@@ -29,18 +29,18 @@ class CabezalesController extends Controller
 
         //Ruta para la pagina de detalle de cabezal show
 
-        $predio = Predio::with([
+        $predios = Predio::with([
             'files' => function ($query) {
                 $query->select('id', 'url', 'predio_id'); # Uno a muchos
             },
             'user' => function ($query) {
                 $query->select('id', 'name', 'image'); # Uno a muchos
             }
-        ])->first(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'categoria', 'condicion', 'user_id']);
+        ])->first(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'category_id', 'condicion', 'user_id']);
 
-        // dd($predio);
+        // dd($predios);
 
-        return view('Front-end.cabezales.show', compact('predio'));
+        return view('Front-end.cabezales.show', compact('predios'));
     }
 
 }

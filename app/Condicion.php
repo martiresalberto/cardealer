@@ -14,4 +14,9 @@ class Condicion extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function predio()
+    {
+        return $this->belongsTo('App\Predio');
+    }
 }

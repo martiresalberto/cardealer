@@ -14,18 +14,18 @@
                   <input type="hidden" name="predio_id" id="pre_id" value="">
 
 
-            @foreach($users as $user)
+            @foreach($predio as $pre)
 
             <div class="form-row">
                 
                 <div class="form-group col-md-6">
                   <label for="">Nombre de usuario</label>
-                  <input type="text" class="form-control" value="{{ $user->name }}"> 
+                  <input type="text" class="form-control" value="{{ $pre->user->name }}"> 
                 </div>
                 
                 <div class="form-group col-md-6">
                   <label for="usuario">Tipo de usuario</label>
-                  <input type="text" name="usuario" id="usuario" class="form-control" value="{{ $user->role->name }}"> 
+                  <input type="text" name="usuario" id="usuario" class="form-control" value="{{ $pre->user->role->name }}"> 
                 </div>
 
             </div>

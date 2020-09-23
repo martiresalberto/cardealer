@@ -245,7 +245,7 @@
                                     <span>
                                         <i class="fa fa-envelope"> </i> {{ $predio->user->email }}
                                     </span>
-                                    <a href="" title="" class="btn contact-agent">Ver mas</a>
+                                    <a href="{{ route('cabezales-reciente-ingreso') }}" title="" class="btn contact-agent">Ver publicaciones</a>
                                 </div>
                             </div><!-- Follow Widget -->
 

@@ -16,8 +16,9 @@ class Category extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function predio()
+
+    public function predios()
     {
-        return $this->belongsTo('App\Predio');
+        return $this->hasOne('App\Predio','category_id');
     }
 }

@@ -19,18 +19,23 @@ class CreatePrediosTable extends Migration
 
             $table->bigInteger('user_id')->unsigned();
 
-            $table->string('categoria');
+            $table->bigInteger('category_id')->unsigned();
+
             $table->string('titulo', 100);
             $table->double('precio');
             $table->year('modelo');
             $table->string('km');
             $table->longText('descripcioncompleta');
             $table->string('ubicacion');
-           
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+
+            $table->foreign('category_id')->references('id')->on('categories')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
 
             $table->timestamps();
         });

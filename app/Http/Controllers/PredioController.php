@@ -20,15 +20,27 @@ class PredioController extends Controller
      */
     public function index()
     {
-        $condicion = Condicion::all();
 
-        $predio = Predio::all();
+        $condicion = Condicion::all(['id', 'titulo']);
 
-        $categories = Category::all();
+        $predio = Predio::all(['id', 'titulo', 'usuario',
+          'precio', 'modelo', 'km',
+          'descripcioncompleta', 'ubicacion',
+          'ubicacion', 'condicion', 'user_id','category_id']);
 
+        // $predio = Predio::all(['id', 'titulo', 'usuario',
+        // 'precio', 'modelo', 'km',
+        // 'descripcioncompleta', 'ubicacion',
+        // 'ubicacion', 'categoria', 'condicion', 'user_id']);
+
+        $categories = Category::all(['id', 'title']);
+        
         $users = User::where('id', '=', auth()->id())->get();
-
+        
+        // dd($predio);
+        
         return view('admin.predio.index', compact('predio', 'categories', 'users', 'condicion'));
+
     }
 
     /**
@@ -40,9 +52,15 @@ class PredioController extends Controller
     public function store(Request $request)
     {
 
-        $predio = Auth()->user()->predios()->create($request->all());
+        // return $request->all();
 
-        foreach ($request->url as $file) {
+         $predio = Auth()->user()->predios()->create($request->all());
+
+
+
+        //  dd($predio);
+
+         foreach ($request->url as $file) {
 
                     //get filename with extension
             $filenamewithextension = $file->getClientOriginalName();

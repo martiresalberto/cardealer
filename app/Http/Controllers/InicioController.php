@@ -33,7 +33,7 @@ class InicioController extends Controller
             'id', 'titulo', 'usuario',
             'precio', 'modelo', 'km',
             'descripcioncompleta', 'ubicacion',
-            'ubicacion', 'categoria', 'condicion', 'user_id'
+            'ubicacion', 'category_id', 'condicion', 'user_id'
         ]);
 
         
@@ -59,7 +59,7 @@ class InicioController extends Controller
             'user' => function ($query) {
                 $query->select('id', 'name', 'email' , 'image'); # Uno a muchos
             }
-        ])->first(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'categoria', 'condicion', 'user_id']);
+        ])->first(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'category_id', 'condicion', 'user_id']);
 
         // dd($predio);
 

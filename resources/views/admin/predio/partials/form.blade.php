@@ -3,6 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
+
           
           <h4 class="modal-title" id="myModalLabel">Nuevo anuncio</h4>
         </div>
@@ -32,10 +33,10 @@
 
             <div class="form-group col-md-6">
               <label for="categoria">Categoria</label>
-              <select class="form-control" name="categoria">
+              <select class="form-control" name="category_id">
                 <option value="">Selecciona la categoria</option>
                 @foreach($categories as $cat)
-                  <option name="categoria" id="categoria" value="{{ $cat->title }}">{{ $cat->title }}</option>
+                <option name="category_id" id="category_id" value="{{ $cat->id }}">{{ $cat->title }}</option>
                 @endforeach  
               </select>
             </div>
