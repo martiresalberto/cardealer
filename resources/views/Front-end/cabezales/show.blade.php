@@ -21,7 +21,7 @@
                 gallery: true,
                 item: 1,
                 thumbItem: 11,
-                slideMargin: 0,
+                slideMargin: 12,
                 speed: 0,
                 auto: false,
                 loop: false,
@@ -73,6 +73,15 @@
     <section class="block">
         <div class="container">
             <div class="row">
+                
+                @if (session()->has('flash'))
+                
+                <div class="container">
+                    <div class="alert alert-success">{{ session('flash') }}</div>
+                </div>
+                
+                @endif
+
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-8 column">
@@ -84,8 +93,7 @@
                                             <div class="favorite-and-print">
                                                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                                                     @foreach ($predio->files as $pre)
-                                                        <li
-                                                            data-thumb="{{ asset('storage/predio/thumbnail/' . $pre->url) }}">
+                                                        <li data-thumb="{{ asset('storage/predio/' . $pre->url) }}">
                                                             <img src="{{ asset('storage/predio/thumbnail/' . $pre->url) }}"
                                                                 alt="KwitaraCars" />
                                                         </li>
@@ -95,7 +103,7 @@
                                         </div>
                                     </div>
 
-                                    <h1>Price : {{ $predio->precio }}Q</h1>
+                                    <h1>Price : Q{{ $predio->precio }}</h1>
 
                                     <div class="row">
                                         <div class="col-md-5">
@@ -103,21 +111,29 @@
 
                                                 <div class="detail-field row">
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Marca</span>
-                                                    <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
-                                                            rel="tag">{{ $predio->titulo }}</a></span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value">
+                                                        <span>{{ $predio->titulo }}</span>
+                                                    </span>
+
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Modelo</span>
-                                                    <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
-                                                            rel="tag">{{ $predio->modelo }}</a></span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value">
+                                                        <span class="amount">{{ $predio->modelo }}</span>
+                                                    </span>
+
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Categoria</span>
-                                                    <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
-                                                            rel="tag">{{ $predio->categoria }}</a></span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value">
+                                                        <span class="amount">{{ $predio->categoria }}</span>
+                                                    </span>
+
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Ubicacion</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
                                                         <span class="amount">{{ $predio->ubicacion }}</span>
                                                     </span>
+
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Millage</span>
-                                                    <span
-                                                        class="col-xs-6 col-md-7 detail-field-value">{{ $predio->km }}</span>
+                                                    <span class="col-xs-6 col-md-7 detail-field-value">
+                                                        <span class="amount">{{ $predio->km }}</span>
+                                                    </span>
 
                                                 </div>
 
@@ -128,52 +144,74 @@
                                         </div>
                                     </div>
 
-                                    <div class="vehicul-video">
-                                        <div class="heading3">
-                                            <h2>VIDEO DEL CABEZAL </h2>
+                                    @guest
+                                    
+                                    <div class="send-email-to-agent">
+                                        <div class="comment-form">
+  
+                                            <div class="alert alert-danger">
+                                                <a href="{{ route('register') }}" class="btn btn-xs btn-danger pull-right">REGISTRATE</a>
+                                                <strong>REGISTRATE:</strong> para enviar mensaje y recibir informacion de este cabezal o cualquier otro que busques o inicia sesion si ya eres usuario!
+                                            </div>
+
                                         </div>
-                                        <iframe height="400" src="https://www.youtube.com/embed/rlasf0cUfzU"
-                                            allowfullscreen></iframe>
                                     </div>
+                                    
+                                    @else
+
 
                                     <div class="send-email-to-agent">
                                         <div class="comment-form">
                                             <div class="heading3">
                                                 <h2>ENVIAR MENSAJE A {{ $predio->user->name}}</h2>
                                             </div>
-                                            <form>
+                                            <form action="{{ route('enviarmensaje') }}"  method="POST">
+                                                @csrf
+
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <label>
                                                             <i class="fa fa-user"></i>
-                                                            <input type="text" placeholder="Name" />
+                                                            
+                                                            <input type="text" name="recipient_id" value="{{ $predio->user->id }}" class="hidden">
                                                         </label>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <label>
-                                                            <i class="fa fa-at"></i>
-                                                            <input type="text" placeholder="Email Id" />
+                                                            <i class="fa fa-email"></i>
+                                                         @if (Auth::user()->email)
+                                                            <input type="text" name="email" value="{{ Auth::user()->email }}" class="hidden">
+                                                         @endif  
                                                         </label>
                                                     </div>
+
                                                     <div class="col-md-12">
                                                         <label>
-                                                            <i class="fa fa-phone"></i>
-                                                            <input type="text" placeholder="Phone Number" />
+                                                        <i class="fa fa-truck fa-lg"></i>
+                                                        <input type="text" name="nCabezal"
+                                                            placeholder="Que cabezal buscas ?">
                                                         </label>
                                                     </div>
+
                                                     <div class="col-md-12">
                                                         <label>
                                                             <i class="fa fa-pencil"></i>
-                                                            <textarea placeholder="Your Message"></textarea>
+                                                            <textarea name="text"
+                                                                placeholder="Escribe tu mensaje"></textarea>
                                                         </label>
                                                     </div>
+
                                                     <div class="col-md-12">
-                                                        <button type="submit" class="flat-btn">SEND MESSAGE</button>
+                                                        <button type="submit" class="flat-btn">ENVIAR MENSAJE</button>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
+
+
+                                    @endguest
+
 
                                 </div>
 
@@ -205,9 +243,9 @@
                                         <i class="fa fa-phone"> </i> +502 43745326
                                     </span>
                                     <span>
-                                        <i class="fa fa-envelope"> </i> transventas7@gmail.com
+                                        <i class="fa fa-envelope"> </i> {{ $predio->user->email }}
                                     </span>
-                                    <a href="" title="" class="btn contact-agent">Ver mas</a>
+                                    <a href="{{ route('cabezales-reciente-ingreso') }}" title="" class="btn contact-agent">Ver publicaciones</a>
                                 </div>
                             </div><!-- Follow Widget -->
 
@@ -299,7 +337,6 @@
                         </aside>
                     </div>
 
-
                     <div class="related-vehiculs-">
                         <div class="heading3">
                             <h3>CABEZALES RELACIONADOS</h3>
@@ -309,40 +346,38 @@
                             <div class="related-vehiculs-items">
                                 <div class="item">
                                     <div class="vehiculs-box">
+
                                         <div class="vehiculs-thumb">
-                                            <img src="img/demo/vehicul1.jpg" alt="" />
-                                            <span class="spn-status"> Damaged</span>
-                                            <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+                                            <img src="{{ asset('storage/predio/' . $pre->url) }}" alt="" />
+                                            <span class="spn-status"> {{ $predio->condicion }}</span>
                                             <div class="user-preview">
                                                 <a class="col" href="agent.html">
-                                                    <img alt="Camilė" class="avatar avatar-small" src="img/4.png"
-                                                        title="Camilė">
+                                                    <img alt="{{ $predio->user->name }}" class="avatar avatar-small" src="{{ asset('/storage/imagesUser/' . $predio->user->image) }}"
+                                                        title="{{ $predio->user->name }}">
                                                 </a>
                                             </div>
                                             <a class="proeprty-sh-more" href="vehicul.html"><i
                                                     class="fa fa-angle-double-right"> </i><i
-                                                    class="fa fa-angle-double-right"> </i></a>
-                                            <p class="car-info-smal">
-                                                Registration 2010<br>
-                                                3.0 Diesel<br>
-                                                230 HP<br>
-                                                Body Coupe<br>
-                                                80 000 Miles
-                                            </p>
+                                                    class="fa fa-angle-double-right"> </i>
+                                            </a>
+                                            
                                         </div>
-                                        <h3><a href="vehicul.html" title="Mercedes-Benz">Mercedes-Benz</a></h3>
-                                        <span class="price">$340000</span>
+
+                                        <h3><a href="{{ route('detalle-cabezal-inicio', $predio->id) }}" title="Mercedes-Benz">{{ $predio->titulo }}</a></h3>
+                                        <span class="price">{{ $predio->precio }}</span>
+                                    
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <!-- Related Posts -->
 
                 </div>
+                
             </div>
         </div>
     </section>
 
-
-@endsection
+@endsection()

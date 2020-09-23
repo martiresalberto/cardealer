@@ -21,7 +21,7 @@ class CabezalesController extends Controller
         ])->get(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'category_id', 'condicion', 'user_id']);
 
 
-        return view('Front-end.cabezales.index', compact('predios'));
+        return view('Front-end.cabezales.detalle.index', compact('predios'));
     }
 
     public function cabezalesshow($id)
@@ -40,7 +40,7 @@ class CabezalesController extends Controller
 
         // dd($predios);
 
-        return view('Front-end.cabezales.show', compact('predios'));
+        return view('Front-end.cabezales.detalle.show', compact('predios'));
     }
 
 }

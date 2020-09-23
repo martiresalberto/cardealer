@@ -11,6 +11,7 @@ Route::get('cabezal/{id}', [
     'uses' => 'InicioController@show'
 ]);
 
+
 //Ruta pára mostrar Pagina de inicio de los cabezales recietne ingreso
 
 Route::get('cabezales-reciente-ingreso', [
@@ -88,6 +89,12 @@ Route::get('adminprediofurgones', [
     'uses' => 'HomeAdminController@furgones'
 ]);
 
+//Ruta para mostrar todos los carros
+
+Route::get('adminprediocarros', [
+    'as' => 'adminprediocarros',
+    'uses' => 'HomeAdminController@furgones'
+]);
 
 // Rutas para el Admin de la pagina
 

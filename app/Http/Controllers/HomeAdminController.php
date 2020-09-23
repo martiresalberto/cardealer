@@ -14,16 +14,12 @@ class HomeAdminController extends Controller
     public function cabezales()
     {
 
-        $predios = Predio::with([
-            'files' => function ($query) {
-                $query->select('id', 'url', 'predio_id'); # Uno a muchos
-            }
-        ])->get([
-            'id', 'titulo', 'usuario',
-            'precio', 'modelo', 'km',
-            'descripcioncompleta', 'ubicacion',
-            'ubicacion', 'categoria', 'condicion', 'user_id'
-        ]);
+        
+        $predios = Predio::where('category_id', '=' ,'1')
+        ->get(['id', 'titulo', 'usuario',
+        'precio', 'modelo', 'km',
+        'descripcioncompleta', 'ubicacion',
+        'ubicacion', 'category_id', 'condicion', 'user_id']);
 
 
         return view('admin.home.cabezales', compact('predios'));
@@ -33,22 +29,30 @@ class HomeAdminController extends Controller
     public function furgones()
     {
        
-        $predios = Predio::with([
-            'files' => function ($query) {
-                $query->select('id', 'url', 'predio_id'); # Uno a muchos
-            },
-            'user' => function ($query) {
-                $query->select('id', 'name'); # Uno a muchos
-            },
-        ])->first([
-            'id', 'titulo', 'usuario',
-            'precio', 'modelo', 'km',
-            'descripcioncompleta', 'ubicacion',
-            'ubicacion', 'categoria', 'condicion', 'user_id'
-        ]);
+        $predios = Predio::where('category_id', '=' ,'2')
+        ->get(['id', 'titulo', 'usuario',
+        'precio', 'modelo', 'km',
+        'descripcioncompleta', 'ubicacion',
+        'ubicacion', 'category_id', 'condicion', 'user_id']);
 
-        dd($predios);
+        // dd($predios);
 
         return view('admin.home.furgones', compact('predios'));
     }
+
+    
+    public function carros()
+    {
+       
+        $predios = Predio::where('category_id', '=' ,'5')
+        ->get(['id', 'titulo', 'usuario',
+        'precio', 'modelo', 'km',
+        'descripcioncompleta', 'ubicacion',
+        'ubicacion', 'category_id', 'condicion', 'user_id']);
+
+        // dd($predios);
+
+        return view('admin.home.carros', compact('predios'));
+    }
+
 }

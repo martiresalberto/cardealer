@@ -8,7 +8,7 @@
     <div class="box">
       <center class="mt-3">
       <div class="box-header">
-        <h1 class="box-title" style="font-family: 'Anton', sans-serif;">Furgones publicados</h1>
+        <h1 class="box-title" style="font-family: 'Anton', sans-serif;">Carros publicados</h1>
       </div>
       </center> 
 
