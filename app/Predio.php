@@ -35,4 +35,22 @@ class Predio extends Model
     {
         return $this->hasMany('App\File', 'predio_id');
     }
+
+
+    // Query Scope
+
+    public function scopeTitulo($query, $titulo)
+    {
+        if($titulo)
+           return $query->where('titulo', 'LIKE' , "%$titulo%");
+    }
+
+
+
+
+
+
+
+
+
 }

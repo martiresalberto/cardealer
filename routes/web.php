@@ -2,6 +2,7 @@
 
 // Rutas de la pagin de inicio o home
 
+
 Route::get('/', 'InicioController@index');
 
 //Rutas pagina detalle de cabezales reciente ingreso  Inicio
@@ -25,6 +26,23 @@ Route::get('cabezalesshow/{id}', [
     'as' => 'detalle-cabezal-reciente-ingreso',
     'uses' => 'CabezalesController@cabezalesshow'
 ]);
+
+
+//Ruta para mostrar los furgones en el nav de la pagina de inicio
+
+Route::get('furgones-reciente-ingreso',[
+    'as' => 'furgones-reciente-ingreso',
+    'uses' => 'FurgonesController@furgones'
+]);
+
+
+//Ruta para mostrar los carrs en el nav de la pagina de inicio
+
+Route::get('carros-reciente-ingreso',[
+    'as' => 'carros-reciente-ingreso',
+    'uses' => 'CarrosController@carros'
+]);
+
 
 //Ruta contactanos para enviar mensajes 
 

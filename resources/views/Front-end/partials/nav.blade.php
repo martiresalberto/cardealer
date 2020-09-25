@@ -40,24 +40,24 @@
 
 
                         <li class="menu-item">
-                            <a href="{{ url('/') }}" title="" style="text-decoration: none;">HOME <i
+                            <a href="{{ url('/') }}" title="" style="text-decoration: none;">INICIO <i
                                     class="fa fa-home fa-lg"></i></a>
                         </li>
 
                         <li class="menu-item-has-children">
-                            <a title="">NUESTRO PREDIO <i class="fa fa-truck fa-lg"></i></a>
+                            <a title="">PREDIO <i class="fa fa-truck fa-lg"></i></a>
                             <ul>
                                 <li><a href="{{ route('cabezales-reciente-ingreso') }}" title="">Cabezales reciente ingreso
                                     </a></li>
-                                <li><a href="" title="">Furgones reciente ingreso </a></li>
-                                <li><a href="" title="">Carros reciente ingreso </a></li>
+                                <li><a href="{{ route('furgones-reciente-ingreso') }}" title="">Furgones reciente ingreso </a></li>
+                                <li><a href="{{ route('carros-reciente-ingreso') }}" title="">Carros reciente ingreso </a></li>
                             </ul>
                         </li>
 
                     @else
 
                         <li class="menu-item">
-                            <a href="{{ url('/') }}" title="" style="text-decoration: none;">HOME <i
+                            <a href="{{ url('/') }}" title="" style="text-decoration: none;">INICIO<i
                                     class="fa fa-home fa-lg"></i></a>
                         </li>
 
@@ -65,7 +65,7 @@
                             <a title="">NUESTRO PREDIO <i class="fa fa-truck fa-lg"></i></a>
                             <ul>
                                 <li><a href="{{ route('cabezales-reciente-ingreso') }}" title="">Cabezales</a></li>
-                                <li><a href="" title="">Furgones</a></li>
+                                <li><a href="{{ route('furgones-reciente-ingreso') }}" title="">Furgones</a></li>
                                 <li><a href="" title="">Carros</a></li>
                             </ul>
                         </li>
@@ -86,7 +86,7 @@
                             @endif
                             <ul>
                                 @if (@auth()->user()->hasRoles(['admin']))
-                                    <li><a href="{{ url('home') }}" title="">Admin</a></li>
+                                    <li><a href="{{ url('home') }}" title="">Administracion pagina</a></li>
                                 @else
                                     <li><a href="{{ url('miperfil') }}" title="">Mi Perfil</a></li>
                                 @endif
