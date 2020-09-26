@@ -3,39 +3,48 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\File;
-use App\Role;
+use Storage;
+use App\Video;  
 
 class EjemploController extends Controller
 {
     public function index()
     {
-        $role = Role::with('user')->get();
-
-        // dd($role);
-
-        return view('ejemplo',compact('role'));
+        return view('admin.ejemplo.index');
     }
 
 
     public function upload(Request $request)
     {
-        // return $request->all();
 
-        if ($request->hasFile('file')) {
+                 $file = $request->file('file');
 
-            foreach ($request->file as $file) {
+                 //get filename with extension
+                 $filenamewithextension = $file->getClientMimeType();
 
-                $filename = $file->getClientOriginalName();
+                 //get filename without extension
+                 $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+     
+                 //get file extension
+                 $extension = $file->getClientOriginalExtension();
+     
+                 //filename to store
+                 $filenametostore = $filename.'_'.time().'.'.$extension;
+                 
+                 
+                //  dd($filenametostore);
+                 
+                 Storage::put('public/video/'. $filenametostore, fopen($file, 'r+'));
+                
 
-                $file->storeAs('public/upload', $filename);
+                 Video::create([
+                    'predio_id' => $predio->id,
+                    'urlVideo' => $filenametostore
+                ]);
 
-                $fileModel = new File;
+                 return back();
+}
 
-                $fileModel->url = $filename;
 
-                $fileModel->save();
-            }
-        }
-    }
+
 }

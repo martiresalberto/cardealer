@@ -115,7 +115,15 @@
             </a>
           </li>
           
-          
+          <li class="nav-item">
+            <a href="{{ url('ejemplo') }}" class="nav-link">
+              <i class="nav-icon fas fa-joint red"></i>
+              <p>
+                Ejemplos
+              </p>
+            </a>
+          </li>
+
           @endauth 
           
           <li class="nav-item">

@@ -23,7 +23,7 @@
     
     <!-- Aqui esta todo el contenido de la pagina -->
     
-    <div class="wrapper">
+    <div class="wrapper" id="app">
         
         <!-- Aqui esta el menu de navegacion de la pagina -->
          @includeIf('admin.partials.nav')
@@ -53,16 +53,14 @@
 
     <!-- Aqui esta todo el contenido de la pagina -->
     
-    @include('sweet::alert')
 
     
     <!-- Script general -->
-    
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Script general -->
+
 
     <script>
         <!-- Administracion de usuario 

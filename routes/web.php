@@ -133,6 +133,13 @@ Route::get('ejemplo', 'EjemploController@index')->name('upload.ejemplo');
 Route::post('ejemplo', 'EjemploController@upload');
 
 
+
+
+
+
+
+
+
 // App\Category::create([
 //     'title' => 'Cabezales',
 //     'user_id' => 1,

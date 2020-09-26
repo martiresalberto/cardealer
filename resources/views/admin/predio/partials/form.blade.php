@@ -98,7 +98,10 @@
               <input type="file" name="url[]" multiple="multiple"> 
             </div>  
 
-            
+            <div class="form-group">
+              <label for="file">Video</label>
+              <input type="file" name="video">
+            </div>  
 
 
           </div>

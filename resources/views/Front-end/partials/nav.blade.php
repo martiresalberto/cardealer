@@ -16,7 +16,7 @@
         <div class="container">
 
             <div class="logo">
-                <a href="index.html" title="">
+                <a href="{{ url('/') }}">
                     <i class="fa fa-get-pocket"></i>
                     <span>TrasnVentas</span>
                     <strong>Venta de cabezales</strong>

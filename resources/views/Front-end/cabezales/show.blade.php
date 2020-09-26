@@ -144,6 +144,12 @@
                                         </div>
                                     </div>
 
+                                    <div class="vehicul-video">
+                                        <div class="heading3">
+                                            <h2>vehicul Video </h2> 
+                                        </div>
+                                        <video autoplay muted loop src="{{ asset('storage/video/' . $predio->videos->urlVideo) }}" width="640" height="480"></video>
+                                    </div>
                                     @guest
                                     
                                     <div class="send-email-to-agent">

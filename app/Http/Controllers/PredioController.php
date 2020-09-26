@@ -8,6 +8,7 @@ use App\Category;
 use App\User;
 use App\Condicion;
 use App\File;
+use App\Video;
 use Image; //Intervention Image
 use Illuminate\Support\Facades\Storage; 
 
@@ -56,8 +57,6 @@ class PredioController extends Controller
 
          $predio = Auth()->user()->predios()->create($request->all());
 
-
-
         //  dd($predio);
 
          foreach ($request->url as $file) {
@@ -90,6 +89,33 @@ class PredioController extends Controller
                 'url' => $filenametostore
             ]);
         }
+
+        //Ruta para subir video
+        $filevideo = $request->file('video');
+
+        //get filename with extension
+        $filenamewithextensionvideo = $filevideo->getClientMimeType();
+
+        //get filename without extension
+        $filename = pathinfo($filenamewithextensionvideo, PATHINFO_FILENAME);
+
+        //get file extension
+        $extensionvideo = $filevideo->getClientOriginalExtension();
+
+        //filename to store
+        $filenametostorevideo = $filename.'_'.time().'.'.$extensionvideo;
+        
+        
+       //  dd($filenametostore);
+        
+        Storage::put('public/video/'. $filenametostorevideo, fopen($filevideo, 'r+'));
+       
+
+        Video::create([
+           'predio_id' => $predio->id,
+           'urlVideo' => $filenametostorevideo
+       ]);
+
 
         return back();
     }
