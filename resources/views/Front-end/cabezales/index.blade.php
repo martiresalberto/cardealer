@@ -154,7 +154,7 @@
                                             <img src="{{ asset('storage/predio/' . $furgones->files[0]->url) }}" alt="" />
                                             <span class="spn-status"> {{ $furgones->condicion }} </span>
 
-                                            <a class="proeprty-sh-more" href=""><i class="fa fa-angle-double-right">
+                                            <a class="proeprty-sh-more" href="{{ route('detalle-furgon-inicio', $furgones->id) }}"><i class="fa fa-angle-double-right">
                                                 </i><i class="fa fa-angle-double-right"> </i></a>
                                             <p class="car-info-smal">
 
@@ -212,7 +212,7 @@
                                             <img src="{{ asset('storage/predio/' . $carro->files[0]->url) }}" alt="" />
                                             <span class="spn-status"> {{ $carro->condicion }} </span>
 
-                                            <a class="proeprty-sh-more" href=""><i class="fa fa-angle-double-right">
+                                            <a class="proeprty-sh-more" href="{{ route('detalle-carro-inicio', $carro->id) }}"><i class="fa fa-angle-double-right">
                                                 </i><i class="fa fa-angle-double-right"> </i></a>
                                             <p class="car-info-smal">
 

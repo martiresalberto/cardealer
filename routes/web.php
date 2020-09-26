@@ -9,9 +9,22 @@ Route::get('/', 'InicioController@index');
 
 Route::get('cabezal/{id}', [
     'as' => 'detalle-cabezal-inicio',
-    'uses' => 'InicioController@show'
+    'uses' => 'InicioController@showcabezal'
 ]);
 
+//Rutas pagina detalle de furgoness reciente ingreso  Inicio
+
+Route::get('furgon/{id}', [
+    'as' => 'detalle-furgon-inicio',
+    'uses' => 'InicioController@showfurgon'
+]);
+
+//Rutas pagina detalle de furgoness reciente ingreso  Inicio
+
+Route::get('carro/{id}', [
+    'as' => 'detalle-carro-inicio',
+    'uses' => 'InicioController@showcarro'
+]);
 
 //Ruta pára mostrar Pagina de inicio de los cabezales recietne ingreso
 
@@ -131,12 +144,6 @@ Auth::routes();
 Route::get('ejemplo', 'EjemploController@index')->name('upload.ejemplo');
 
 Route::post('ejemplo', 'EjemploController@upload');
-
-
-
-
-
-
 
 
 

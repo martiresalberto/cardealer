@@ -92,7 +92,7 @@
                                         <div class="light-slide-item">
                                             <div class="favorite-and-print">
                                                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                                    @foreach ($cabezales->files as $pre)
+                                                    @foreach ($furgones->files as $pre)
                                                         <li data-thumb="{{ asset('storage/predio/' . $pre->url) }}">
                                                             <img src="{{ asset('storage/predio/thumbnail/' . $pre->url) }}"
                                                                 alt="KwitaraCars" />
@@ -103,7 +103,7 @@
                                         </div>
                                     </div>
 
-                                    <h1>Price : Q{{ $cabezales->precio }}</h1>
+                                    <h1>Price : Q{{ $furgones->precio }}</h1>
 
                                     <div class="row">
                                         <div class="col-md-5">
@@ -112,27 +112,27 @@
                                                 <div class="detail-field row">
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Marca</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
-                                                        <span>{{ $cabezales->titulo }}</span>
+                                                        <span>{{ $furgones->titulo }}</span>
                                                     </span>
 
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Modelo</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
-                                                        <span class="amount">{{ $cabezales->modelo }}</span>
+                                                        <span class="amount">{{ $furgones->modelo }}</span>
                                                     </span>
 
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Categoria</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
-                                                        <span class="amount">{{ $cabezales->categoria }}</span>
+                                                        <span class="amount">{{ $furgones->categoria }}</span>
                                                     </span>
 
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Ubicacion</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
-                                                        <span class="amount">{{ $cabezales->ubicacion }}</span>
+                                                        <span class="amount">{{ $furgones->ubicacion }}</span>
                                                     </span>
 
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Millage</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
-                                                        <span class="amount">{{ $cabezales->km }}</span>
+                                                        <span class="amount">{{ $furgones->km }}</span>
                                                     </span>
 
                                                 </div>
@@ -140,7 +140,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-7">
-                                            <p>{{ $cabezales->descripcioncompleta }} </p>
+                                            <p>{{ $furgones->descripcioncompleta }} </p>
                                         </div>
                                     </div>
 
@@ -148,7 +148,7 @@
                                         <div class="heading3">
                                             <h2>vehicul Video </h2> 
                                         </div>
-                                        <video autoplay muted loop src="{{ asset('storage/video/' . $cabezales->videos->urlVideo) }}" width="640" height="480"></video>
+                                        <video autoplay muted loop src="{{ asset('storage/video/' . $furgones->videos->urlVideo) }}" width="640" height="480"></video>
                                     </div>
                                     @guest
                                     
@@ -169,7 +169,7 @@
                                     <div class="send-email-to-agent">
                                         <div class="comment-form">
                                             <div class="heading3">
-                                                <h2>ENVIAR MENSAJE A {{ $cabezales->user->name}}</h2>
+                                                <h2>ENVIAR MENSAJE A {{ $furgones->user->name}}</h2>
                                             </div>
                                             <form action="{{ route('enviarmensaje') }}"  method="POST">
                                                 @csrf
@@ -179,7 +179,7 @@
                                                         <label>
                                                             <i class="fa fa-user"></i>
                                                             
-                                                            <input type="text" name="recipient_id" value="{{ $cabezales->user->id }}" class="hidden">
+                                                            <input type="text" name="recipient_id" value="{{ $furgones->user->id }}" class="hidden">
                                                         </label>
                                                     </div>
                                                     <div class="col-md-12">
@@ -234,9 +234,9 @@
                                 <div class="agent_widget">
                                     <div class="agent_pic">
                                         <a href="" title="">
-                                            <img src="{{ asset('/storage/imagesUser/' . $cabezales->user->image) }}" alt="" />
+                                            <img src="{{ asset('/storage/imagesUser/' . $furgones->user->image) }}" alt="" />
                                             <h3 class="nocontent outline">--- document outline needed 3 ---</h3>
-                                            <h4>{{ $cabezales->user->name }}</h4>
+                                            <h4>{{ $furgones->user->name }}</h4>
                                         </a>
                                     </div>
                                     <div class="agent_social">
@@ -249,7 +249,7 @@
                                         <i class="fa fa-phone"> </i> +502 43745326
                                     </span>
                                     <span>
-                                        <i class="fa fa-envelope"> </i> {{ $cabezales->user->email }}
+                                        <i class="fa fa-envelope"> </i> {{ $furgones->user->email }}
                                     </span>
                                     <a href="{{ route('cabezales-reciente-ingreso') }}" title="" class="btn contact-agent">Ver publicaciones</a>
                                 </div>
@@ -342,43 +342,6 @@
                             </div><!-- Category Widget -->
                         </aside>
                     </div>
-
-                    <div class="related-vehiculs-">
-                        <div class="heading3">
-                            <h3>CABEZALES RELACIONADOS</h3>
-                            <span>Lorem ipsum dolor amet</span>
-                        </div>
-                        <div class="related">
-                            <div class="related-vehiculs-items">
-                                <div class="item">
-                                    <div class="vehiculs-box">
-
-                                        <div class="vehiculs-thumb">
-                                            <img src="{{ asset('storage/predio/' . $pre->url) }}" alt="" />
-                                            <span class="spn-status"> {{ $cabezales->condicion }}</span>
-                                            <div class="user-preview">
-                                                <a class="col" href="agent.html">
-                                                    <img alt="{{ $cabezales->user->name }}" class="avatar avatar-small" src="{{ asset('/storage/imagesUser/' . $cabezales->user->image) }}"
-                                                        title="{{ $cabezales->user->name }}">
-                                                </a>
-                                            </div>
-                                            <a class="proeprty-sh-more" href="vehicul.html"><i
-                                                    class="fa fa-angle-double-right"> </i><i
-                                                    class="fa fa-angle-double-right"> </i>
-                                            </a>
-                                            
-                                        </div>
-
-                                        <h3><a href="{{ route('detalle-cabezal-inicio', $cabezales->id) }}" title="Mercedes-Benz">{{ $cabezales->titulo }}</a></h3>
-                                        <span class="price">{{ $cabezales->precio }}</span>
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Related Posts -->
 
                 </div>
                 

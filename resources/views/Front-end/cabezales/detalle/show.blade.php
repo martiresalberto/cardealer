@@ -132,8 +132,7 @@
                                         <div class="heading3">
                                             <h2>VIDEO DEL CABEZAL </h2>
                                         </div>
-                                        <iframe height="400" src="https://www.youtube.com/embed/rlasf0cUfzU"
-                                            allowfullscreen></iframe>
+                                        <video autoplay muted loop src="{{ asset('storage/video/' . $predios->videos->urlVideo) }}" width="640" height="480"></video>
                                     </div>
 
                                     <div class="send-email-to-agent">

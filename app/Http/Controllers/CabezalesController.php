@@ -40,6 +40,9 @@ class CabezalesController extends Controller
             'files' => function ($query) {
                 $query->select('id', 'url', 'predio_id'); # Uno a muchos
             },
+            'videos' => function ($query) {
+                $query->select('id', 'urlVideo', 'predio_id'); # Uno a muchos
+            },
             'user' => function ($query) {
                 $query->select('id', 'name', 'image'); # Uno a muchos
             }

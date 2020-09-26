@@ -71,12 +71,13 @@ class InicioController extends Controller
 
     // Metodo para mostrar detalles-cabezal en la pagina de inicio
 
-    public function show($id)
+    public function showcabezal($id)
     {
 
         //Aca se muestran el detalle de cabezales de reciente ingreso en la pagina de inicio
 
-        $predio = Predio::with([
+        $cabezales = Predio::where('category_id','=','1')
+        ->with([
             'files' => function ($query) {
                 $query->select('id', 'url', 'predio_id'); # Uno a muchos
             },
@@ -89,12 +90,23 @@ class InicioController extends Controller
         ])->first(['id', 'titulo', 'usuario', 'precio', 'modelo', 'km', 'descripcioncompleta', 'ubicacion', 'ubicacion', 'category_id', 'condicion', 'user_id']);
 
 
+        return view('Front-end.cabezales.show', compact('cabezales'));     
+
+
+    }
+
+    public function showfurgon()
+    {
+        
         $furgones = Predio::where('category_id', '=', '2')
             ->with([
                 'files' => function ($query) {
                     $query->select('id', 'url', 'predio_id'); # Uno a muchos
-                }
-            ])->get([
+                },
+                'videos' => function ($query) {
+                    $query->select('id', 'urlVideo', 'predio_id'); # Uno a muchos
+                },
+            ])->first([
                 'id', 'titulo', 'usuario',
                 'precio', 'modelo', 'km',
                 'descripcioncompleta', 'ubicacion',
@@ -103,6 +115,32 @@ class InicioController extends Controller
 
         // dd($predio);
 
-        return view('Front-end.cabezales.show', compact('predio', 'furgones'));
+        return view('Front-end.cabezales.showfurgon', compact('furgones'));     
     }
+
+
+    public function showCarro()
+    {
+        
+        $carros = Predio::where('category_id', '=', '5')
+            ->with([
+                'files' => function ($query) {
+                    $query->select('id', 'url', 'predio_id'); # Uno a muchos
+                },
+                'videos' => function ($query) {
+                    $query->select('id', 'urlVideo', 'predio_id'); # Uno a muchos
+                },
+            ])->first([
+                'id', 'titulo', 'usuario',
+                'precio', 'modelo', 'km',
+                'descripcioncompleta', 'ubicacion',
+                'ubicacion', 'category_id', 'condicion', 'user_id'
+            ]);
+
+        // dd($predio);
+
+        return view('Front-end.cabezales.showcarros', compact('carros'));     
+    }
+
+
 }
