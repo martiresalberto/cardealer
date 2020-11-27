@@ -14,17 +14,17 @@
 
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 
-    
-    
+
+
 </head>
 
 
 <body class="hold-transition sidebar-mini">
-    
+
     <!-- Aqui esta todo el contenido de la pagina -->
-    
+
     <div class="wrapper" id="app">
-        
+
         <!-- Aqui esta el menu de navegacion de la pagina -->
          @includeIf('admin.partials.nav')
          <!-- Aqui esta el menu de navegacion de la pagina -->
@@ -33,28 +33,28 @@
         <div class="content-wrapper">
 
             <div class="content">
-                
+
                 <div class="container">
 
                     @yield('content')
-                    
+
                 </div>
-                
+
             </div>
 
         </div>
         <!-- Todo el contenido de las subpaginas-->
-        
+
         <!-- Aqui esta el footer de la pagina -->
         @include('admin.partials.footer')
         <!-- Aqui esta el footer de la pagina -->
-        
+
     </div>
 
     <!-- Aqui esta todo el contenido de la pagina -->
-    
 
-    
+
+
     <!-- Script general -->
 
     <script src="{{ asset('js/app.js') }}"></script>
@@ -63,15 +63,15 @@
 
 
     <script>
-        <!-- Administracion de usuario 
+        <!-- Administracion de usuario
         -->
-        
+
     <!-- Editar de usuario -->
 
     $('#editUser').on('show.bs.modal', function (event) {
 
     var button = $(event.relatedTarget)
-    
+
     var image = button.data('image')
     var user_id = button.data('userid')
     var modal = $(this)
@@ -152,8 +152,8 @@
 
     <!-- Administracion de la condicion -->
 
-    
-    
+
+
     <!-- Administracion de Predio -->
 
     <!-- Editar de predio -->

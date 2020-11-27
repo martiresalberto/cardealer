@@ -16,9 +16,9 @@
 <link rel="stylesheet" href="{{ asset('css/price-range.css') }}" type="text/css" /><!-- Owl Carousal -->
 
 
-<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" /><!-- Style -->	
-<link rel="stylesheet" href="{{ asset('css/responsive.css') }}" type="text/css" /><!-- Responsive -->	
-<link rel="stylesheet" href="{{ asset('css/colors.css') }}" type="text/css" /><!-- color -->	
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" /><!-- Style -->
+<link rel="stylesheet" href="{{ asset('css/responsive.css') }}" type="text/css" /><!-- Responsive -->
+<link rel="stylesheet" href="{{ asset('css/colors.css') }}" type="text/css" /><!-- color -->
 
 <!-- REVOLUTION STYLE SHEETS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('js/rs-plugin/css/settings.css') }}">
@@ -27,7 +27,7 @@
 
 
 @show
-    
+
 </head>
 <body>
 
@@ -36,17 +36,17 @@
 
 <div class="theme-layout" id="app">
 
-    
+
     @include('Front-end.partials.account-popup-sec')
-    
+
     @include('Front-end.partials.nav')
-    
-    @yield('content') 
-    
-    
+
+    @yield('content')
+
+
     @include('Front-end.partials.footer')
-    
-    
+
+
     @include('sweet::alert')
 </div>
 
@@ -65,13 +65,13 @@
 <script src="{{ asset('js/script.js') }}"></script><!-- Script -->
 
 
-<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>   
+<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
 <script src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
 
- 
+
 
 <script type="text/javascript">
-    
+
 $(document).ready(function () {
 "use strict";
 jQuery('.tp-banner').show().revolution({
@@ -195,7 +195,7 @@ responsive: {
     }
 }
 });
-     
+
 });
 
 </script>

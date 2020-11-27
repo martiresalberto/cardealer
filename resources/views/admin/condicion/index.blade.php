@@ -32,7 +32,7 @@
 
                         @foreach ($condicions as $con)
                             <tr>
-                                <td>{{ $con->titulo }}</td>
+                                <td>{{ $con->nombre }}</td>
 
                                 <td>
                                     <button class="btn btn-info" data-mytitulo="{{ $con->titulo }}"

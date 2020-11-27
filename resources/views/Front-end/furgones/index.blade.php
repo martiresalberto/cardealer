@@ -8,46 +8,46 @@
     <section class="block">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">	
+                <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-9 column">                               
+                        <div class="col-md-9 column">
                             <div class="vehiculs-sec">
                                 <div class="vehiculs-list">
-    
-                                    <div class="vehiculs-content">                                            
+
+                                    <div class="vehiculs-content">
                                         <div class="row">
-    
+
                                             <div class="heading4">
                                                 <h2>Furgones reciente ingreso</h2>
                                                 {{--  <span><h4>Los cabeales reciente ingreso  entraron en un rango de 6 meses y no han trabajado en Guatemala estan listos para trabajar</h4></span>  --}}
                                             </div>
-                                        
+
                                             @foreach ($furgones as $predio)
 
                                             <div class="col-md-4 col-sm-6  col-xs-12">
-    
+
                                                 <div class="vehiculs-box">
                                                     <div class="vehiculs-thumb">
-                                                        <img src="{{ asset('storage/predio/' . $predio->files[0]->url) }}" alt="" /> 
-                                                        <span class="spn-status"> {{ $predio->condicion }}</span>
-                                                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>                                        
+                                                        <img src="{{ asset('storage/predio/' . $predio->files[0]->url) }}" alt="" />
+                                                        <span class="spn-status"> {{ $predio->condicion->nombre }}</span>
+                                                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>
                                                         <div class="user-preview">
                                                             <a class="col" href="">
                                                                 <img alt="Camilė" class="avatar avatar-small" src="{{ asset('/storage/imagesUser/' . $predio->user->image) }}" title="Camilė">
-                                                            </a> 
+                                                            </a>
                                                         </div>
-                                                        <a class="proeprty-sh-more" href="{{ route('detalle-cabezal-reciente-ingreso', $predio->id) }}"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
-                                                
+                                                        <a class="proeprty-sh-more" href="{{ route('detalle-furgon', $predio->id) }}"><i class="fa fa-angle-double-right"> </i><i class="fa fa-angle-double-right"> </i></a>
+
                                                     </div>
                                                     <h3><a >{{ $predio->titulo }}</a></h3>
                                                     <span class="price">Q{{ $predio->precio }}</span>
-                                                </div> 
+                                                </div>
                                             </div>
 
                                             @endforeach
-                                        
+
                                         </div>
-                                        
+
                                         <ul class="pagination">
                                             <li class="disabled"><a href="#" title=""><span>NEXT</span></a></li>
                                             <li><a href="#" title="">1</a></li>
@@ -55,7 +55,7 @@
                                             <li><a href="#" title="">3</a></li>
                                             <li><a href="#" title=""><span>PREV</span></a></li>
                                         </ul>
-                                    
+
                                     </div>
                                 </div><!-- Blog Post -->
                             </div>
@@ -66,10 +66,10 @@
                                 <div class="heading2">
                                     <h3>Buscar Furgon</h3>
                                 </div>
-                                <div class="search-form"> 
-                                    <form action="vehiculs.html"  method="get" class="form-inline">   
+                                <div class="search-form">
+                                    <form action="vehiculs.html"  method="get" class="form-inline">
                                         <div class="search-form-content">
-                                            <div class="search-form-field">  
+                                            <div class="search-form-field">
                                                 <div class="form-group col-md-12">
                                                     <div class="label-select">
                                                         <select class="form-control" name="s_location">
@@ -85,9 +85,9 @@
                                                         </select>
                                                     </div>
                                                 </div>
-    
+
                                                 <div class="form-group col-md-12">
-                                                    <div class="label-select">  
+                                                    <div class="label-select">
                                                         <select class="form-control" name="anymodule">
                                                             <option>Any Model </option>
                                                             <option value="1">R8</option>
@@ -100,11 +100,11 @@
                                                             <option value="8">Viper</option>
                                                         </select>
                                                     </div>
-                                                </div>  
-    
+                                                </div>
+
                                                 <div class="form-group col-md-12">
                                                     <div class="label-select">
-                                                        <select class="form-control" name="s_location"> 
+                                                        <select class="form-control" name="s_location">
                                                             <option>Any locations</option>
                                                             <option>Central New York</option>
                                                             <option>GreenVille</option>
@@ -114,9 +114,9 @@
                                                         </select>
                                                     </div>
                                                 </div>
-    
+
                                                 <div class="form-group col-md-12">
-                                                    <div class="label-select"> 
+                                                    <div class="label-select">
                                                         <select class="form-control" name="s_statu">
                                                             <option>Any Status </option>
                                                             <option value="damaged">Damaged</option>
@@ -125,21 +125,21 @@
                                                             <option value="used">Used</option>
                                                         </select>
                                                     </div>
-                                                </div> 
-    
+                                                </div>
+
                                                 <div class="form-group col-md-12">
                                                     <span class="gprice-label">Price Range</span>
-                                                    <input type="text" class="span2" value="" data-slider-min="0" 
-                                                           data-slider-max="60000" data-slider-step="5" 
+                                                    <input type="text" class="span2" value="" data-slider-min="0"
+                                                           data-slider-max="60000" data-slider-step="5"
                                                            data-slider-value="[0,60000]" id="price-range" >
                                                 </div>
                                                 <div class="form-group col-md-12">
-                                                    <span class="garea-label">Mileage Range</span> 
-                                                    <input type="text" class="span2" value="" data-slider-min="0" 
-                                                           data-slider-max="60000" data-slider-step="5" 
+                                                    <span class="garea-label">Mileage Range</span>
+                                                    <input type="text" class="span2" value="" data-slider-min="0"
+                                                           data-slider-max="60000" data-slider-step="5"
                                                            data-slider-value="[50,60000]" id="vehicul-geo" >
-                                                </div>                                            
-                                            </div> 
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="search-form-submit">
                                             <button type="submit" class="btn-search">Search</button>
@@ -151,7 +151,7 @@
                             <!-- Category Widget -->
                         </aside>
                     </div>
-    
+
                 </div>
             </div>
         </div>

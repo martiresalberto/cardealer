@@ -8,17 +8,11 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    protected $fillable = ['title', 'user_id'];
+    protected $fillable = ['nombre', 'user_id'];
 
 
-    public function user()
+    public function predio()
     {
-        return $this->belongsTo('App\User');
-    }
-
-
-    public function predios()
-    {
-        return $this->hasOne('App\Predio','category_id');
+        return $this->belongsTo('App\Predio');
     }
 }

@@ -9,7 +9,7 @@
       <div class="box-header">
         <h1 class="box-title" style="font-family: 'Anton', sans-serif;">Categorias</h1>
       </div>
-      </center> 
+      </center>
 
        <!-- Button trigger modal -->
       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
@@ -25,19 +25,19 @@
               <th>Editar</th>
               <th>Eliminar</th>
             </tr>
-            
+
           </thead>
 
           <tbody>
 
             @foreach($categories as $cat)
               <tr>
-                <td>{{$cat->title}}</td>
+                <td>{{$cat->nombre}}</td>
 
                 <td>
                   <button class="btn btn-info" data-mytitle="{{$cat->title}}" data-mydescription="{{$cat->description}}" data-catid={{$cat->id}} data-toggle="modal" data-target="#edit">Edit</button>
                 </td>
-                <td>  
+                <td>
                   <button class="btn btn-danger" data-catid={{$cat->id}} data-toggle="modal" data-target="#delete">Delete</button>
                 </td>
               </tr>
@@ -46,21 +46,21 @@
           </tbody>
 
 
-        </table>        
+        </table>
       </div>
 
 
     </div>
 
   </div>
-   
- 
+
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        
+
         <h4 class="modal-title" id="myModalLabel">Nueva categoria</h4>
       </div>
       <form action="{{route('category.store')}}" method="post">
@@ -82,7 +82,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        
+
         <h4 class="modal-title" id="myModalLabel">Editar Categoria</h4>
       </div>
       <form action="{{route('category.update','test')}}" method="post">
@@ -106,7 +106,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        
+
         <h4 class="modal-title text-center" id="myModalLabel">Borrar categoria</h4>
       </div>
       <form action="{{route('category.destroy','test')}}" method="post">

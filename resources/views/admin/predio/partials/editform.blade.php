@@ -4,7 +4,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              
+
               <h4 class="modal-title" id="myModalLabel">Edit Anuncio</h4>
             </div>
             <form action="{{route('predio.update','test')}}" method="post" enctype="multipart/form-data">
@@ -17,15 +17,15 @@
             @foreach($predio as $pre)
 
             <div class="form-row">
-                
+
                 <div class="form-group col-md-6">
                   <label for="">Nombre de usuario</label>
-                  <input type="text" class="form-control" value="{{ $pre->user->name }}"> 
+                  <input type="text" class="form-control" value="{{ $pre->user->name }}">
                 </div>
-                
+
                 <div class="form-group col-md-6">
                   <label for="usuario">Tipo de usuario</label>
-                  <input type="text" name="usuario" id="usuario" class="form-control" value="{{ $pre->user->role->name }}"> 
+                  <input type="text" name="usuario" id="usuario" class="form-control" value="{{ $pre->user->role->name }}">
                 </div>
 
             </div>
@@ -36,13 +36,13 @@
 
             <div class="form-group col-md-6">
               <label for="categoria">Categoria</label>
-                <input type="text" name="categoria" id="categoria"  class="form-control"> 
-            </div>  
-           
+                <input type="text" name="categoria" id="categoria"  class="form-control">
+            </div>
+
             <div class="form-group col-md-6">
               <label for="condicon">Condicion</label>
-                <input type="text" name="comdicion" id="condicion"  class="form-control"> 
-            </div> 
+                <input type="text" name="comdicion" id="condicion"  class="form-control">
+            </div>
 
             </div>
 
@@ -50,13 +50,13 @@
 
             <div class="form-group col-md-6">
               <label for="titulo">Titulo</label>
-                <input type="text" name="titulo" id="titulo" class="form-control"> 
-            </div>  
+                <input type="text" name="titulo" id="titulo" class="form-control">
+            </div>
 
             <div class="form-group col-md-6">
               <label for="precio">precio</label>
-                <input type="text" name="precio" id="precio" class="form-control"> 
-            </div>  
+                <input type="text" name="precio" id="precio" class="form-control">
+            </div>
 
             </div>
 
@@ -64,31 +64,31 @@
 
             <div class="form-group col-md-6">
               <label for="modelo">modelo</label>
-                <input type="text" name="modelo" id="modelo" class="form-control"> 
-            </div>  
+                <input type="text" name="modelo" id="modelo" class="form-control">
+            </div>
 
             <div class="form-group col-md-6">
               <label for="kilometraje">kilometraje</label>
-                <input type="text" name="km" id="km" class="form-control"> 
-            </div>  
+                <input type="text" name="km" id="km" class="form-control">
+            </div>
 
 
             </div>
 
             <div class="form-group">
               <label for="ubicacion">ubicacion</label>
-                <input type="text" name="ubicacion" id="ubicacion" class="form-control"> 
-            </div>  
+                <input type="text" name="ubicacion" id="ubicacion" class="form-control">
+            </div>
 
             <div class="form-group">
               <label for="descripcion">descripcion</label>
-                <textarea name="descripcioncompleta" id="descripcioncompleta" class="form-control"></textarea> 
-            </div>  
+                <textarea name="descripcioncompleta" id="descripcioncompleta" class="form-control"></textarea>
+            </div>
 
             <div class="form-group">
               <label for="url">Imagen</label>
-              <input type="file" name="url[]" multiple> 
-            </div>  
+              <input type="file" name="url[]" multiple>
+            </div>
 
 
         </div>

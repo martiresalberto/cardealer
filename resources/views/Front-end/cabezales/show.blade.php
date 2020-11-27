@@ -73,13 +73,13 @@
     <section class="block">
         <div class="container">
             <div class="row">
-                
+
                 @if (session()->has('flash'))
-                
+
                 <div class="container">
                     <div class="alert alert-success">{{ session('flash') }}</div>
                 </div>
-                
+
                 @endif
 
                 <div class="col-md-12">
@@ -117,17 +117,17 @@
 
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Modelo</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
-                                                        <span class="amount">{{ $cabezales->modelo }}</span>
+                                                        <span class="amount">{{ $cabezales->modelo->nombre }}</span>
                                                     </span>
 
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Categoria</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
-                                                        <span class="amount">{{ $cabezales->categoria }}</span>
+                                                        <span class="amount">{{ $cabezales->category->nombre }}</span>
                                                     </span>
 
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Ubicacion</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
-                                                        <span class="amount">{{ $cabezales->ubicacion }}</span>
+                                                        <span class="amount">{{ $cabezales->ubicacion->nombre }}</span>
                                                     </span>
 
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Millage</span>
@@ -144,17 +144,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="vehicul-video">
-                                        <div class="heading3">
-                                            <h2>vehicul Video </h2> 
-                                        </div>
-                                        <video autoplay muted loop src="{{ asset('storage/video/' . $cabezales->videos->urlVideo) }}" width="640" height="480"></video>
-                                    </div>
+
+
                                     @guest
-                                    
+
                                     <div class="send-email-to-agent">
                                         <div class="comment-form">
-  
+
                                             <div class="alert alert-danger">
                                                 <a href="{{ route('register') }}" class="btn btn-xs btn-danger pull-right">REGISTRATE</a>
                                                 <strong>REGISTRATE:</strong> para enviar mensaje y recibir informacion de este cabezal o cualquier otro que busques o inicia sesion si ya eres usuario!
@@ -162,7 +158,7 @@
 
                                         </div>
                                     </div>
-                                    
+
                                     @else
 
 
@@ -178,7 +174,7 @@
                                                     <div class="col-md-12">
                                                         <label>
                                                             <i class="fa fa-user"></i>
-                                                            
+
                                                             <input type="text" name="recipient_id" value="{{ $cabezales->user->id }}" class="hidden">
                                                         </label>
                                                     </div>
@@ -187,7 +183,7 @@
                                                             <i class="fa fa-email"></i>
                                                          @if (Auth::user()->email)
                                                             <input type="text" name="email" value="{{ Auth::user()->email }}" class="hidden">
-                                                         @endif  
+                                                         @endif
                                                         </label>
                                                     </div>
 
@@ -234,7 +230,7 @@
                                 <div class="agent_widget">
                                     <div class="agent_pic">
                                         <a href="" title="">
-                                            <img src="{{ asset('/storage/imagesUser/' . $cabezales->user->image) }}" alt="" />
+                                            <img style="width: 200px; height:200px; margin-top:10px;" src="{{ asset('/storage/imagesUser/' . $cabezales->user->image) }}" alt="" />
                                             <h3 class="nocontent outline">--- document outline needed 3 ---</h3>
                                             <h4>{{ $cabezales->user->name }}</h4>
                                         </a>
@@ -251,7 +247,7 @@
                                     <span>
                                         <i class="fa fa-envelope"> </i> {{ $cabezales->user->email }}
                                     </span>
-                                    <a href="{{ route('cabezales-reciente-ingreso') }}" title="" class="btn contact-agent">Ver publicaciones</a>
+                                    <br><br>
                                 </div>
                             </div><!-- Follow Widget -->
 
@@ -341,9 +337,18 @@
                                 </div><!-- Services Sec -->
                             </div><!-- Category Widget -->
                         </aside>
+
+                        <aside class="col-md-4 column">
+
+                           <div class="vehicul-video">
+                                <video autoplay muted loop src="{{ asset('storage/video/' . $cabezales->videos->urlVideo) }}" width="370" height="280"></video>
+                           </div>
+
+                        </aside>
+
                     </div>
 
-                    <div class="related-vehiculs-">
+                    {{--  <div class="related-vehiculs-">
                         <div class="heading3">
                             <h3>CABEZALES RELACIONADOS</h3>
                             <span>Lorem ipsum dolor amet</span>
@@ -355,7 +360,7 @@
 
                                         <div class="vehiculs-thumb">
                                             <img src="{{ asset('storage/predio/' . $pre->url) }}" alt="" />
-                                            <span class="spn-status"> {{ $cabezales->condicion }}</span>
+                                            <span class="spn-status"> {{ $cabezales->condicion->nombre }}</span>
                                             <div class="user-preview">
                                                 <a class="col" href="agent.html">
                                                     <img alt="{{ $cabezales->user->name }}" class="avatar avatar-small" src="{{ asset('/storage/imagesUser/' . $cabezales->user->image) }}"
@@ -366,22 +371,22 @@
                                                     class="fa fa-angle-double-right"> </i><i
                                                     class="fa fa-angle-double-right"> </i>
                                             </a>
-                                            
+
                                         </div>
 
-                                        <h3><a href="{{ route('detalle-cabezal-inicio', $cabezales->id) }}" title="Mercedes-Benz">{{ $cabezales->titulo }}</a></h3>
+                                        <h3><a href="{{ route('detalle-cabezal', $cabezales->id) }}" title="Mercedes-Benz">{{ $cabezales->titulo }}</a></h3>
                                         <span class="price">{{ $cabezales->precio }}</span>
-                                    
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  --}}
 
                     <!-- Related Posts -->
 
                 </div>
-                
+
             </div>
         </div>
     </section>

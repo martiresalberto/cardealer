@@ -8,12 +8,9 @@ class Predio extends Model
 {
     protected $table = 'predios';
 
-    protected $fillable = [
-        'titulo', 'usuario', 'precio',
-        'modelo', 'km', 'descripcioncompleta',
-        'ubicacion', 'condicion', 'user_id',
-        'category_id'
-    ];
+    protected $fillable = ['titulo','precio','km',
+    'descripcioncompleta','modelo_id','ubicacion_id','condicion_id',
+    'user_id','category_id'];
 
 
     public function user()
@@ -21,14 +18,25 @@ class Predio extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany('App\Category', 'category_id');
+        return $this->belongsTo('App\Category');
     }
 
     public function condicion()
     {
         return $this->belongsTo('App\Condicion');
+    }
+
+
+    public function ubicacion()
+    {
+        return $this->belongsTo('App\Ubicacion');
+    }
+
+    public function modelo()
+    {
+        return $this->belongsTo('App\Modelo');
     }
 
     public function files()
@@ -40,7 +48,5 @@ class Predio extends Model
     {
         return $this->hasOne('App\Video', 'predio_id');
     }
-
-
 
 }

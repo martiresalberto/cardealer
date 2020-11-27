@@ -39,12 +39,6 @@ class User extends Authenticatable
     ];
 
 
-    public function categories()
-    {
-        return $this->hasMany('App\Category');
-    }
-
-
     public function role()
     {
         return $this->belongsTo('App\Role');
@@ -63,6 +57,13 @@ class User extends Authenticatable
         return false;
     }
 
+    public function categories()
+    {
+        return $this->hasMany('App\Category');
+    }
+
+
+
     public function predios()
     {
         return $this->hasMany('App\Predio');
@@ -73,5 +74,6 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Condicion');
     }
+
 
 }

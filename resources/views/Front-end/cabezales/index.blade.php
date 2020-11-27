@@ -11,26 +11,26 @@
                         <div class="tp-banner-container">
                             <div class="tp-banner">
                                 @foreach ($predios as $predio)
-    
+
                                         <!-- MAIN IMAGE -->
                                         <img src="img/imagenPrincipal.jpg">
-    
+
                                 @endforeach()
                             </div>
                         </div>
                     </div><!-- END REVOLUTION SLIDER -->
                 </div>
-                
+
                 <div class="col-md-4">
-                    <div class="horizontal-search v-f-p"> 
-                        <div class="search-form"> 
+                    <div class="horizontal-search v-f-p">
+                        <div class="search-form">
                             <h1 class="fsearch-title">
                                 <i class="fa fa-search"></i><span>Buscar cabezal</span>
                             </h1>
 
-                            <form action="vehiculs.html"  method="get" class="form-inline">   
+                            <form action="vehiculs.html"  method="get" class="form-inline">
                                 <div class="search-form-content">
-                                    <div class="search-form-field">  
+                                    <div class="search-form-field">
                                         <div class="form-group col-md-12">
                                             <div class="label-select">
                                                 <select class="form-control" name="s_location">
@@ -48,7 +48,7 @@
                                         </div>
 
                                         <div class="form-group col-md-12">
-                                            <div class="label-select">  
+                                            <div class="label-select">
                                                 <select class="form-control" name="anymodule">
                                                     <option>Cualquier Modelo </option>
                                                     <option value="1">R8</option>
@@ -61,8 +61,8 @@
                                                     <option value="8">Viper</option>
                                                 </select>
                                             </div>
-                                        </div>  
-                                    </div> 
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="search-form-submit">
                                     <button type="submit" class="btn-search">Buscar</button>
@@ -92,17 +92,17 @@
                                     <div class="vehiculs-box">
                                         <div class="vehiculs-thumb">
                                             <img src="{{ asset('storage/predio/' . $predio->files[0]->url) }}" alt="" />
-                                            <span class="spn-status"> {{ $predio->categoria }} </span>
+                                            <span class="spn-status"> {{ $predio->condicion->nombre }} </span>
 
 
                                             <a class="proeprty-sh-more"
-                                                href="{{ route('detalle-cabezal-inicio', $predio->id) }}"><i
+                                                href="{{ route('detalle-cabezal', $predio->id) }}"><i
                                                     class="fa fa-angle-double-right">
                                                 </i><i class="fa fa-angle-double-right"> </i></a>
 
                                         </div>
                                         <h3><a href="vehicul.html" title="">{{ $predio->titulo }}</a></h3>
-                                        <span class="price">${{ $predio->precio }}</span>
+                                        <span class="price">Q{{ $predio->precio }}</span>
 
                                     </div><!-- prop Box -->
                                 </div>
@@ -152,18 +152,13 @@
                                     <div class="vehiculs-box">
                                         <div class="vehiculs-thumb">
                                             <img src="{{ asset('storage/predio/' . $furgones->files[0]->url) }}" alt="" />
-                                            <span class="spn-status"> {{ $furgones->condicion }} </span>
+                                            <span class="spn-status"> {{ $furgones->condicion->nombre }} </span>
 
-                                            <a class="proeprty-sh-more" href="{{ route('detalle-furgon-inicio', $furgones->id) }}"><i class="fa fa-angle-double-right">
+                                            <a class="proeprty-sh-more" href="{{ route('detalle-furgon', $furgones->id) }}"><i class="fa fa-angle-double-right">
                                                 </i><i class="fa fa-angle-double-right"> </i></a>
-                                            <p class="car-info-smal">
-
-                                                Registration {{ $furgones->created_at }}<br>
-                                                {{ $furgones->km }}
-                                            </p>
                                         </div>
                                         <h3><a href="" title="">{{ $furgones->titulo }}</a></h3>
-                                        <span class="price">${{ $furgones->precio }}</span>
+                                        <span class="price">Q{{ $furgones->precio }}</span>
 
                                     </div><!-- prop Box -->
                                 </div>
@@ -210,15 +205,10 @@
                                     <div class="vehiculs-box">
                                         <div class="vehiculs-thumb">
                                             <img src="{{ asset('storage/predio/' . $carro->files[0]->url) }}" alt="" />
-                                            <span class="spn-status"> {{ $carro->condicion }} </span>
+                                            <span class="spn-status"> {{ $carro->condicion->nombre }} </span>
 
-                                            <a class="proeprty-sh-more" href="{{ route('detalle-carro-inicio', $carro->id) }}"><i class="fa fa-angle-double-right">
+                                            <a class="proeprty-sh-more" href="{{ route('detalle-carro', $carro->id) }}"><i class="fa fa-angle-double-right">
                                                 </i><i class="fa fa-angle-double-right"> </i></a>
-                                            <p class="car-info-smal">
-
-                                                Registration {{ $carro->created_at }}<br>
-                                                {{ $carro->km }}
-                                            </p>
                                         </div>
                                         <h3><a href="" title="">{{ $carro->titulo }}</a></h3>
                                         <span class="price">${{ $carro->precio }}</span>

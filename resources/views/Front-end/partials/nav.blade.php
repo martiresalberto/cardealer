@@ -47,10 +47,7 @@
                         <li class="menu-item-has-children">
                             <a title="">PREDIO <i class="fa fa-truck fa-lg"></i></a>
                             <ul>
-                                <li><a href="{{ route('cabezales-reciente-ingreso') }}" title="">Cabezales reciente ingreso
-                                    </a></li>
-                                <li><a href="{{ route('furgones-reciente-ingreso') }}" title="">Furgones reciente ingreso </a></li>
-                                <li><a href="{{ route('carros-reciente-ingreso') }}" title="">Carros reciente ingreso </a></li>
+                                <li><a href="" title="">Aca las categorias</a></li>
                             </ul>
                         </li>
 
@@ -64,18 +61,18 @@
                         <li class="menu-item-has-children">
                             <a title="">NUESTRO PREDIO <i class="fa fa-truck fa-lg"></i></a>
                             <ul>
-                                <li><a href="{{ route('cabezales-reciente-ingreso') }}" title="">Cabezales</a></li>
-                                <li><a href="{{ route('furgones-reciente-ingreso') }}" title="">Furgones</a></li>
+                                <li><a href="" title="">Cabezales</a></li>
+                                <li><a href="" title="">Furgones</a></li>
                                 <li><a href="" title="">Carros</a></li>
                             </ul>
                         </li>
 
                         <li class="menu-item">
                             <a href="{{ url('mostrarmensajeadmin') }}" title=""
-                            style="text-decoration: none;">NOTIFICACIONES 
+                            style="text-decoration: none;">NOTIFICACIONES
                             @if ($count = Auth::user()->unreadNotifications->count())
                                 <span style="width:25px; height:15px;" class="badge bg-white"><strong>{{ $count }}</strong></span></a>
-                            @endif           
+                            @endif
                         </li>
 
                         <li class="menu-item-has-children">

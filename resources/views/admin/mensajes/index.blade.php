@@ -29,14 +29,19 @@
 
                                     <tr>
                                         <td><a href="{{ $unreadNotifications->data['link'] }}">{{ $unreadNotifications->data['text'] }}</a></td>
-                                         <form method="POST" action="{{ route('notifications.read',$unreadNotifications->id) }}">
-                                             {{ method_field('PATCH') }}
-                                             {{ csrf_field() }}
-                                          <td><button class="btn btn-danger">X</button></td>
-                                         </form>
-                                    </tr>
-                                    
 
+                                        <form method="POST" action="{{ route('notifications.read', $unreadNotifications->id) }}">
+                                            @csrf                                
+                                            {{ method_field('PATCH') }}
+                                            {{ csrf_field() }}
+
+                                            <td>
+                                                <button type="button" class="btn btn-danger">X</button>
+                                            </td>
+
+                                        </form>
+
+                                    </tr>
 
                                 @endforeach
 
@@ -57,14 +62,17 @@
 
                                 @foreach ($readNotifications as $readNotifications)
 
-                                <tr>
-                                    <td><a href="{{ $readNotifications->data['link'] }}">{{ $readNotifications->data['text'] }}</a></td>
-                                    <form method="POST" action="{{ route('notifications.destroy',$readNotifications->id) }}">
-                                        {{ method_field('DELETE') }}
-                                        {{ csrf_field() }}
-                                     <td><button class="btn btn-danger">X</button></td>
-                                    </form>
-                                </tr>
+                                    <tr>
+                                        <td><a
+                                                href="{{ $readNotifications->data['link'] }}">{{ $readNotifications->data['text'] }}</a>
+                                        </td>
+                                        <form method="POST"
+                                            action="{{ route('notifications.destroy', $readNotifications->id) }}">
+                                            {{ method_field('DELETE') }}
+                                            {{ csrf_field() }}
+                                            <td><button class="btn btn-danger">X</button></td>
+                                        </form>
+                                    </tr>
 
                                 @endforeach
 

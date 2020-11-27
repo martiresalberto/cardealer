@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\File;
+use App\User;
+use App\Video;
+use App\Modelo;
 use App\Predio;
 use App\Category;
-use App\User;
 use App\Condicion;
-use App\File;
-use App\Video;
+use App\Ubicacion;
+use Illuminate\Http\Request;
 use Image; //Intervention Image
-use Illuminate\Support\Facades\Storage; 
+use Illuminate\Support\Facades\Storage;
 
 class PredioController extends Controller
 {
@@ -22,25 +24,24 @@ class PredioController extends Controller
     public function index()
     {
 
-        $condicion = Condicion::all(['id', 'titulo']);
+        $predio = Predio::all(['id', 'titulo',
+        'precio', 'modelo_id', 'km',
+        'descripcioncompleta', 'ubicacion_id',
+        'condicion_id', 'user_id','category_id']);
 
-        $predio = Predio::all(['id', 'titulo', 'usuario',
-          'precio', 'modelo', 'km',
-          'descripcioncompleta', 'ubicacion',
-          'ubicacion', 'condicion', 'user_id','category_id']);
+        $ubicacion = Ubicacion::all(['id','nombre']);
 
-        // $predio = Predio::all(['id', 'titulo', 'usuario',
-        // 'precio', 'modelo', 'km',
-        // 'descripcioncompleta', 'ubicacion',
-        // 'ubicacion', 'categoria', 'condicion', 'user_id']);
+        $condicion = Condicion::all(['id', 'nombre']);
 
-        $categories = Category::all(['id', 'title']);
-        
+        $categories = Category::all(['id', 'nombre']);
+
+        $modelos = Modelo::all(['id', 'nombre']);
+
         $users = User::where('id', '=', auth()->id())->get();
-        
+
         // dd($predio);
-        
-        return view('admin.predio.index', compact('predio', 'categories', 'users', 'condicion'));
+
+        return view('admin.predio.index', compact('predio','modelos','categories', 'users', 'condicion','ubicacion'));
 
     }
 
@@ -53,11 +54,31 @@ class PredioController extends Controller
     public function store(Request $request)
     {
 
-        // return $request->all();
+        //validacion
+        // $data = $request->validate([
+        //    'titulo' => 'required',
+        //    'precio' => 'required',
+        //    'descripcioncompleta' => 'required',
+        //    'user_id' => 'required',
+        //    'condicion_id' => 'required',
+        //    'ubicacion_id' => 'required',
+        //    'modelo_id' => 'required',
+        // ]);
 
-         $predio = Auth()->user()->predios()->create($request->all());
+        // dd($request->all());
 
-        //  dd($predio);
+            $predio = auth()->user()->predios()->create([
+                'titulo' => $request['titulo'],
+                'precio' => $request['precio'],
+                'km' => $request['km'],
+                'descripcioncompleta' => $request['descripcioncompleta'],
+                'category_id' => $request['categoria'],
+                'ubicacion_id' => $request['ubicacion'],
+                'condicion_id' => $request['condicion'],
+                'modelo_id' => $request['modelo'],
+
+            ]);
+
 
          foreach ($request->url as $file) {
 
@@ -72,18 +93,18 @@ class PredioController extends Controller
 
             //filename to store
             $filenametostore = $filename.'_'.time().'.'.$extension;
-            
+
             Storage::put('public/predio/'. $filenametostore, fopen($file, 'r+'));
-           
+
             Storage::put('public/predio/thumbnail/'. $filenametostore, fopen($file, 'r+'));
-           
+
              //Resize image here
             $thumbnailpath = public_path('storage/predio/thumbnail/'.$filenametostore);
-            
+
             $img = Image::make($thumbnailpath)->resize(700, 500)->save($thumbnailpath);
-            
+
             $img->save($thumbnailpath);
-        
+
             File::create([
                 'predio_id' => $predio->id,
                 'url' => $filenametostore
@@ -104,12 +125,12 @@ class PredioController extends Controller
 
         //filename to store
         $filenametostorevideo = $filename.'_'.time().'.'.$extensionvideo;
-        
-        
+
+
        //  dd($filenametostore);
-        
+
         Storage::put('public/video/'. $filenametostorevideo, fopen($filevideo, 'r+'));
-       
+
 
         Video::create([
            'predio_id' => $predio->id,
@@ -117,7 +138,9 @@ class PredioController extends Controller
        ]);
 
 
-        return back();
+       return back()->with('estado','La informacion se envio correctamente');
+
+
     }
 
     /**

@@ -107,13 +107,13 @@
                                                             rel="tag">{{ $predios->titulo }}</a></span>
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Modelo</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
-                                                            rel="tag">{{ $predios->modelo }}</a></span>
+                                                            rel="tag">{{ $predios->modelo->nombre }}</a></span>
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Categoria</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value"><a href="#"
-                                                            rel="tag">{{ $predios->categoria }}</a></span>
+                                                            rel="tag">{{ $predios->category->nombre }}</a></span>
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Ubicacion</span>
                                                     <span class="col-xs-6 col-md-7 detail-field-value">
-                                                        <span class="amount">{{ $predios->ubicacion }}</span>
+                                                        <span class="amount">{{ $predios->ubicacion->nombre }}</span>
                                                     </span>
                                                     <span class="col-xs-6 col-md-5 detail-field-label">Millage</span>
                                                     <span
