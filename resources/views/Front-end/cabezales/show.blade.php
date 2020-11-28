@@ -1,7 +1,7 @@
 @extends('front-end.template')
 
 
-@section('head')
+@section('styles')
 
     @parent
 

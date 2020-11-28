@@ -1,4 +1,4 @@
-<header class="simple-header for-sticky ">
+<header class="simple-header for-sticky white">
     <div class="top-bar">
         <div class="container">
             <ul class="contact-item">
@@ -14,14 +14,14 @@
     </div><!-- Top bar -->
     <div class="menu">
         <div class="container">
-
             <div class="logo">
-                <a href="{{ url('/') }}">
+                <a href="{{ url('/') }}" alt="Ir a pagina de Inicio">
                     <i class="fa fa-get-pocket"></i>
                     <span>TrasnVentas</span>
                     <strong>Venta de cabezales</strong>
                 </a>
             </div>
+
 
             <!-- LOGO -->
 
@@ -35,31 +35,30 @@
                     @guest
 
                         <div class="popup-client">
-                            <span><i class="fa fa-user"></i> / INICIAR SESION</span>
+                            <span><i class="fa fa-user"></i> / Iniciar Sesion</span>
                         </div>
 
 
                         <li class="menu-item">
-                            <a href="{{ url('/') }}" title="" style="text-decoration: none;">INICIO <i
-                                    class="fa fa-home fa-lg"></i></a>
+                            <a href="{{ url('/') }}" title="" style="text-decoration: none;">Inicio <iclass="fa fa-home fa-lg"></i></a>
                         </li>
 
                         <li class="menu-item-has-children">
-                            <a title="">PREDIO <i class="fa fa-truck fa-lg"></i></a>
+                            <a title="">Predio <i class="fa fa-truck fa-lg"></i></a>
                             <ul>
-                                <li><a href="" title="">Aca las categorias</a></li>
+                                <li><a href="" title="">Cabezales</a></li>
                             </ul>
                         </li>
 
                     @else
 
                         <li class="menu-item">
-                            <a href="{{ url('/') }}" title="" style="text-decoration: none;">INICIO<i
+                            <a href="{{ url('/') }}" title="" style="text-decoration: none;">Inicio<i
                                     class="fa fa-home fa-lg"></i></a>
                         </li>
 
                         <li class="menu-item-has-children">
-                            <a title="">NUESTRO PREDIO <i class="fa fa-truck fa-lg"></i></a>
+                            <a title="">Predio<i class="fa fa-truck fa-lg"></i></a>
                             <ul>
                                 <li><a href="" title="">Cabezales</a></li>
                                 <li><a href="" title="">Furgones</a></li>
@@ -68,11 +67,11 @@
                         </li>
 
                         <li class="menu-item">
-                            <a href="{{ url('mostrarmensajeadmin') }}" title=""
-                            style="text-decoration: none;">NOTIFICACIONES
-                            @if ($count = Auth::user()->unreadNotifications->count())
-                                <span style="width:25px; height:15px;" class="badge bg-white"><strong>{{ $count }}</strong></span></a>
-                            @endif
+                            <a href="{{ url('mostrarmensajeadmin') }}" title="" style="text-decoration: none;">Notificaciones<span class="badge">1</span>
+                             @if ($count = Auth::user()->unreadNotifications->count())
+                                <span style="width:25px; height:15px;" class="badge bg-white"><strong>{{ $count }}</strong></span>
+                             @endif
+                            </a>
                         </li>
 
                         <li class="menu-item-has-children">
@@ -109,10 +108,6 @@
 
                 </ul>
             </nav>
-
         </div>
     </div>
-
-
 </header>
-
